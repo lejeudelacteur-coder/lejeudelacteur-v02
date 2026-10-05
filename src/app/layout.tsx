@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   },
   description:
     "École de comédiens à Avignon : formation intensive pour devenir acteur, cours pro, cours loisirs, stages et préparation aux castings.",
+  // APERÇU : tant que lejeudelacteur.com est sur Wix, Google ne doit pas
+  // indexer ce site (mêmes textes = contenu en double). À RETIRER LE JOUR DE
+  // LA BASCULE DU DOMAINE (décembre 2026), avec robots.ts.
+  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

@@ -33,7 +33,9 @@ de dépense sans lui.
    perdre du référencement (~4 000 clics Google en 3 mois, 148 pages indexées
    au 06/10/2026, Search Console de lejeudelacteur@gmail.com). Images
    téléchargées dans le projet (rien ne doit dépendre de Wix).
-4. Accueil, puis bascule du domaine en décembre, avec David présent.
+4. Accueil, puis bascule du domaine en décembre, avec David présent. LE JOUR DE LA BASCULE : retirer le noindex (layout.tsx, `robots`) et ouvrir robots.ts.
+
+Aperçu en ligne : https://lejeudelacteur-v02.vercel.app (projet Vercel « lejeudelacteur-v02 », équipe IACTEUR ; dépôt GitHub lejeudelacteur-coder/lejeudelacteur-v02). Fermé aux moteurs de recherche (noindex) jusqu'à la bascule.
 
 ## Faits à respecter
 
