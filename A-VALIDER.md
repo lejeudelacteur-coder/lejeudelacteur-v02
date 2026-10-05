@@ -16,7 +16,7 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [ ] Le formulaire de contact (cours d'essai, questions) arrive aussi dans ADMIN > ÉCOLE.
 
 ## Équipe (06/10)
-- [ ] Biographies reprises de la page Wix, coquilles corrigées. J'ai écrit « Odette Toulemonde » (titre du film d'Éric-Emmanuel Schmitt) et « Claudio Tonetti » à la place de « Odette tout le monde » et « Claudio Tonoetti » : à confirmer.
+- [x] Biographies reprises de la page Wix, coquilles corrigées ; « Odette Toulemonde » et « Claudio Tonetti » confirmés le 06/10.
 - [x] Intervenants : photos d'Aureck et d'Isabelle ajoutées le 06/10 (dossier LE JEU 2026 / 08 EQUIPE).
 
 ## Gestes à faire avec David (comptes)
