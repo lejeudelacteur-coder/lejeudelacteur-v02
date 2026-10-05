@@ -431,7 +431,7 @@ export default function CoursIntensif() {
             </div>
           </div>
           <p className="text-sm text-secondaire">
-            Hors cursus, l&apos;école facture une bande démo 150 € et un book photo 290 €. Paiement mensuel. Formation non
+            Hors cursus, la bande démo est sur devis et le book photo à 300 €. Paiement mensuel. Formation non
             éligible au CPF ni à France Travail.
           </p>
         </section>
