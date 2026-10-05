@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const FORMULES: { nom: string; etoiles: string; contenu: string }[] = [
   {
     nom: "À l'année",
-    etoiles: "★★",
+    etoiles: "★★★",
     contenu: "Travail de textes, improvisations face caméra, tournage, 3 masterclass casting, et ta bande démo.",
   },
   {
