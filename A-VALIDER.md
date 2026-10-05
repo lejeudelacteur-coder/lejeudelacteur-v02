@@ -19,6 +19,14 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [x] Biographies reprises de la page Wix, coquilles corrigées ; « Odette Toulemonde » et « Claudio Tonetti » confirmés le 06/10.
 - [x] Intervenants : photos d'Aureck et d'Isabelle ajoutées le 06/10 (dossier LE JEU 2026 / 08 EQUIPE).
 
+## Stages, Partenaire de jeu, Book / Vidéo, Théâtre (06/10)
+- [ ] Stage casting : prochaine session « début 2027 », financement AFDAS ou France Travail (sous conditions) — l'ancienne page disait « Pôle emploi », devenu France Travail. Le PDF de présentation est repris de Wix.
+- [ ] Book / Vidéo : book 300 € (comme tu l'as dit), mini-book 100 €, vidéo de présentation 130 €, scène ou monologue 150 €/acteur, présentation spécifique et bande démo complète sur devis. Ancien site : book à 290 €.
+- [ ] Les 2 vidéos de la page Book / Vidéo sont encore lues depuis Wix : à mettre sur YouTube (ou Vimeo) avant la fin de l'abonnement Wix, puis me donner les liens.
+- [ ] Partenaire de jeu : formulaire de parrainage (parrain, filleul, e-mail, téléphone, cours) → ADMIN > ÉCOLE.
+- [ ] Théâtre : photos de la façade, du hall, de la salle et du plateau (dossier LE JEU 2026 / 08 EQUIPE / L'ORIFLAMME).
+- [x] Anciennes adresses Wix gardées : /book-vidéo, /théâtredeloriflamme, /équipe ; /stages mène à /stages-casting, /formations à l'accueil.
+
 ## Gestes à faire avec David (comptes)
 - [x] Dépôt GitHub et projet Vercel créés le 06/10 : aperçu sur https://lejeudelacteur-v02.vercel.app (fermé à Google).
 - [x] Vercel : NEXT_PUBLIC_SUPABASE_URL et SUPABASE_SECRET_KEY ajoutées.

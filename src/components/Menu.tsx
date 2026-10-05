@@ -10,7 +10,10 @@ const LIENS = [
   { href: "/cours-intensif", label: "Intensif" },
   { href: "/cours-pros", label: "Pro du lundi" },
   { href: "/cours-loisirs", label: "Loisirs" },
+  { href: "/stages-casting", label: "Stages" },
+  { href: "/book-vid%C3%A9o", label: "Book / Vidéo" },
   { href: "/%C3%A9quipe", label: "Équipe" },
+  { href: "/th%C3%A9%C3%A2tredeloriflamme", label: "Le théâtre" },
   { href: "https://iacteur.com", label: "IACTEUR" },
   { href: "/#contact", label: "Contact" },
 ];
@@ -24,7 +27,7 @@ export default function Menu() {
   }, [page]);
 
   const lien = (href: string) =>
-    `font-affiche text-lg uppercase tracking-wide ${page === href ? "text-rouge" : "text-foreground"}`;
+    `font-affiche text-base uppercase tracking-wide ${page === href ? "text-rouge" : "text-foreground"}`;
 
   return (
     <header className="sticky top-0 z-40 border-b border-secondaire/15 bg-background/90 backdrop-blur">
@@ -32,7 +35,7 @@ export default function Menu() {
         <Link href="/" className="font-affiche text-xl uppercase tracking-wide">
           Le Jeu de l&apos;<span className="text-rouge">A</span>cteur
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-4 lg:flex">
           {LIENS.map((l) => (
             <Link key={l.href} href={l.href} className={lien(l.href)}>
               {l.label}
@@ -44,13 +47,13 @@ export default function Menu() {
           onClick={() => setOuvert((o) => !o)}
           aria-expanded={ouvert}
           aria-label={ouvert ? "Fermer le menu" : "Ouvrir le menu"}
-          className="text-2xl md:hidden"
+          className="text-2xl lg:hidden"
         >
           {ouvert ? "✕" : "☰"}
         </button>
       </div>
       {ouvert && (
-        <nav className="flex flex-col gap-4 border-t border-secondaire/15 px-5 py-5 md:hidden">
+        <nav className="flex flex-col gap-4 border-t border-secondaire/15 px-5 py-5 lg:hidden">
           {LIENS.map((l) => (
             <Link key={l.href} href={l.href} className={`${lien(l.href)} text-2xl`}>
               {l.label}
