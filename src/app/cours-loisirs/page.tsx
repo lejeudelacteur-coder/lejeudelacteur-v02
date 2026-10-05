@@ -30,28 +30,34 @@ const TARIFS: [string, string][] = [
 export default function CoursLoisirs() {
   return (
     <main className="flex flex-col overflow-x-clip">
-      <header className="relative flex min-h-[60svh] flex-col justify-end overflow-hidden">
-        <Image
-          src="/accueil/eleve-en-jeu.jpg"
-          alt="Une élève en plein jeu, sur le plateau"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-left opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-        <div className="relative mx-auto w-full max-w-5xl px-5 pb-12">
+      {/* La projection de fin d'année, montrée en entier (sans texte par-dessus,
+          sinon on ne voit ni l'écran ni les fauteuils rouges) */}
+      <header className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-5 pt-12">
+        <div>
           <p className="font-accent text-3xl italic sm:text-4xl">Pour le plaisir de jouer.</p>
           <h1 className="mt-2 font-affiche text-[3.6rem] uppercase leading-[0.9] sm:text-8xl">
             Les cours <span className="text-rouge">loisirs.</span>
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-secondaire">
-            Théâtre et cinéma à Avignon, tous niveaux, le soir en semaine. Pour s&apos;épanouir, prendre confiance, et
-            découvrir la richesse du métier d&apos;acteur, loin de la contrainte professionnelle.
-          </p>
-          <div className="mt-7">
-            <BoutonRouge href="#contact">Mon cours d&apos;essai gratuit</BoutonRouge>
+        </div>
+        <figure className="flex flex-col gap-2">
+          <div className="relative aspect-[3/2] overflow-hidden rounded-lg">
+            <Image
+              src="/accueil/projection.jpg"
+              alt="La projection de fin d'année sur grand écran, dans la salle du théâtre"
+              fill
+              priority
+              sizes="(min-width: 1024px) 1000px, 100vw"
+              className="object-cover"
+            />
           </div>
+          <figcaption className="text-sm text-secondaire">En fin d&apos;année, vos films projetés sur grand écran.</figcaption>
+        </figure>
+        <p className="max-w-xl text-lg text-secondaire">
+          Théâtre et cinéma à Avignon, tous niveaux, le soir en semaine. Pour s&apos;épanouir, prendre confiance, et
+          découvrir la richesse du métier d&apos;acteur, loin de la contrainte professionnelle.
+        </p>
+        <div>
+          <BoutonRouge href="#contact">Mon cours d&apos;essai gratuit</BoutonRouge>
         </div>
       </header>
 
