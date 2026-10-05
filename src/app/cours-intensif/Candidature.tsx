@@ -6,7 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { envoyerCandidature, type EtatCandidature } from "./actions";
 import { QUESTIONS_INTENSIF } from "@/lib/candidature";
-import { lireProvenance, premiereFois } from "@/lib/provenance";
+import { estPasCompte, lireProvenance, premiereFois } from "@/lib/provenance";
 import { noterEtape } from "@/lib/suivi-actions";
 
 const TOTAL = QUESTIONS_INTENSIF.length + 1;
@@ -26,7 +26,7 @@ export default function Candidature() {
     const etape = prise + 1;
     if (notees.current.has(etape)) return;
     notees.current.add(etape);
-    if (premiereFois(`intensif-${etape}`)) void noterEtape("intensif", etape, lireProvenance().session);
+    if (!estPasCompte() && premiereFois(`intensif-${etape}`)) void noterEtape("intensif", etape, lireProvenance().session);
   }, [prise]);
 
   const question = QUESTIONS_INTENSIF[prise];

@@ -62,3 +62,15 @@ export function premiereFois(cle: string): boolean {
     return true;
   }
 }
+
+// « Ne pas me compter » (David, 06/10) : sur les appareils de David, les
+// visites et les étapes ne sont pas notées. Réglé une fois par appareil et
+// par navigateur, avec la page /ne-pas-me-compter.
+export const CLE_PAS_COMPTE = "ljda-ne-pas-compter";
+export function estPasCompte(): boolean {
+  try {
+    return localStorage.getItem(CLE_PAS_COMPTE) === "oui";
+  } catch {
+    return false;
+  }
+}

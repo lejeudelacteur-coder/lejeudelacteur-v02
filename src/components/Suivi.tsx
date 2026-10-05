@@ -6,11 +6,12 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { noterVisite } from "@/lib/suivi-actions";
-import { lireProvenance } from "@/lib/provenance";
+import { estPasCompte, lireProvenance } from "@/lib/provenance";
 
 export default function Suivi() {
   const page = usePathname();
   useEffect(() => {
+    if (estPasCompte()) return;
     const { source, campagne, session } = lireProvenance();
     void noterVisite(page, source, campagne, session);
   }, [page]);
