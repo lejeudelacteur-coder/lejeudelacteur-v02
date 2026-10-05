@@ -30,8 +30,8 @@ const TARIFS: [string, string][] = [
 export default function CoursLoisirs() {
   return (
     <main className="flex flex-col overflow-x-clip">
-      {/* La projection de fin d'année, montrée en entier (sans texte par-dessus,
-          sinon on ne voit ni l'écran ni les fauteuils rouges) */}
+      {/* Photo rassurante pour les débutants, majoritaires en loisirs (David,
+          06/10 : pas la projection en salle pleine, qui pourrait intimider) */}
       <header className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-5 pt-12">
         <div>
           <p className="font-accent text-3xl italic sm:text-4xl">Pour le plaisir de jouer.</p>
@@ -40,17 +40,17 @@ export default function CoursLoisirs() {
           </h1>
         </div>
         <figure className="flex flex-col gap-2">
-          <div className="relative aspect-[3/2] overflow-hidden rounded-lg">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
             <Image
-              src="/accueil/projection.jpg"
-              alt="La projection de fin d'année sur grand écran, dans la salle du théâtre"
+              src="/theatre/plateau-2.jpg"
+              alt="Des élèves éclatent de rire pendant une répétition, sur le plateau"
               fill
               priority
               sizes="(min-width: 1024px) 1000px, 100vw"
               className="object-cover"
             />
           </div>
-          <figcaption className="text-sm text-secondaire">En fin d&apos;année, vos films projetés sur grand écran.</figcaption>
+          <figcaption className="text-sm text-secondaire">Sur le plateau, on travaille… et on rit beaucoup.</figcaption>
         </figure>
         <p className="max-w-xl text-lg text-secondaire">
           Théâtre et cinéma à Avignon, tous niveaux, le soir en semaine. Pour s&apos;épanouir, prendre confiance, et
