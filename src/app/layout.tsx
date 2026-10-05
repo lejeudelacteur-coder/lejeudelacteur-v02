@@ -1,6 +1,8 @@
 // Cadre commun à toutes les pages du site de l'école.
 import type { Metadata, Viewport } from "next";
 import { Anton, Nunito_Sans, Playfair_Display } from "next/font/google";
+import Menu from "@/components/Menu";
+import { PiedDePage } from "@/components/Scene";
 import Suivi from "@/components/Suivi";
 import "./globals.css";
 
@@ -36,7 +38,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="fr" className={`${anton.variable} ${nunito.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         <Suivi />
+        <Menu />
         {children}
+        <PiedDePage />
       </body>
     </html>
   );

@@ -47,9 +47,13 @@ Aperçu en ligne : https://lejeudelacteur-v02.vercel.app (projet Vercel « lejeu
   Nicolas Laurent (comédien, coach d'acting), Laetitia Gaune (directrice de
   casting, cofondatrice), Aureck (cascade), Isabelle Delaetre (techniques de respiration).
 - Ne JAMAIS écrire « sophrologie » sur le site (décision de David, 06/10/2026, liée au dossier de certification) : dire « techniques de respiration ».
-- « Viens à deux » / Partenaire de jeu = un mois de formation offert à
-  chacun, UNIQUEMENT pour les formations pro (Intensif, Pro du lundi), pas
-  pour les loisirs.
+- Partenaire de jeu (« Viens à deux »), UNIQUEMENT pour les formations pro :
+  Intensif = un mois de formation offert à chacun (328 €/mois au lieu de 365) ;
+  Pro du lundi = 10 % de réduction (à l'année ou en cartes de 5 et 10 cours).
+  Pas pour les loisirs.
+- Book photo hors cursus : 300 € ; bande démo hors cursus : sur devis.
+- Pro du lundi et Loisirs : on affiche l'année EN COURS (on peut s'y inscrire en
+  cours d'année). Intensif : la promo SUIVANTE (voir plus haut).
 - Téléphone public : 06 23 18 15 79. Adresse : Théâtre de l'Oriflamme,
   5 rue Portail Matheron, 84000 Avignon.
 - Droit à l'image : tous les élèves l'ont signé, et la règle de la maison est
