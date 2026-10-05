@@ -205,8 +205,8 @@ export default function CoursIntensif() {
           </p>
           <div className="relative aspect-[16/8] overflow-hidden rounded-lg">
             <Image
-              src="/intensif/tournage-large.jpg"
-              alt="Une élève en plan serré, pendant un tournage"
+              src="/accueil/eleve-en-jeu.jpg"
+              alt="Une élève de la formation intensive, en plein jeu"
               fill
               sizes="(min-width: 1024px) 1000px, 100vw"
               className="object-cover"

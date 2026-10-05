@@ -43,12 +43,12 @@ export default function CoursPros() {
     <main className="flex flex-col overflow-x-clip">
       <header className="relative flex min-h-[60svh] flex-col justify-end overflow-hidden">
         <Image
-          src="/intensif/face-camera.jpg"
-          alt="Élèves en jeu face caméra, sur le plateau du théâtre"
+          src="/intensif/tournage-large.jpg"
+          alt="Une comédienne en plan serré, pendant un tournage"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-50"
+          className="object-cover object-[62%_20%] opacity-55"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         <div className="relative mx-auto w-full max-w-5xl px-5 pb-12">
