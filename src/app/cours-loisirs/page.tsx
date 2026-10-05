@@ -76,7 +76,7 @@ export default function CoursLoisirs() {
 
         <section className="flex flex-col gap-6">
           <Scene numero="02" nom="Feuille de service" />
-          <Titre rouge="18 h 30 à 21 h 30.">Le soir, de</Titre>
+          <Titre rouge="18h30 → 21h30.">Le soir,</Titre>
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {GROUPES.map((g) => (
               <li key={g.nom} className="flex flex-col gap-1 rounded-lg border border-secondaire/20 p-5">
@@ -84,7 +84,7 @@ export default function CoursLoisirs() {
                   {g.nom} · {g.genre}
                 </p>
                 <h3 className="font-affiche text-3xl uppercase">{g.jour}</h3>
-                <p className="text-secondaire">18 h 30 – 21 h 30, avec {g.avec}</p>
+                <p className="text-secondaire">18h30 – 21h30, avec {g.avec}</p>
               </li>
             ))}
           </ul>

@@ -56,9 +56,9 @@ const COACHS: { nom: string; role: string; image: string; lien?: [string, string
   },
 ];
 
-const INTERVENANTS: [string, string][] = [
-  ["Aureck", "Initiation à la cascade"],
-  ["Isabelle Delaetre", "Voix, techniques de respiration, confiance"],
+const INTERVENANTS: { nom: string; sujet: string; image: string; cadrage: string }[] = [
+  { nom: "Aureck", sujet: "Initiation à la cascade", image: "aureck", cadrage: "object-[28%_center]" },
+  { nom: "Isabelle Delaetre", sujet: "Voix, techniques de respiration, confiance", image: "isabelle-delaetre", cadrage: "object-[center_12%]" },
 ];
 
 export default function Equipe() {
@@ -110,10 +110,21 @@ export default function Equipe() {
           <Scene numero="05" nom="Les intervenants" />
           <Titre rouge="et des masterclass.">Des intervenants,</Titre>
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {INTERVENANTS.map(([nom, sujet]) => (
-              <li key={nom} className="rounded-lg border border-secondaire/20 p-5">
-                <h3 className="font-affiche text-3xl uppercase">{nom}</h3>
-                <p className="text-secondaire">{sujet}</p>
+            {INTERVENANTS.map((i) => (
+              <li key={i.nom} className="overflow-hidden rounded-lg border border-secondaire/20">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={`/intensif/${i.image}.jpg`}
+                    alt={i.nom}
+                    fill
+                    sizes="(min-width: 640px) 480px, 100vw"
+                    className={`object-cover grayscale ${i.cadrage}`}
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-affiche text-3xl uppercase">{i.nom}</h3>
+                  <p className="text-secondaire">{i.sujet}</p>
+                </div>
               </li>
             ))}
           </ul>

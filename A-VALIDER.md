@@ -17,7 +17,7 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 
 ## Équipe (06/10)
 - [ ] Biographies reprises de la page Wix, coquilles corrigées. J'ai écrit « Odette Toulemonde » (titre du film d'Éric-Emmanuel Schmitt) et « Claudio Tonetti » à la place de « Odette tout le monde » et « Claudio Tonoetti » : à confirmer.
-- [ ] Intervenants affichés : Aureck (cascade), Isabelle Delaetre (voix, techniques de respiration, confiance). Photos d'eux à ajouter ?
+- [x] Intervenants : photos d'Aureck et d'Isabelle ajoutées le 06/10 (dossier LE JEU 2026 / 08 EQUIPE).
 
 ## Gestes à faire avec David (comptes)
 - [x] Dépôt GitHub et projet Vercel créés le 06/10 : aperçu sur https://lejeudelacteur-v02.vercel.app (fermé à Google).
