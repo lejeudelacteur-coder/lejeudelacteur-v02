@@ -350,7 +350,9 @@ export default function CoursIntensif() {
           </div>
         </section>
 
-        {/* ── SC. 06 LES CRITIQUES ── */}
+        {/* ── SC. 06 LES CRITIQUES ──
+            Note Google affichée telle quelle (41 avis au 06/10/2026, tous à 5 étoiles
+            sauf un). À mettre à jour de temps en temps. */}
         <section className="flex flex-col gap-6">
           <Scene numero="06" nom="Les critiques" />
           <Titre>Ce qu&apos;en disent les élèves.</Titre>
@@ -363,7 +365,7 @@ export default function CoursIntensif() {
             <span className="font-affiche text-6xl text-rouge">4,9</span>
             <span className="flex flex-col">
               <span className="text-xl text-rouge">★★★★★</span>
-              <span className="text-sm text-secondaire underline">Sur 40 avis Google · lire les avis</span>
+              <span className="text-sm text-secondaire underline">Sur 41 avis Google · lire les avis</span>
             </span>
           </a>
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">

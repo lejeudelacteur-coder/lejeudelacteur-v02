@@ -4,7 +4,7 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 
 ## Page Intensif (aperçu : à mettre en ligne sur Vercel, voir plus bas)
 - [ ] Bandeau du haut « Promo 2027-2028 · 10 places » (la référence disait « Plus que quelques places » : je ne l'ai pas repris, pour ne rien affirmer de faux).
-- [ ] Avis Google : « 4,9 sur 40 avis » et les 3 citations (Cindy M., Anna C., Amaury B.) sont repris de la référence. Toujours exacts ?
+- [x] Avis Google : 4,9 sur 41 avis (corrigé le 06/10). Citations de Cindy M., Anna C., Amaury B. conservées. Penser à mettre le nombre d'avis à jour de temps en temps.
 - [ ] Ta citation « Cette formation ne promet pas… » (reprise de la page Wix) : on la garde ?
 - [x] Hors cursus : bande démo sur devis, book photo 300 € (corrigé le 06/10).
 - [x] Les candidatures arrivent sur contact@lejeudelacteur.com (et dans ADMIN > ÉCOLE) : adresse validée le 06/10.
