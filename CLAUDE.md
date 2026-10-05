@@ -45,7 +45,8 @@ Aperçu en ligne : https://lejeudelacteur-v02.vercel.app (projet Vercel « lejeu
   (mardi à jeudi) : ne jamais l'afficher.
 - Intervenants : David Rousseau (comédien & réalisateur, cofondateur),
   Nicolas Laurent (comédien, coach d'acting), Laetitia Gaune (directrice de
-  casting, cofondatrice), Aureck (cascade), Isabelle Delaetre (sophrologie).
+  casting, cofondatrice), Aureck (cascade), Isabelle Delaetre (techniques de respiration).
+- Ne JAMAIS écrire « sophrologie » sur le site (décision de David, 06/10/2026, liée au dossier de certification) : dire « techniques de respiration ».
 - « Viens à deux » / Partenaire de jeu = un mois de formation offert à
   chacun, UNIQUEMENT pour les formations pro (Intensif, Pro du lundi), pas
   pour les loisirs.
