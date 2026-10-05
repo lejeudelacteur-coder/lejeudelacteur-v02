@@ -27,6 +27,9 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [ ] Théâtre : photos de la façade, du hall, de la salle et du plateau (dossier LE JEU 2026 / 08 EQUIPE / L'ORIFLAMME).
 - [x] Anciennes adresses Wix gardées : /book-vidéo, /théâtredeloriflamme, /équipe ; /stages mène à /stages-casting, /formations à l'accueil.
 
+## Photos à remplacer plus tard
+- [ ] Loisirs : photo d'un vrai cours loisirs (groupe représentatif, âges variés) à la place de « Jour de Tournage 03 ».
+
 ## Gestes à faire avec David (comptes)
 - [x] Dépôt GitHub et projet Vercel créés le 06/10 : aperçu sur https://lejeudelacteur-v02.vercel.app (fermé à Google).
 - [x] Vercel : NEXT_PUBLIC_SUPABASE_URL et SUPABASE_SECRET_KEY ajoutées.
