@@ -49,7 +49,7 @@ const FORMATIONS: {
     texte: "Théâtre et cinéma, tous niveaux, le soir en semaine. Cours d'essai gratuit.",
     avis: "Même en loisirs, David pousse à l'excellence.",
     auteur: "Jean-Claude Ouvray",
-    image: "/accueil/eleve-en-jeu.jpg",
+    image: "/accueil/repetition-loisirs.jpg",
   },
 ];
 
