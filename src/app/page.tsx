@@ -59,12 +59,12 @@ export default function Accueil() {
       {/* ── Affiche ── */}
       <header className="relative flex min-h-[85svh] flex-col justify-end overflow-hidden">
         <Image
-          src="/intensif/tournage-large.jpg"
-          alt="Une élève en plan serré, pendant un tournage"
+          src="/accueil/jason.jpg"
+          alt="Un comédien derrière le clap, juste avant une prise"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[62%_20%] opacity-70"
+          className="object-cover object-[58%_center] opacity-70"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-background/10" />
         <div className="relative mx-auto w-full max-w-5xl px-5 pb-14">
