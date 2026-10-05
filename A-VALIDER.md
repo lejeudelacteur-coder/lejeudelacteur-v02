@@ -28,7 +28,7 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [x] Anciennes adresses Wix gardées : /book-vidéo, /théâtredeloriflamme, /équipe ; /stages mène à /stages-casting, /formations à l'accueil.
 
 ## Photos à remplacer plus tard
-- [ ] Loisirs : photo d'un vrai cours loisirs (groupe représentatif, âges variés) à la place de « Jour de Tournage 03 ».
+- [x] Loisirs : photo d'un vrai cours loisirs (ARCHIVES / Repetition loisir), le 06/10.
 
 ## Gestes à faire avec David (comptes)
 - [x] Dépôt GitHub et projet Vercel créés le 06/10 : aperçu sur https://lejeudelacteur-v02.vercel.app (fermé à Google).

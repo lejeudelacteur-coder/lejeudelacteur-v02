@@ -31,8 +31,8 @@ export default function CoursLoisirs() {
   return (
     <main className="flex flex-col overflow-x-clip">
       {/* Photo rassurante pour les débutants, majoritaires en loisirs, et des
-          âges variés (David, 06/10). Provisoire : à remplacer par une photo
-          d'un vrai cours loisirs quand David en aura une. */}
+          âges variés (David, 06/10). Photo d'un vrai cours loisirs (ARCHIVES /
+          Repetition loisir), choisie par David le 06/10. */}
       <header className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-5 pt-12">
         <div>
           <p className="font-accent text-3xl italic sm:text-4xl">Pour le plaisir de jouer.</p>
@@ -41,17 +41,17 @@ export default function CoursLoisirs() {
           </h1>
         </div>
         <figure className="flex flex-col gap-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
             <Image
-              src="/accueil/groupe-loisirs.jpg"
-              alt="Un groupe d'élèves au travail sur le plateau, autour d'un projecteur"
+              src="/accueil/repetition-loisirs.jpg"
+              alt="Deux élèves jouent une scène, le groupe les regarde depuis la salle"
               fill
               priority
               sizes="(min-width: 1024px) 1000px, 100vw"
               className="object-cover"
             />
           </div>
-          <figcaption className="text-sm text-secondaire">Tous les âges, tous les niveaux : on apprend ensemble, sur le plateau.</figcaption>
+          <figcaption className="text-sm text-secondaire">Tous les âges, tous les niveaux : on joue, et on regarde jouer les autres.</figcaption>
         </figure>
         <p className="max-w-xl text-lg text-secondaire">
           Théâtre et cinéma à Avignon, tous niveaux, le soir en semaine. Pour s&apos;épanouir, prendre confiance, et
