@@ -15,6 +15,10 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [ ] Pro du lundi : 18h30-22h30, 1 170 € + 90 €, cartes 5 et 10 cours (200 / 380 €), cours 50 €, masterclass 50 €, 4 à 8 participants.
 - [ ] Le formulaire de contact (cours d'essai, questions) arrive aussi dans ADMIN > ÉCOLE.
 
+## Équipe (06/10)
+- [ ] Biographies reprises de la page Wix, coquilles corrigées. J'ai écrit « Odette Toulemonde » (titre du film d'Éric-Emmanuel Schmitt) et « Claudio Tonetti » à la place de « Odette tout le monde » et « Claudio Tonoetti » : à confirmer.
+- [ ] Intervenants affichés : Aureck (cascade), Isabelle Delaetre (voix, techniques de respiration, confiance). Photos d'eux à ajouter ?
+
 ## Gestes à faire avec David (comptes)
 - [x] Dépôt GitHub et projet Vercel créés le 06/10 : aperçu sur https://lejeudelacteur-v02.vercel.app (fermé à Google).
 - [x] Vercel : NEXT_PUBLIC_SUPABASE_URL et SUPABASE_SECRET_KEY ajoutées.
