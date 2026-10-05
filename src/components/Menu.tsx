@@ -10,6 +10,7 @@ const LIENS = [
   { href: "/cours-intensif", label: "Intensif" },
   { href: "/cours-pros", label: "Pro du lundi" },
   { href: "/cours-loisirs", label: "Loisirs" },
+  { href: "/%C3%A9quipe", label: "Équipe" },
   { href: "https://iacteur.com", label: "IACTEUR" },
   { href: "/#contact", label: "Contact" },
 ];
