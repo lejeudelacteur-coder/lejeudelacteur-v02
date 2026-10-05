@@ -59,15 +59,18 @@ export default function Theatre() {
 
         <section className="flex flex-col gap-4">
           <Scene numero="02" nom="Venir" />
-          <p className="text-lg">5 rue Portail Matheron, 84000 Avignon</p>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Th%C3%A9%C3%A2tre+de+l%27Oriflamme+5+rue+Portail+Matheron+Avignon"
-            target="_blank"
-            rel="noreferrer"
-            className="self-start text-rouge underline"
-          >
-            Ouvrir dans Google Maps →
-          </a>
+          <p className="text-lg">5 rue Portail Matheron, 84000 Avignon, à deux pas du Palais des papes.</p>
+          {/* Carte Google (comme sur le site Wix) : on voit tout de suite que
+              le théâtre est en plein centre */}
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-secondaire/20 sm:aspect-[16/9]">
+            <iframe
+              title="Le théâtre de l'Oriflamme sur la carte d'Avignon"
+              src="https://www.google.com/maps?q=Th%C3%A9%C3%A2tre+de+l%27Oriflamme,+5+rue+Portail+Matheron,+84000+Avignon&z=15&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 h-full w-full grayscale-[30%]"
+            />
+          </div>
           <div className="mt-4">
             <BoutonRouge href="/#contact">Venir faire un cours d&apos;essai</BoutonRouge>
           </div>
