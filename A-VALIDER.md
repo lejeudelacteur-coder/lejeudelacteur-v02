@@ -11,7 +11,7 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 
 ## Accueil, Pro du lundi, Loisirs (06/10)
 - [ ] Accueil : les 3 avis d'élèves (Anthony Canneddu, Caroline Beghain, Jean-Claude Ouvray) repris de l'accueil Wix.
-- [ ] Loisirs 2026-2027 : groupes du mardi (David, cinéma), mercredi (Myriam Waelkens, cinéma), jeudi (Nicolas Laurent, théâtre), 18h30-21h30 ; 520 / 900 / 1 300 € par an.
+- [ ] Loisirs 2026-2027 : groupes du mardi (David, cinéma), mercredi (Myriam Waelkens, cinéma), jeudi (Nicolas Laurent, théâtre), 18h30-21h30 ; 1 cours 520 €/an, 2e cours + 400 €, 3e cours sur demande (corrigé le 06/10).
 - [ ] Pro du lundi : 18h30-22h30, 1 170 € + 90 €, cartes 5 et 10 cours (200 / 380 €), cours 50 €, masterclass 50 €, 4 à 8 participants.
 - [ ] Le formulaire de contact (cours d'essai, questions) arrive aussi dans ADMIN > ÉCOLE.
 

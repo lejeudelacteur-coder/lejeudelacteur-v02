@@ -18,10 +18,13 @@ const GROUPES: { nom: string; genre: string; jour: string; avec: string }[] = [
   { nom: "Groupe III", genre: "Théâtre", jour: "Jeudi", avec: "Nicolas Laurent" },
 ];
 
+// Tarifs décidés par David le 06/10/2026 : 2e cours à 400 €, 3e cours sur
+// demande (les groupes sont complets : une place à prix réduit prendrait celle
+// d'un élève au tarif plein).
 const TARIFS: [string, string][] = [
   ["1 cours par semaine", "520 € / an"],
-  ["2 cours par semaine", "900 € / an"],
-  ["3 cours par semaine", "1 300 € / an"],
+  ["Un 2e cours", "+ 400 € / an"],
+  ["Un 3e cours", "sur demande"],
 ];
 
 export default function CoursLoisirs() {
