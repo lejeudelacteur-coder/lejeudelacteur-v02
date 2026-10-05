@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
+/* LE JEU DE L'ACTEUR — style « plateau de cinéma » (repris de la page de
+   référence de l'Intensif). Fond presque noir, texte crème, rouge vif. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0909;
+  --foreground: #f3ede4;
+  --rouge: #e3191d;
+  --secondaire: #bdb2a6;
+  --surface: #171313;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-rouge: var(--rouge);
+  --color-secondaire: var(--secondaire);
+  --color-surface: var(--surface);
+  --font-sans: var(--font-nunito);
+  --font-affiche: var(--font-anton);
+  --font-accent: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Paragraphes : pas de mot isolé en fin de paragraphe */
+p,
+li {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* Bandeau qui défile (les atouts de la formation) */
+@keyframes defilement {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.defilement {
+  animation: defilement 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .defilement {
+    animation: none;
+  }
 }
