@@ -18,7 +18,7 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 ## Gestes à faire avec David (comptes)
 - [x] Dépôt GitHub et projet Vercel créés le 06/10 : aperçu sur https://lejeudelacteur-v02.vercel.app (fermé à Google).
 - [x] Vercel : NEXT_PUBLIC_SUPABASE_URL et SUPABASE_SECRET_KEY ajoutées.
-- [ ] Vercel : RESEND_API_KEY (créer une clé Resend dédiée à l'école) pour que les e-mails partent.
+- [x] Vercel : RESEND_API_KEY ajoutée le 06/10 (clé Resend « Site école »). Les e-mails partent de notifications@iacteur.com.
 
 ## Plus tard
 - [ ] contact@lejeudelacteur.com est une boîte Hostinger (https://mail.hostinger.com/). Laetitia n'y a pas accès : trouver la solution (redirection vers son adresse, ou accès partagé à la boîte), et lui expliquer pas à pas.
