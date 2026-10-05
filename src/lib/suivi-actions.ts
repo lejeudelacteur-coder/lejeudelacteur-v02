@@ -13,13 +13,44 @@ const court = (t: unknown, max = 120) => String(t ?? "").slice(0, max);
 // pas comptés : ils écrivent dans la même base que le vrai site.
 const EN_TEST = process.env.NODE_ENV === "development";
 
-export async function noterVisite(page: string, source: string, campagne: string, session: string) {
+// La ville et le pays viennent de Vercel (déduits de l'adresse IP, qui
+// n'est pas gardée).
+async function lieu() {
+  const h = await headers();
+  let ville = h.get("x-vercel-ip-city") ?? "";
+  try {
+    ville = decodeURIComponent(ville);
+  } catch {
+    // ville mal encodée : on la garde telle quelle
+  }
+  return { ville: court(ville, 80), pays: court(h.get("x-vercel-ip-country"), 4) };
+}
+
+export async function noterVisite(page: string, source: string, campagne: string, session: string, visiteur = "") {
   if (EN_TEST) return;
   const ua = (await headers()).get("user-agent");
   if (estUnRobot(ua)) return;
   await base()
     .from("ecole_visites")
-    .insert({ page: court(page, 200), source: court(source), campagne: court(campagne), session: court(session, 60), appareil: court(ua, 300) });
+    .insert({
+      page: court(page, 200),
+      source: court(source),
+      campagne: court(campagne),
+      session: court(session, 60),
+      visiteur: court(visiteur, 60),
+      appareil: court(ua, 300),
+      ...(await lieu()),
+    });
+}
+
+// Un lien de contact touché (téléphone, e-mail, IACTEUR, itinéraire…)
+export async function noterClic(cible: string, page: string, source: string, session: string, visiteur: string) {
+  if (EN_TEST) return;
+  const ua = (await headers()).get("user-agent");
+  if (estUnRobot(ua)) return;
+  await base()
+    .from("ecole_clics")
+    .insert({ cible: court(cible, 40), page: court(page, 200), source: court(source), session: court(session, 60), visiteur: court(visiteur, 60) });
 }
 
 export async function noterEtape(formation: string, etape: number, session: string) {

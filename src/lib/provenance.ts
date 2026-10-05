@@ -74,3 +74,31 @@ export function estPasCompte(): boolean {
     return false;
   }
 }
+
+// Un identifiant anonyme gardé par ce navigateur (06/10), pour compter les
+// visiteurs uniques : quelqu'un qui revient trois fois dans le mois compte
+// pour un visiteur et trois visites.
+export function visiteurAnonyme(): string {
+  try {
+    let id = localStorage.getItem("ljda-visiteur");
+    if (!id) {
+      id = crypto.randomUUID();
+      localStorage.setItem("ljda-visiteur", id);
+    }
+    return id;
+  } catch {
+    return "";
+  }
+}
+
+// Les prises de contact sans formulaire : on reconnaît le lien touché.
+export function cibleDuLien(href: string): string | null {
+  if (href.startsWith("tel:")) return "telephone";
+  if (href.startsWith("mailto:")) return "email";
+  if (/wa\.me|whatsapp/i.test(href)) return "whatsapp";
+  if (/iacteur\.com/i.test(href)) return "iacteur";
+  if (/google\.[a-z.]+\/maps|maps\.google|maps\.app\.goo\.gl/i.test(href)) return "google-maps";
+  if (/instagram\.com/i.test(href)) return "instagram";
+  if (/facebook\.com/i.test(href)) return "facebook";
+  return null;
+}
