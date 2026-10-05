@@ -28,7 +28,9 @@ export function BoutonRouge({ href, children }: { href: string; children: React.
       {children} →
     </Link>
   ) : (
-    <a href={href} className={classe}>
+    // Lien vers un autre site (IACTEUR…) : nouvel onglet, pour que le site de
+    // l'école reste ouvert derrière (demande de David, 06/10)
+    <a href={href} target="_blank" rel="noopener" className={classe}>
       {children} →
     </a>
   );

@@ -14,7 +14,8 @@ const LIENS = [
   { href: "/book-vid%C3%A9o", label: "Book / Vidéo" },
   { href: "/%C3%A9quipe", label: "Équipe" },
   { href: "/th%C3%A9%C3%A2tredeloriflamme", label: "Le théâtre" },
-  { href: "https://iacteur.com", label: "IACTEUR" },
+  // Autre site : s'ouvre dans un nouvel onglet (le site de l'école reste ouvert)
+  { href: "https://iacteur.com", label: "IACTEUR ↗" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -37,7 +38,7 @@ export default function Menu() {
         </Link>
         <nav className="hidden items-center gap-4 lg:flex">
           {LIENS.map((l) => (
-            <Link key={l.href} href={l.href} className={lien(l.href)}>
+            <Link key={l.href} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})} className={lien(l.href)}>
               {l.label}
             </Link>
           ))}
@@ -55,7 +56,7 @@ export default function Menu() {
       {ouvert && (
         <nav className="flex flex-col gap-4 border-t border-secondaire/15 px-5 py-5 lg:hidden">
           {LIENS.map((l) => (
-            <Link key={l.href} href={l.href} className={`${lien(l.href)} text-2xl`}>
+            <Link key={l.href} href={l.href} {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})} className={`${lien(l.href)} text-2xl`}>
               {l.label}
             </Link>
           ))}
