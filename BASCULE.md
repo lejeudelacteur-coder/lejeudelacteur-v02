@@ -1,5 +1,12 @@
 # BASCULE DU DOMAINE lejeudelacteur.com (Wix → Vercel)
 
+**FAITE le 07/10/2026 avec David** (DNS modifiés chez Wix, validés par Vercel, certificat HTTPS émis).
+Changements effectués dans Wix > Domaines > Gérer les enregistrements DNS :
+- 2 TXT ajoutés : _vercel = vc-domain-verify=lejeudelacteur.com,5f70b9ce02fd8cebf564 et vc-domain-verify=www.lejeudelacteur.com,52016a9044eed71fc814
+- A (@) : 216.198.79.1 (les 3 adresses Wix supprimées)
+- CNAME (www) : c04d6af3e85480e6.vercel-dns-017.com
+- NE PAS TOUCHER : A intensif.lejeudelacteur.com → 76.76.21.21 (page de l'élève sur Vercel), CNAME hostingermail-a/b/c._domainkey, s1/s2/sel1._domainkey et sg (e-mails), MX Hostinger, TXT SPF et Google.
+
 Faite avec David. Ne jamais la faire sans lui.
 
 ## Situation AVANT (relevée le 06/10/2026, pour pouvoir revenir en arrière)
