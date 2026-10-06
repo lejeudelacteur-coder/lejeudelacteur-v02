@@ -33,8 +33,8 @@ export default function CoursLoisirs() {
       {/* En-tête pleine largeur comme les autres pages (David, 07/10). La photo
           (ARCHIVES / Repetition loisir) est sombre et ses deux élèves sont aux
           bords : sur grand écran elle sert de fond (toute la scène), sur
-          téléphone elle est au-dessus du titre, cadrée sur la comédienne, pour
-          que le texte ne cache pas son visage. */}
+          téléphone elle est au-dessus du titre, cadrée sur le comédien de dos (à gauche), pour
+          que le texte ne cache pas la scène. */}
       <header className="relative flex flex-col justify-end overflow-hidden sm:min-h-[60svh]">
         <div className="relative h-[50svh] sm:absolute sm:inset-0 sm:h-auto">
           <Image
@@ -43,7 +43,7 @@ export default function CoursLoisirs() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[100%_20%] sm:object-center sm:opacity-95"
+            className="object-cover object-[22%_20%] sm:object-center sm:opacity-95"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent sm:via-background/60 sm:via-45%" />
         </div>
