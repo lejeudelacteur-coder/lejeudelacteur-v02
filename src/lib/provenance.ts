@@ -80,12 +80,12 @@ export function estPasCompte(): boolean {
 // pour un visiteur et trois visites.
 export function visiteurAnonyme(): string {
   try {
-    let id = localStorage.getItem("ljda-visiteur");
-    if (!id) {
-      id = crypto.randomUUID();
-      localStorage.setItem("ljda-visiteur", id);
-    }
-    return id;
+    // « identifiant|date de création » ; renouvelé après 13 mois
+    const [id, depuis] = (localStorage.getItem("ljda-visiteur") ?? "").split("|");
+    if (id && depuis && Date.now() - Number(depuis) < 13 * 30 * 24 * 3600 * 1000) return id;
+    const nouveau = crypto.randomUUID();
+    localStorage.setItem("ljda-visiteur", `${nouveau}|${Date.now()}`);
+    return nouveau;
   } catch {
     return "";
   }

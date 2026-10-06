@@ -54,6 +54,10 @@ export function PiedDePage() {
       <p className="mt-3">
         <Link href="/news" className="underline">
           Le blog
+        </Link>{" "}
+        ·{" "}
+        <Link href="/rgpd" className="underline">
+          Mentions légales
         </Link>
       </p>
       <p className="mt-4 text-xs">© Le Jeu de l&apos;Acteur 2019-2026</p>

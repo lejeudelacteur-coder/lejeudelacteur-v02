@@ -40,5 +40,12 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [ ] **Vidéos : 135 vidéos des articles sont encore lues depuis Wix** (≈ 4,7 Go en tout, hébergées sur video.wixstatic.com). Elles marchent tant que l'abonnement Wix court (jusqu'au 4 septembre 2027). Avant cette date : les mettre sur YouTube (ou un stockage), et remplacer les liens. Les 43 vidéos YouTube des articles, elles, sont déjà indépendantes.
 - [ ] Les pages de tags de Wix (/news/tags/…) n'existent pas dans la nouvelle version ; elles ne figuraient pas dans le plan du site.
 
+## Pages ajoutées le 07/10 (avant la bascule)
+- [ ] Mentions légales et confidentialité (/rgpd) réécrites pour le nouveau site : adresse de l'éditeur = Théâtre de l'Oriflamme (l'ancienne page Wix donnait Rochefort), demandes gardées 3 ans, identifiant de visiteur renouvelé tous les 13 mois, aucun cookie de publicité. À relire ; à compléter si on ajoute le pixel Meta.
+- [ ] Inscriptions (/inscriptions) : aiguillage vers les 4 formations + formulaire. La brochure PDF de l'ancienne page (29 téléchargements par mois) n'est PAS reprise : David doit dire si elle est à jour (4 pages, couverture « Jeu face caméra à Avignon »).
+- [ ] David Rousseau réalisateur : texte et 7 liens (YouTube, Vimeo) repris de Wix.
+- [x] Redirections : les 13 anciennes pages de l'app IACTEUR (/loge, /solo, …), /iacteur, /creer, /ma-carriere, /casting vers iacteur.com ; les vieilles saisons vers le blog ou la bonne formation ; /faq (page vide chez Wix), /en-ligne (page de confinement) et trois pages de test vers l'accueil.
+- [x] Plan du site (sitemap.xml) prêt : à envoyer dans la Search Console le jour de la bascule.
+
 ## Plus tard
 - [ ] contact@lejeudelacteur.com est une boîte Hostinger (https://mail.hostinger.com/). Laetitia n'y a pas accès : trouver la solution (redirection vers son adresse, ou accès partagé à la boîte), et lui expliquer pas à pas.
