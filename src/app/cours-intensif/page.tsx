@@ -23,6 +23,7 @@ const ATOUTS = [
   "Book photo",
   "Cascade",
   "Masterclass",
+  "IACTEUR offert",
 ];
 
 const CHIFFRES: [string, string][] = [
