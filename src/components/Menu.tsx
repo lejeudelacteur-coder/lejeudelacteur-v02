@@ -14,6 +14,7 @@ const LIENS = [
   { href: "/book-vid%C3%A9o", label: "Book / Vidéo" },
   { href: "/%C3%A9quipe", label: "Équipe" },
   { href: "/th%C3%A9%C3%A2tredeloriflamme", label: "Le théâtre" },
+  { href: "/news", label: "Les News" },
   // Autre site : s'ouvre dans un nouvel onglet (le site de l'école reste ouvert)
   { href: "https://iacteur.com", label: "IACTEUR ↗" },
   { href: "/#contact", label: "Contact" },
@@ -27,8 +28,11 @@ export default function Menu() {
     void Promise.resolve().then(() => setOuvert(false));
   }, [page]);
 
+  // « Les News » reste allumé dans les articles et les catégories du blog
+  const actif = (href: string) =>
+    href === "/news" ? page === "/news" || page.startsWith("/news/") || page.startsWith("/post/") : page === href;
   const lien = (href: string) =>
-    `font-affiche text-base uppercase tracking-wide ${page === href ? "text-rouge" : "text-foreground"}`;
+    `font-affiche text-base uppercase tracking-wide ${actif(href) ? "text-rouge" : "text-foreground"}`;
 
   return (
     <header className="sticky top-0 z-40 border-b border-secondaire/15 bg-background/90 backdrop-blur">
