@@ -8,7 +8,7 @@ import { Scene, Titre } from "@/components/Scene";
 export const metadata: Metadata = {
   title: "Stage casting à Avignon : 5 jours pour réussir tes castings",
   description:
-    "Stage casting intensif de 5 jours à Avignon, pour comédiens professionnels ou en voie de professionnalisation : s'entraîner au casting, répondre aux demandes d'un réalisateur, travailler avec un agent. Financement AFDAS ou France Travail possible (sous conditions).",
+    "Stage casting intensif de 5 jours à Avignon, pour comédiens professionnels ou en voie de professionnalisation : s'entraîner au casting, répondre aux demandes d'un réalisateur, travailler avec un agent.",
   alternates: { canonical: "/stages-casting" },
 };
 
@@ -68,7 +68,6 @@ export default function StagesCasting() {
           <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">Prochaine session</p>
           <p className="font-affiche text-4xl uppercase leading-none">Début 2027</p>
           <p className="text-lg">Les dates arrivent bientôt. Laisse-nous tes coordonnées pour être prévenu·e en premier.</p>
-          <p className="text-secondaire">Financement AFDAS ou France Travail possible, sous conditions.</p>
         </section>
 
         <section id="contact" className="flex scroll-mt-20 flex-col gap-6">

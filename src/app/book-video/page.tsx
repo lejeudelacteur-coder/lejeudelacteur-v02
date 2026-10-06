@@ -1,6 +1,6 @@
 // BOOK / VIDÉO — même adresse que sur Wix (/book-vidéo, voir next.config.ts).
 // Les deux vidéos sont encore lues depuis Wix : À METTRE SUR YOUTUBE avant la
-// fin de l'abonnement Wix (septembre 2027). Book : 300 € (David, 06/10).
+// fin de l'abonnement Wix (septembre 2027). Book photo : 300 € ; tout le reste sur devis (David, 07/10).
 import type { Metadata } from "next";
 import FormulaireContact from "@/components/FormulaireContact";
 import { Scene, Titre } from "@/components/Scene";
@@ -69,7 +69,7 @@ export default function BookVideo() {
           />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Tarif nom="Book professionnel" prix="300 €" detail="12 photos retouchées, envoyées par WeTransfer" />
-            <Tarif nom="Mini-book" prix="100 €" detail="5 photos retouchées, pour répondre à un casting précis" />
+            <Tarif nom="Mini-book" prix="Sur devis" detail="5 photos retouchées, pour répondre à un casting précis" />
           </div>
         </section>
 
@@ -86,7 +86,7 @@ export default function BookVideo() {
             ]}
           />
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <Tarif nom="Vidéo de présentation" prix="130 €" detail="Coaching, vidéo Full HD d'environ 1 min 30, sous-titrée" />
+            <Tarif nom="Vidéo de présentation" prix="Sur devis" detail="Coaching, vidéo Full HD d'environ 1 min 30, sous-titrée" />
             <Tarif nom="Présentation spécifique" prix="Sur devis" detail="Pour répondre à un casting ou à un projet précis" />
           </div>
         </section>
@@ -115,7 +115,7 @@ export default function BookVideo() {
             ))}
           </div>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <Tarif nom="Scène ou monologue" prix="150 €" detail="Par acteur : coaching, vidéo d'environ 1 min 30, sous-titrée" />
+            <Tarif nom="Scène ou monologue" prix="Sur devis" detail="Par acteur : coaching, vidéo d'environ 1 min 30, sous-titrée" />
             <Tarif nom="Bande démo complète" prix="Sur devis" detail="Montage de tes meilleures images" />
           </div>
         </section>

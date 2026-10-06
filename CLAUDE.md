@@ -51,7 +51,7 @@ Aperçu en ligne : https://lejeudelacteur-v02.vercel.app (projet Vercel « lejeu
   Intensif = un mois de formation offert à chacun (328 €/mois au lieu de 365) ;
   Pro du lundi = 10 % de réduction (à l'année ou en cartes de 5 et 10 cours).
   Pas pour les loisirs.
-- Book photo hors cursus : 300 € ; bande démo hors cursus : sur devis.
+- Book photo hors cursus : 300 € ; tout le reste (mini-book, vidéos, scène, bande démo) sur devis (David, 07/10). Stage casting : ne pas annoncer de financement AFDAS / France Travail.
 - Pro du lundi et Loisirs : on affiche l'année EN COURS (on peut s'y inscrire en
   cours d'année). Intensif : la promo SUIVANTE (voir plus haut).
 - Téléphone public : 06 23 18 15 79. Adresse : Théâtre de l'Oriflamme,
