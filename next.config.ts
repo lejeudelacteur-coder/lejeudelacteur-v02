@@ -10,9 +10,20 @@ const ADRESSES_ACCENTUEES: [string, string][] = [
   ["/th%C3%A9%C3%A2tredeloriflamme", "/theatre"],
 ];
 
+// L'aperçu (adresses en .vercel.app) reste fermé aux moteurs de recherche,
+// même après la bascule : seul lejeudelacteur.com est référencé.
+const APERCU = [{ type: "host" as const, value: ".*\\.vercel\\.app" }];
+
 const nextConfig: NextConfig = {
+  async headers() {
+    return [{ source: "/:path*", has: APERCU, headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }];
+  },
   async rewrites() {
-    return ADRESSES_ACCENTUEES.map(([source, destination]) => ({ source, destination }));
+    return {
+      beforeFiles: [{ source: "/robots.txt", has: APERCU, destination: "/robots-apercu" }],
+      afterFiles: ADRESSES_ACCENTUEES.map(([source, destination]) => ({ source, destination })),
+      fallback: [],
+    };
   },
   async redirects() {
     return [
