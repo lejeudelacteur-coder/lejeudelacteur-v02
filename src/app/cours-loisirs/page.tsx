@@ -30,35 +30,36 @@ const TARIFS: [string, string][] = [
 export default function CoursLoisirs() {
   return (
     <main className="flex flex-col overflow-x-clip">
-      {/* Photo rassurante pour les débutants, majoritaires en loisirs, et des
-          âges variés (David, 06/10). Photo d'un vrai cours loisirs (ARCHIVES /
-          Repetition loisir), choisie par David le 06/10. */}
-      <header className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-5 pt-12">
-        <div>
+      {/* En-tête pleine largeur comme les autres pages (David, 07/10). La photo
+          (ARCHIVES / Repetition loisir) est sombre et ses deux élèves sont aux
+          bords : sur grand écran elle sert de fond (toute la scène), sur
+          téléphone elle est au-dessus du titre, cadrée sur la comédienne, pour
+          que le texte ne cache pas son visage. */}
+      <header className="relative flex flex-col justify-end overflow-hidden sm:min-h-[60svh]">
+        <div className="relative h-[50svh] sm:absolute sm:inset-0 sm:h-auto">
+          <Image
+            src="/accueil/repetition-loisirs.jpg"
+            alt="Deux élèves jouent une scène, le groupe les regarde depuis la salle"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[100%_20%] sm:object-center sm:opacity-95"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent sm:via-background/60 sm:via-45%" />
+        </div>
+        <div className="relative mx-auto w-full max-w-5xl px-5 pb-12 sm:pt-0">
           <p className="font-accent text-3xl italic sm:text-4xl">Pour le plaisir de jouer.</p>
           <h1 className="mt-2 font-affiche text-[3.6rem] uppercase leading-[0.9] sm:text-8xl">
             Les cours <span className="text-rouge">loisirs.</span>
           </h1>
-        </div>
-        <figure className="flex flex-col gap-2">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
-            <Image
-              src="/accueil/repetition-loisirs.jpg"
-              alt="Deux élèves jouent une scène, le groupe les regarde depuis la salle"
-              fill
-              priority
-              sizes="(min-width: 1024px) 1000px, 100vw"
-              className="object-cover"
-            />
+          <p className="mt-5 max-w-xl text-lg text-secondaire">
+            Théâtre et cinéma à Avignon, tous niveaux, le soir en semaine. Pour s&apos;épanouir, prendre confiance, et
+            découvrir la richesse du métier d&apos;acteur, loin de la contrainte professionnelle. Tous les âges : on joue, et
+            on regarde jouer les autres.
+          </p>
+          <div className="mt-7">
+            <BoutonRouge href="#contact">Mon cours d&apos;essai gratuit</BoutonRouge>
           </div>
-          <figcaption className="text-sm text-secondaire">Tous les âges, tous les niveaux : on joue, et on regarde jouer les autres.</figcaption>
-        </figure>
-        <p className="max-w-xl text-lg text-secondaire">
-          Théâtre et cinéma à Avignon, tous niveaux, le soir en semaine. Pour s&apos;épanouir, prendre confiance, et
-          découvrir la richesse du métier d&apos;acteur, loin de la contrainte professionnelle.
-        </p>
-        <div>
-          <BoutonRouge href="#contact">Mon cours d&apos;essai gratuit</BoutonRouge>
         </div>
       </header>
 
