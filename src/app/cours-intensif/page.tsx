@@ -220,6 +220,15 @@ export default function CoursIntensif() {
                 <p className="text-secondaire">{d}</p>
               </li>
             ))}
+            {/* Le plus : IACTEUR est offert aux élèves (David, 07/10) */}
+            <li className="flex flex-col gap-1 rounded-lg border-2 border-rouge p-5 sm:col-span-2">
+              <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">En plus, offert</p>
+              <h3 className="font-affiche text-2xl uppercase">IACTEUR</h3>
+              <p className="text-secondaire">
+                Ton espace d&apos;acteur en ligne : des textes à travailler, du coaching, le suivi de ta carrière, et les
+                castings qui te correspondent. Gratuit pour tous les élèves de l&apos;école.
+              </p>
+            </li>
           </ul>
         </section>
 
