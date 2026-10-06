@@ -18,7 +18,8 @@ const SECTIONS: { titre: string; paragraphes: string[] }[] = [
   {
     titre: "Éditeur du site",
     paragraphes: [
-      "Le site lejeudelacteur.com est édité par David Rousseau, entrepreneur individuel (EI, micro-entreprise), nom commercial CIA (Carte d'Identité Artistique), SIRET 537 384 216 00025, Théâtre de l'Oriflamme, 5 rue Portail Matheron, 84000 Avignon.",
+      "Le site lejeudelacteur.com est édité par David Rousseau, entrepreneur individuel (EI, micro-entreprise), nom commercial CIA (Carte d'Identité Artistique), SIRET 537 384 216 00025, dont le siège est situé au 17 rue sous le Barri, 30650 Rochefort-du-Gard (adresse déclarée au registre des entreprises).",
+      "Les cours ont lieu au Théâtre de l'Oriflamme, 5 rue Portail Matheron, 84000 Avignon.",
       "Directeur de la publication : David Rousseau. Contact : contact@lejeudelacteur.com · 06 23 18 15 79.",
     ],
   },

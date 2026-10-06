@@ -41,8 +41,8 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [ ] Les pages de tags de Wix (/news/tags/…) n'existent pas dans la nouvelle version ; elles ne figuraient pas dans le plan du site.
 
 ## Pages ajoutées le 07/10 (avant la bascule)
-- [ ] Mentions légales et confidentialité (/rgpd) réécrites pour le nouveau site : adresse de l'éditeur = Théâtre de l'Oriflamme (l'ancienne page Wix donnait Rochefort), demandes gardées 3 ans, identifiant de visiteur renouvelé tous les 13 mois, aucun cookie de publicité. À relire ; à compléter si on ajoute le pixel Meta.
-- [ ] Inscriptions (/inscriptions) : aiguillage vers les 4 formations + formulaire. La brochure PDF de l'ancienne page (29 téléchargements par mois) n'est PAS reprise : David doit dire si elle est à jour (4 pages, couverture « Jeu face caméra à Avignon »).
+- [ ] Mentions légales et confidentialité (/rgpd) réécrites pour le nouveau site : adresse de l'éditeur = le siège déclaré au registre des entreprises (Rochefort-du-Gard, comme l'ancienne page Wix), les cours étant au Théâtre de l'Oriflamme (corrigé le 07/10), demandes gardées 3 ans, identifiant de visiteur renouvelé tous les 13 mois, aucun cookie de publicité. À relire ; à compléter si on ajoute le pixel Meta.
+- [ ] Inscriptions (/inscriptions) : aiguillage vers les 4 formations + formulaire. Pas de brochure PDF téléchargeable pour l'instant (décision de David, 07/10) : l'ancienne était téléchargée 29 fois par mois, à refaire plus tard si besoin.
 - [ ] David Rousseau réalisateur : texte et 7 liens (YouTube, Vimeo) repris de Wix.
 - [x] Redirections : les 13 anciennes pages de l'app IACTEUR (/loge, /solo, …), /iacteur, /creer, /ma-carriere, /casting vers iacteur.com ; les vieilles saisons vers le blog ou la bonne formation ; /faq (page vide chez Wix), /en-ligne (page de confinement) et trois pages de test vers l'accueil.
 - [x] Plan du site (sitemap.xml) prêt : à envoyer dans la Search Console le jour de la bascule.
