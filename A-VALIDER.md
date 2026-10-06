@@ -22,7 +22,7 @@ Mis à jour le 07/10/2026 : relecture de David faite (tout validé sauf les corr
 ## Stages, Partenaire de jeu, Book / Vidéo, Théâtre (06/10)
 - [x] Stage casting : prochaine session « début 2027 » ; plus aucune mention de financement AFDAS / France Travail (07/10). Le PDF de présentation est repris de Wix.
 - [x] Book / Vidéo : book photo 300 €, tout le reste sur devis (07/10).
-- [ ] Les 2 vidéos de la page Book / Vidéo sont encore lues depuis Wix : à mettre sur YouTube (ou Vimeo) avant la fin de l'abonnement Wix, puis me donner les liens.
+- [ ] Book / Vidéo : la bande démo est maintenant celle de Cindy (impro du 2 décembre, sous-titrée, dans le projet). La vidéo de présentation est encore lue depuis Wix : à remplacer avant septembre 2027.
 - [x] Partenaire de jeu : formulaire de parrainage (parrain, filleul, e-mail, téléphone, cours) → ADMIN > ÉCOLE.
 - [x] Théâtre : photos de la façade, du hall, de la salle et du plateau (dossier LE JEU 2026 / 08 EQUIPE / L'ORIFLAMME).
 - [x] Anciennes adresses Wix gardées : /book-vidéo, /théâtredeloriflamme, /équipe ; /stages mène à /stages-casting, /formations à l'accueil.

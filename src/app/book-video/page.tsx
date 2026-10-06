@@ -1,6 +1,7 @@
 // BOOK / VIDÉO — même adresse que sur Wix (/book-vidéo, voir next.config.ts).
-// Les deux vidéos sont encore lues depuis Wix : À METTRE SUR YOUTUBE avant la
-// fin de l'abonnement Wix (septembre 2027). Book photo : 300 € ; tout le reste sur devis (David, 07/10).
+// La vidéo de présentation est encore lue depuis Wix : À METTRE SUR YOUTUBE (ou
+// dans le projet) avant la fin de l'abonnement Wix (septembre 2027). La bande
+// démo est déjà dans le projet. Book photo : 300 € ; tout le reste sur devis (David, 07/10).
 import type { Metadata } from "next";
 import FormulaireContact from "@/components/FormulaireContact";
 import { Scene, Titre } from "@/components/Scene";
@@ -13,7 +14,10 @@ export const metadata: Metadata = {
 };
 
 const VIDEO_PRESENTATION = "https://video.wixstatic.com/video/7390a3_2c70ada5f2ec4624b289f552da4b53ef/1080p/mp4/file.mp4";
-const VIDEO_BANDE_DEMO = "https://video.wixstatic.com/video/7390a3_371277fb5b3b461d945de44fd5e64941/1080p/mp4/file.mp4";
+// Bande démo de Cindy (impro du 2 décembre, sous-titrée), choisie par David le 07/10 :
+// fichier du projet (public/video), plus lu depuis Wix.
+const VIDEO_BANDE_DEMO = "/video/cindy-bande-demo.mp4";
+const AFFICHE_BANDE_DEMO = "/video/cindy-bande-demo.jpg";
 
 function Tarif({ nom, prix, detail }: { nom: string; prix: string; detail: string }) {
   return (
@@ -99,7 +103,14 @@ export default function BookVideo() {
             Pas besoin d&apos;attendre les plateaux de télé ou de cinéma pour avancer : tourne tes propres images, explore
             des personnages, et montre ton talent.
           </p>
-          <video src={VIDEO_BANDE_DEMO} controls playsInline preload="metadata" className="w-full rounded-lg bg-black" />
+          <video
+            src={VIDEO_BANDE_DEMO}
+            poster={AFFICHE_BANDE_DEMO}
+            controls
+            playsInline
+            preload="none"
+            className="w-full rounded-lg bg-black"
+          />
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {(
               [
