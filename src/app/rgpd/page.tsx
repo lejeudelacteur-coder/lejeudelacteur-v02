@@ -40,7 +40,14 @@ const SECTIONS: { titre: string; paragraphes: string[] }[] = [
     paragraphes: [
       "Pour répondre à ta demande et te rappeler : c'est l'objet du formulaire que tu as envoyé (et tu coches une case pour l'accepter).",
       "Pour mesurer de façon anonyme quelles pages et quelles sources fonctionnent, afin d'améliorer le site : nous ne cherchons jamais à savoir qui tu es.",
-      "Aucune revente de données, aucun profilage commercial. Aucun cookie de publicité sur ce site à ce jour : si nous en ajoutons un, il ne s'activera qu'avec ton accord (bandeau).",
+      "Aucune revente de données, aucun profilage commercial.",
+    ],
+  },
+  {
+    titre: "Cookies et publicités",
+    paragraphes: [
+      "Le site n'utilise aucun cookie sans ton accord, à part l'identifiant anonyme de mesure décrit plus haut. Si tu cliques sur « Accepter » dans le bandeau, un pixel de Meta (Facebook et Instagram) se charge : il note les pages que tu consultes et les demandes que tu envoies, pour mesurer l'effet de nos publicités et les montrer à des personnes qui te ressemblent. Meta Platforms Ireland Ltd en est responsable pour son propre usage de ces données.",
+      "Si tu cliques sur « Refuser », ou si tu ne réponds pas, le pixel reste éteint. Ton choix est gardé 6 mois ; tu peux le changer à tout moment avec le lien « Gérer les cookies » en bas de chaque page.",
     ],
   },
   {

@@ -1,5 +1,6 @@
 // Les éléments de style « plateau de cinéma », communs à toutes les pages.
 import Link from "next/link";
+import GererCookies from "@/components/GererCookies";
 
 // Petit en-tête de scène : « SC. 01 · LE RÊVE »
 export function Scene({ numero, nom }: { numero: string; nom: string }) {
@@ -58,7 +59,8 @@ export function PiedDePage() {
         ·{" "}
         <Link href="/rgpd" className="underline">
           Mentions légales
-        </Link>
+        </Link>{" "}
+        · <GererCookies />
       </p>
       <p className="mt-4 text-xs">© Le Jeu de l&apos;Acteur 2019-2026</p>
     </footer>

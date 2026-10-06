@@ -1,6 +1,7 @@
 // Cadre commun à toutes les pages du site de l'école.
 import type { Metadata, Viewport } from "next";
 import { Anton, Nunito_Sans, Playfair_Display } from "next/font/google";
+import Consentement from "@/components/Consentement";
 import Menu from "@/components/Menu";
 import { PiedDePage } from "@/components/Scene";
 import Suivi from "@/components/Suivi";
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Menu />
         {children}
         <PiedDePage />
+        <Consentement />
       </body>
     </html>
   );

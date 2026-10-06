@@ -5,6 +5,7 @@
 import { useActionState, useEffect, useState } from "react";
 import { envoyerContact } from "@/app/contact/actions";
 import { lireProvenance } from "@/lib/provenance";
+import { evenementPixel } from "@/lib/pixel";
 
 const champ =
   "w-full rounded-md border border-secondaire/30 bg-black/40 px-4 py-3 text-base text-foreground placeholder:text-secondaire/60 focus:border-rouge focus:outline-none";
@@ -18,6 +19,10 @@ export default function FormulaireContact({ sujet = "autre" }: { sujet?: string 
       setProv({ source: p.source, campagne: p.campagne });
     });
   }, []);
+
+  useEffect(() => {
+    if (etat?.ok) evenementPixel("Lead");
+  }, [etat]);
 
   if (etat?.ok) return <p className="rounded-lg border border-rouge p-6 text-center text-lg">{etat.message}</p>;
 

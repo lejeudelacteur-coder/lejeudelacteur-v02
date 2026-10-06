@@ -8,6 +8,7 @@ import { envoyerCandidature, type EtatCandidature } from "./actions";
 import { QUESTIONS_INTENSIF } from "@/lib/candidature";
 import { estPasCompte, lireProvenance, premiereFois } from "@/lib/provenance";
 import { noterEtape } from "@/lib/suivi-actions";
+import { evenementPixel } from "@/lib/pixel";
 
 const TOTAL = QUESTIONS_INTENSIF.length + 1;
 const champ =
@@ -37,6 +38,7 @@ export default function Candidature() {
     const r = await envoyerCandidature(reponses, contact, lireProvenance());
     setResultat(r);
     setEnCours(false);
+    if (r?.ok) evenementPixel("Lead");
   }
 
   if (resultat?.ok) {

@@ -47,5 +47,9 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [x] Redirections : les 13 anciennes pages de l'app IACTEUR (/loge, /solo, …), /iacteur, /creer, /ma-carriere, /casting vers iacteur.com ; les vieilles saisons vers le blog ou la bonne formation ; /faq (page vide chez Wix), /en-ligne (page de confinement) et trois pages de test vers l'accueil.
 - [x] Plan du site (sitemap.xml) prêt : à envoyer dans la Search Console le jour de la bascule.
 
+## Pixel Meta (07/10)
+- [x] Le même pixel que sur Wix (1538718027568728) est repris, avec un bandeau « Accepter / Refuser » : il ne se charge qu'après accord, seulement sur le vrai domaine (pas sur l'aperçu), et envoie un événement « Lead » à chaque demande envoyée. Le lien « Gérer les cookies » est en bas de chaque page.
+- [ ] Le jour de la bascule : dans le Business Manager Meta, vérifier le domaine lejeudelacteur.com (comme sur Wix) et tester le pixel avec l'extension Meta Pixel Helper.
+
 ## Plus tard
 - [ ] contact@lejeudelacteur.com est une boîte Hostinger (https://mail.hostinger.com/). Laetitia n'y a pas accès : trouver la solution (redirection vers son adresse, ou accès partagé à la boîte), et lui expliquer pas à pas.
