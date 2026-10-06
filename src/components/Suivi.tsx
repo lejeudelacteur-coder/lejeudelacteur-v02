@@ -20,10 +20,23 @@ export default function Suivi() {
   useEffect(() => {
     function auClic(e: MouseEvent) {
       const lien = (e.target as Element | null)?.closest?.("a");
+      // Sur téléphone, un lien vers IACTEUR s'ouvre dans la MÊME fenêtre : dans
+      // un nouvel onglet, il n'y a pas de bouton « retour » et on reste coincé
+      // là-bas (David, 07/10). Sur ordinateur : nouvel onglet, comme prévu.
+      const ici =
+        !!lien &&
+        lien.target === "_blank" &&
+        /^https?:\/\/(www\.)?iacteur\.com(\/|$)/.test(lien.href) &&
+        window.matchMedia("(pointer: coarse)").matches;
+      if (ici) e.preventDefault();
+
       const cible = lien ? cibleDuLien(lien.getAttribute("href") ?? "") : null;
-      if (!cible || estPasCompte()) return;
-      const { source, session } = lireProvenance();
-      void noterClic(cible, window.location.pathname, source, session, visiteurAnonyme());
+      if (cible && !estPasCompte()) {
+        const { source, session } = lireProvenance();
+        void noterClic(cible, window.location.pathname, source, session, visiteurAnonyme());
+      }
+      // Un court instant, pour que le clic soit bien noté avant de quitter la page
+      if (ici && lien) setTimeout(() => window.location.assign(lien.href), 250);
     }
     document.addEventListener("click", auClic, true);
     return () => document.removeEventListener("click", auClic, true);
