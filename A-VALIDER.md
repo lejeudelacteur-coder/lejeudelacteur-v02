@@ -35,5 +35,10 @@ Mis à jour le 06/10/2026. Cocher ou corriger, puis le dire à Claude.
 - [x] Vercel : NEXT_PUBLIC_SUPABASE_URL et SUPABASE_SECRET_KEY ajoutées.
 - [x] Vercel : RESEND_API_KEY ajoutée le 06/10 (clé Resend « Site école »). Les e-mails partent de notifications@iacteur.com.
 
+## Blog (07/10)
+- [ ] Les 163 articles sont importés (mêmes adresses /post/<slug>, 5 catégories sur /news/categories/<slug>, images dans le projet). À parcourir par David : /news, puis quelques articles.
+- [ ] **Vidéos : 135 vidéos des articles sont encore lues depuis Wix** (≈ 4,7 Go en tout, hébergées sur video.wixstatic.com). Elles marchent tant que l'abonnement Wix court (jusqu'au 4 septembre 2027). Avant cette date : les mettre sur YouTube (ou un stockage), et remplacer les liens. Les 43 vidéos YouTube des articles, elles, sont déjà indépendantes.
+- [ ] Les pages de tags de Wix (/news/tags/…) n'existent pas dans la nouvelle version ; elles ne figuraient pas dans le plan du site.
+
 ## Plus tard
 - [ ] contact@lejeudelacteur.com est une boîte Hostinger (https://mail.hostinger.com/). Laetitia n'y a pas accès : trouver la solution (redirection vers son adresse, ou accès partagé à la boîte), et lui expliquer pas à pas.
