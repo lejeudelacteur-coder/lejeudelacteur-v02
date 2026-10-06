@@ -62,3 +62,117 @@ h3 {
     animation: none;
   }
 }
+
+/* ── BLOG (07/10) : le texte des articles, repris de Wix ── */
+.article-corps {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.article-corps > * + *,
+.article-corps-bloc > * + * {
+  margin-top: 1.25rem;
+}
+.article-corps h2,
+.article-corps h3,
+.article-corps h4,
+.article-corps h5,
+.article-corps h6 {
+  font-family: var(--font-anton), sans-serif;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-top: 2.5rem;
+}
+.article-corps h2 {
+  font-size: 2rem;
+}
+.article-corps h3 {
+  font-size: 1.6rem;
+  color: var(--rouge);
+}
+.article-corps h4,
+.article-corps h5,
+.article-corps h6 {
+  font-size: 1.25rem;
+}
+.article-corps a {
+  text-decoration: underline;
+  text-decoration-color: var(--rouge);
+  text-underline-offset: 3px;
+}
+.article-corps ul,
+.article-corps ol {
+  padding-left: 1.5rem;
+}
+.article-corps ul {
+  list-style: disc;
+}
+.article-corps ol {
+  list-style: decimal;
+}
+.article-corps li + li {
+  margin-top: 0.4rem;
+}
+.article-corps blockquote {
+  border-left: 3px solid var(--rouge);
+  padding-left: 1rem;
+  font-family: var(--font-playfair), serif;
+  font-style: italic;
+  font-size: 1.25rem;
+}
+.article-corps blockquote p + p {
+  margin-top: 0.75rem;
+}
+.article-corps hr {
+  border-color: rgb(189 178 166 / 0.25);
+  margin-block: 2rem;
+}
+.article-corps img,
+.article-corps video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+.article-corps figure figcaption,
+.article-corps .legende {
+  font-size: 0.875rem;
+  color: var(--secondaire);
+  margin-top: 0.5rem;
+}
+.article-corps .galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.5rem;
+}
+.article-corps .bouton a {
+  display: inline-block;
+  background: var(--rouge);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 0.375rem;
+  font-family: var(--font-anton), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.article-corps .tableau {
+  overflow-x: auto;
+}
+.article-corps table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1rem;
+}
+.article-corps td {
+  border: 1px solid rgb(189 178 166 / 0.3);
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+}
+.article-corps pre {
+  overflow-x: auto;
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}

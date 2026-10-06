@@ -22,6 +22,8 @@ const nextConfig: NextConfig = {
       // Anciennes pages Wix regroupées
       { source: "/stages", destination: "/stages-casting", permanent: true },
       { source: "/formations", destination: "/", permanent: true },
+      // Catégorie du blog sans aucun article : retour à la liste
+      { source: "/news/categories/sacr%C3%A9-coeur", destination: "/news", permanent: true },
     ];
   },
 };

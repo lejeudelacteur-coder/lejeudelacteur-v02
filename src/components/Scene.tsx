@@ -51,6 +51,11 @@ export function PiedDePage() {
           contact@lejeudelacteur.com
         </a>
       </p>
+      <p className="mt-3">
+        <Link href="/news" className="underline">
+          Le blog
+        </Link>
+      </p>
       <p className="mt-4 text-xs">© Le Jeu de l&apos;Acteur 2019-2026</p>
     </footer>
   );
