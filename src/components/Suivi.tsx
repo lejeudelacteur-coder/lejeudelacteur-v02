@@ -6,7 +6,7 @@
 // Note aussi les liens de contact touchés (téléphone, e-mail, IACTEUR…).
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { noterClic, noterVisite } from "@/lib/suivi-actions";
+import { noterClic, noterVisite, signeDeVie } from "@/lib/suivi-actions";
 import { cibleDuLien, estPasCompte, lireProvenance, visiteurAnonyme } from "@/lib/provenance";
 
 export default function Suivi() {
@@ -15,6 +15,22 @@ export default function Suivi() {
     if (estPasCompte()) return;
     const { source, campagne, session } = lireProvenance();
     void noterVisite(page, source, campagne, session, visiteurAnonyme());
+  }, [page]);
+
+  // Signe de vie : à chaque page, puis chaque minute tant que le site est à l'écran
+  useEffect(() => {
+    function battre() {
+      if (estPasCompte() || document.visibilityState !== "visible") return;
+      const { source, session } = lireProvenance();
+      void signeDeVie(window.location.pathname, visiteurAnonyme() || session, source);
+    }
+    battre();
+    const minuteur = setInterval(battre, 60_000);
+    document.addEventListener("visibilitychange", battre);
+    return () => {
+      clearInterval(minuteur);
+      document.removeEventListener("visibilitychange", battre);
+    };
   }, [page]);
 
   useEffect(() => {

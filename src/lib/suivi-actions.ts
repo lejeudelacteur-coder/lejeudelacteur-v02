@@ -59,3 +59,24 @@ export async function noterEtape(formation: string, etape: number, session: stri
   if (estUnRobot(ua)) return;
   await base().from("ecole_etapes").insert({ formation: court(formation, 40), etape, session: court(session, 60) });
 }
+
+// « Sur le site en ce moment » (07/10) : une ligne par visiteur, mise à jour
+// chaque minute tant que le site est à l'écran (pas de robot, pas de test).
+export async function signeDeVie(page: string, visiteur: string, source: string) {
+  if (EN_TEST || !visiteur) return;
+  const ua = (await headers()).get("user-agent");
+  if (estUnRobot(ua)) return;
+  const b = base();
+  await b.from("ecole_presence").upsert({
+    visiteur: court(visiteur, 60),
+    page: court(page, 200),
+    source: court(source),
+    appareil: court(ua, 300),
+    derniere_vue: new Date().toISOString(),
+    ...(await lieu()),
+  });
+  // Ménage : de temps en temps, on efface les lignes de plus d'un jour
+  if (Math.random() < 0.02) {
+    await b.from("ecole_presence").delete().lt("derniere_vue", new Date(Date.now() - 24 * 3600 * 1000).toISOString());
+  }
+}
