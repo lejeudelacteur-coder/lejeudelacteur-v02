@@ -8,6 +8,7 @@ import CarteArticle from "@/components/CarteArticle";
 import CorpsArticle from "@/components/CorpsArticle";
 import { BoutonRouge } from "@/components/Scene";
 import CtaArticle from "@/components/CtaArticle";
+import VuesDavid from "@/components/VuesDavid";
 import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur } from "@/lib/blog";
 
 export const dynamicParams = false;
@@ -72,7 +73,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
         <h1 className="font-affiche text-[2.6rem] uppercase leading-[0.98] sm:text-6xl">{a.titre}</h1>
         <p className="text-sm text-secondaire">
           David Rousseau · {dateFr(a.date)}
-          {a.lecture && ` · ${a.lecture}`}
+          {a.lecture && ` · ${a.lecture}`} <VuesDavid slug={a.slug} className="text-rouge" />
         </p>
       </header>
 

@@ -1,6 +1,7 @@
 // Une carte d'article dans les listes du blog.
 import Image from "next/image";
 import Link from "next/link";
+import VuesDavid from "@/components/VuesDavid";
 import { dateFr, type Article } from "@/lib/blog";
 
 export default function CarteArticle({ a }: { a: Article }) {
@@ -18,6 +19,7 @@ export default function CarteArticle({ a }: { a: Article }) {
           </p>
           <h3 className="font-affiche text-2xl uppercase leading-tight group-hover:text-rouge">{a.titre}</h3>
           <p className="line-clamp-3 text-sm text-secondaire">{a.description}</p>
+          <VuesDavid slug={a.slug} className="text-xs text-rouge" />
         </div>
       </Link>
     </li>

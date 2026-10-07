@@ -47,6 +47,7 @@ Aperçu en ligne : https://lejeudelacteur-v02.vercel.app (projet Vercel « lejeu
   Nicolas Laurent (comédien, coach d'acting), Laetitia Gaune (directrice de
   casting, cofondatrice), Aureck (cascade), Isabelle Delaetre (techniques de respiration).
 - Ne JAMAIS écrire « sophrologie » sur le site (décision de David, 06/10/2026, liée au dossier de certification) : dire « techniques de respiration ».
+  EXCEPTION (David, 07/10/2026) : les 163 articles de blog repris de Wix sont gardés tels quels, y compris « La Sophrologie pour le jeu de l'Acteur » et 4 autres qui citent le mot. La règle vaut pour tout NOUVEAU texte.
 - Partenaire de jeu (« Viens à deux »), UNIQUEMENT pour les formations pro :
   Intensif = un mois de formation offert à chacun (328 €/mois au lieu de 365) ;
   Pro du lundi = 10 % de réduction (à l'année ou en cartes de 5 et 10 cours).
