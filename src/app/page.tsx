@@ -4,6 +4,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import BandeauIacteur from "@/components/BandeauIacteur";
 import FormulaireContact from "@/components/FormulaireContact";
 import { BoutonRouge, Scene, Titre } from "@/components/Scene";
 
@@ -160,17 +161,7 @@ export default function Accueil() {
         </section>
 
         {/* ── IACTEUR ── */}
-        <section className="flex flex-col gap-5 rounded-lg bg-surface p-6 sm:flex-row sm:items-center sm:p-8">
-          <div className="flex flex-1 flex-col gap-3">
-            <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">Né à l&apos;école</p>
-            <p className="font-affiche text-4xl uppercase leading-none">IACTEUR</p>
-            <p className="text-lg">
-              L&apos;espace personnel de l&apos;acteur : textes, coaching, carrière, et les castings qui te correspondent.
-              Gratuit pour commencer.
-            </p>
-          </div>
-          <BoutonRouge href="https://iacteur.com">Entrer dans IACTEUR</BoutonRouge>
-        </section>
+        <BandeauIacteur />
 
         {/* ── Le lieu ── */}
         <section className="flex flex-col gap-6">

@@ -1,6 +1,8 @@
 // La liste paginée du blog (page /news et pages des catégories).
 import Link from "next/link";
+import BandeauIacteur from "@/components/BandeauIacteur";
 import CarteArticle from "@/components/CarteArticle";
+import CtaArticle from "@/components/CtaArticle";
 import { BoutonRouge, Titre } from "@/components/Scene";
 import { ARTICLES, PAR_PAGE, categories, type Article } from "@/lib/blog";
 
@@ -85,13 +87,21 @@ export default function ListeArticles({
         </nav>
       )}
 
-      <section className="mt-6 flex flex-col gap-3 rounded-lg border-2 border-rouge p-6 sm:p-8">
-        <Titre rouge="d'acteur ?">Envie de jouer ta vie</Titre>
-        <p className="max-w-2xl text-lg">Viens essayer un cours à Avignon : le premier cours d&apos;essai est gratuit.</p>
-        <div>
-          <BoutonRouge href="/cours-loisirs#contact">Mon cours d&apos;essai gratuit</BoutonRouge>
-        </div>
-      </section>
+      <div className="mt-6 flex flex-col gap-6">
+        <CtaArticle
+          acteur
+          ecole={
+            <section className="flex flex-col gap-3 rounded-lg border-2 border-rouge p-6 sm:p-8">
+              <Titre rouge="d'acteur ?">Envie de jouer ta vie</Titre>
+              <p className="max-w-2xl text-lg">Viens essayer un cours à Avignon : le premier cours d&apos;essai est gratuit.</p>
+              <div>
+                <BoutonRouge href="/cours-loisirs#contact">Mon cours d&apos;essai gratuit</BoutonRouge>
+              </div>
+            </section>
+          }
+          iacteur={<BandeauIacteur />}
+        />
+      </div>
     </main>
   );
 }

@@ -1,5 +1,6 @@
 // STAGE CASTING — même adresse que sur Wix (/stages-casting). La page Wix
 // /stages (une simple liste) mène ici (voir next.config.ts).
+import BandeauIacteur from "@/components/BandeauIacteur";
 import type { Metadata } from "next";
 import Image from "next/image";
 import FormulaireContact from "@/components/FormulaireContact";
@@ -69,6 +70,9 @@ export default function StagesCasting() {
           <p className="font-affiche text-4xl uppercase leading-none">Début 2027</p>
           <p className="text-lg">Les dates arrivent bientôt. Laisse-nous tes coordonnées pour être prévenu·e en premier.</p>
         </section>
+
+        {/* IACTEUR est offert aux élèves (David, 07/10) */}
+        <BandeauIacteur variante="eleves" />
 
         <section id="contact" className="flex scroll-mt-20 flex-col gap-6">
           <Scene numero="02" nom="À toi de jouer" />
