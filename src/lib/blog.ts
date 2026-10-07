@@ -49,6 +49,16 @@ export function categories() {
 
 export const PAR_PAGE = 12;
 
+// Les articles qui parlent du TRAVAIL d'acteur (exercices, monologues, castings,
+// préparation, jeu face caméra, bande démo, IACTEUR…) : on y ajoute le bandeau
+// IACTEUR pour tout le monde (07/10). Les articles d'histoire du cinéma ou de
+// vocabulaire du théâtre n'en ont pas.
+const TRAVAIL_ACTEUR =
+  /monologue|exercice|jeu d.acteur|jeu face|jeu non verbal|improvisation|impro face|casting|bande d[ée]mo|travail [àa] l.image|travail de table|filage|italienne|didascalies|soliloque|se pr[ée]parer|shooting photo|iacteur|rendre son jeu|adapter son jeu|l.[ée]coute|pr[ée]sentation professionnelle|o\.q\.p|remplacer l.acteur/i;
+export function estArticleActeur(a: Article) {
+  return TRAVAIL_ACTEUR.test(a.titre) && !/^LE SHOOTING DU JOUR$/i.test(a.titre.trim());
+}
+
 const sansAccents = (t: string) => t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
 // RECHERCHE (07/10) : tous les mots doivent se retrouver dans l'article (titre,

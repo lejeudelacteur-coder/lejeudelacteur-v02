@@ -7,7 +7,8 @@ import { notFound } from "next/navigation";
 import CarteArticle from "@/components/CarteArticle";
 import CorpsArticle from "@/components/CorpsArticle";
 import { BoutonRouge } from "@/components/Scene";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder } from "@/lib/blog";
+import CtaArticle from "@/components/CtaArticle";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -85,13 +86,44 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
 
       {a.tags.length > 0 && <p className="text-sm text-secondaire">{a.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join("  ")}</p>}
 
-      <section className="flex flex-col gap-3 rounded-lg border-2 border-rouge p-6">
-        <p className="font-affiche text-3xl uppercase leading-none">Envie de jouer ?</p>
-        <p className="text-lg">Viens essayer un cours à Avignon, théâtre et cinéma : le premier cours d&apos;essai est gratuit.</p>
-        <div>
-          <BoutonRouge href="/cours-loisirs#contact">Mon cours d&apos;essai gratuit</BoutonRouge>
-        </div>
-      </section>
+      <CtaArticle
+        acteur={estArticleActeur(a)}
+        ecole={
+          <section className="flex flex-col gap-3 rounded-lg border-2 border-rouge p-6">
+            <p className="font-affiche text-3xl uppercase leading-none">Envie de jouer ?</p>
+            <p className="text-lg">Viens essayer un cours à Avignon, théâtre et cinéma : le premier cours d&apos;essai est gratuit.</p>
+            <div>
+              <BoutonRouge href="/cours-loisirs#contact">Mon cours d&apos;essai gratuit</BoutonRouge>
+            </div>
+          </section>
+        }
+        iacteur={
+          <section className="relative overflow-hidden rounded-lg border-2 border-rouge bg-surface">
+            <div className="flex flex-col gap-3 p-6 pr-6 sm:w-3/5">
+              <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">IACTEUR · l&apos;espace personnel de l&apos;acteur</p>
+              <p className="font-affiche text-3xl uppercase leading-none">Les castings viennent à toi.</p>
+              <p className="text-lg">
+                Crée ta fiche casting, gratuitement : IACTEUR te propose les rôles qui te correspondent. Tes textes,
+                ton coaching et le suivi de ta carrière sont dedans.
+              </p>
+              <p className="font-accent text-lg italic">Conçu par des comédiens, pour des comédiens.</p>
+              <div className="relative z-10">
+                <BoutonRouge href="https://iacteur.com">Entrer dans IACTEUR</BoutonRouge>
+              </div>
+            </div>
+            {/* Le téléphone dépasse du cadre par le bas : on n'en voit que le haut */}
+            <div className="relative mx-auto -mt-4 mb-0 h-72 w-64 overflow-hidden sm:absolute sm:bottom-0 sm:right-4 sm:m-0 sm:h-[105%] sm:w-64">
+              <Image
+                src="/iacteur/telephone-fiche.png"
+                alt="La fiche casting d'IACTEUR sur un iPhone"
+                fill
+                sizes="256px"
+                className="object-cover object-top"
+              />
+            </div>
+          </section>
+        }
+      />
 
       {voisins.length > 0 && (
         <section className="flex flex-col gap-4">
