@@ -55,6 +55,25 @@ export const PAR_PAGE = 12;
 // vocabulaire du théâtre n'en ont pas.
 const TRAVAIL_ACTEUR =
   /monologue|exercice|jeu d.acteur|jeu face|jeu non verbal|improvisation|impro face|casting|bande d[ée]mo|travail [àa] l.image|travail de table|filage|italienne|didascalies|soliloque|se pr[ée]parer|shooting photo|iacteur|rendre son jeu|adapter son jeu|l.[ée]coute|pr[ée]sentation professionnelle|o\.q\.p|remplacer l.acteur/i;
+
+// LES ARTICLES QUI AMÈNENT DU MONDE (08/10/2026) : les plus lus, venus de loin. Pas de cours
+// à Avignon pour eux ; IACTEUR en haut de l'article, à la place. À réviser avec les statistiques.
+const ARTICLES_IACTEUR = new Set([
+  "qu-est-ce-qu-une-italienne-et-une-allemande",
+  "10-exercices-de-théâtre-pour-débutants-apprendre-à-jouer-en-s-amusant",
+  "le-plan-d-ensemble-au-cinéma-cadrer-l-espace-raconter-l-histoire",
+  "le7èmeart",
+  "exercices-jeu-dacteur",
+  "qu-es-ce-qu-une-scène-d-exposition",
+  "la-règle-des-trois-unités",
+  "qu-est-ce-que-le-métier-de-hmc-dans-l-audiovisuel",
+  "le-fusil-de-tchekhov-un-principe-dramaturgique-essentiel",
+  "la-catharsis-un-voyage-émotionnel-à-travers-le-théâtre",
+  "le-grotesque-au-théâtre-c-est-quoi",
+  "le-comique-de-répétition",
+]);
+export const articlePourIacteur = (a: Article) => ARTICLES_IACTEUR.has(a.slug);
+
 export function estArticleActeur(a: Article) {
   return TRAVAIL_ACTEUR.test(a.titre) && !/^LE SHOOTING DU JOUR$/i.test(a.titre.trim());
 }

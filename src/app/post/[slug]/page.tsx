@@ -10,7 +10,7 @@ import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, articlePourIacteur } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -37,10 +37,29 @@ export async function generateMetadata({ params }: PageProps<"/post/[slug]">): P
   };
 }
 
+// Pour les articles « IACTEUR d'abord » : on coupe le texte vers le premier tiers, à la fin d'un
+// paragraphe qui n'est ni dans une liste ni dans une citation, et le bandeau s'y glisse.
+function couperVersLeTiers(html: string): [string, string] {
+  const debut = Math.floor(html.length * 0.3);
+  const fin = /<\/p>/g;
+  fin.lastIndex = debut;
+  for (let m = fin.exec(html); m; m = fin.exec(html)) {
+    const avant = html.slice(0, m.index + 4);
+    const ouvre = (balise: string) => (avant.match(new RegExp(`<${balise}[ >]`, "g")) ?? []).length;
+    const ferme = (balise: string) => (avant.match(new RegExp(`</${balise}>`, "g")) ?? []).length;
+    if (ouvre("li") === ferme("li") && ouvre("blockquote") === ferme("blockquote") && ouvre("ul") === ferme("ul") && ouvre("ol") === ferme("ol")) {
+      return [avant, html.slice(avant.length)];
+    }
+  }
+  return [html, ""];
+}
+
 export default async function Article({ params }: PageProps<"/post/[slug]">) {
   const a = articleParSlug(decoder((await params).slug));
   if (!a) notFound();
   const html = await corpsArticle(a);
+  const iacteurDabord = articlePourIacteur(a);
+  const [debutHtml, suiteHtml] = iacteurDabord ? couperVersLeTiers(html) : [html, ""];
   const voisins = ARTICLES.filter((x) => x.slug !== a.slug && x.categories.some((c) => a.categories.some((d) => d.slug === c.slug))).slice(0, 3);
   const schema = {
     "@context": "https://schema.org",
@@ -84,10 +103,19 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
         </div>
       )}
 
-      <CorpsArticle html={html} titre={a.titre} />
+      {iacteurDabord ? (
+        <>
+          <CorpsArticle html={debutHtml} titre={a.titre} />
+          <BandeauIacteur />
+          {suiteHtml && <CorpsArticle html={suiteHtml} titre={a.titre} />}
+        </>
+      ) : (
+        <CorpsArticle html={html} titre={a.titre} />
+      )}
 
       {a.tags.length > 0 && <p className="text-sm text-secondaire">{a.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join("  ")}</p>}
 
+      {!iacteurDabord && (
       <CtaArticle
         acteur={estArticleActeur(a)}
         ecole={
@@ -101,6 +129,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
         }
         iacteur={<BandeauIacteur />}
       />
+      )}
 
       {voisins.length > 0 && (
         <section className="flex flex-col gap-4">
