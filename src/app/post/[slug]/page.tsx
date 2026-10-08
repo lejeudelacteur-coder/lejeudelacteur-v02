@@ -10,7 +10,7 @@ import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, articlePourIacteur } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, articlePourIacteur, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -61,6 +61,13 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
   const iacteurDabord = articlePourIacteur(a);
   const [debutHtml, suiteHtml] = iacteurDabord ? couperVersLeTiers(html) : [html, ""];
   const voisins = ARTICLES.filter((x) => x.slug !== a.slug && x.categories.some((c) => a.categories.some((d) => d.slug === c.slug))).slice(0, 3);
+  // Liens vers les plus lus et les plus récents (jamais l'article lui-même ni ceux déjà proposés) ;
+  // la sélection tourne d'un article à l'autre pour que tous reçoivent des liens
+  const dejaVus = new Set([a.slug, ...voisins.map((v) => v.slug)]);
+  const rang = Math.max(0, ARTICLES.findIndex((x) => x.slug === a.slug));
+  const tourner = <T,>(liste: T[], n: number) => (liste.length ? Array.from({ length: Math.min(n, liste.length) }, (_, i) => liste[(rang + i) % liste.length]) : []);
+  const plusLus = tourner(LES_PLUS_LUS.filter((x) => !dejaVus.has(x.slug)), 4);
+  const plusRecents = tourner(LES_PLUS_RECENTS.filter((x) => !dejaVus.has(x.slug) && !plusLus.some((y) => y.slug === x.slug)), 4);
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -141,6 +148,25 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
           </ul>
         </section>
       )}
+      <div className="grid gap-8 border-t border-secondaire/20 pt-8 sm:grid-cols-2">
+        {[
+          ["Les plus lus", plusLus],
+          ["Les plus récents", plusRecents],
+        ].map(([titre, liste]) => (
+          <nav key={titre as string} aria-label={titre as string} className="flex flex-col gap-3">
+            <h2 className="font-affiche text-2xl uppercase">{titre as string}</h2>
+            <ul className="flex flex-col gap-2">
+              {(liste as typeof plusLus).map((x) => (
+                <li key={x.slug}>
+                  <Link href={`/post/${encodeURIComponent(x.slug)}`} className="underline hover:text-rouge">
+                    {x.titre}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+      </div>
     </main>
   );
 }

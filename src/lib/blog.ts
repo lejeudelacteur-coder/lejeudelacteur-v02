@@ -72,6 +72,10 @@ const ARTICLES_IACTEUR = new Set([
   "le-grotesque-au-théâtre-c-est-quoi",
   "le-comique-de-répétition",
 ]);
+// Les plus lus, dans l'ordre du classement (08/10/2026), et les plus récents : proposés
+// en fin d'article pour relier les articles entre eux.
+export const LES_PLUS_LUS = ARTICLES.length ? [...ARTICLES_IACTEUR].map((s) => ARTICLES.find((a) => a.slug === s)).filter((a): a is Article => !!a) : [];
+export const LES_PLUS_RECENTS = ARTICLES.slice(0, 12);
 export const articlePourIacteur = (a: Article) => ARTICLES_IACTEUR.has(a.slug);
 
 export function estArticleActeur(a: Article) {
