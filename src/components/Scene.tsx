@@ -42,7 +42,7 @@ export function PiedDePage() {
     <footer className="border-t border-secondaire/20 px-5 py-10 text-center text-sm text-secondaire">
       <p className="font-affiche text-2xl uppercase text-foreground">Le Jeu de l&apos;Acteur</p>
       <p className="mt-1">École de comédiens, théâtre &amp; cinéma</p>
-      <p className="mt-3">Théâtre de l&apos;Oriflamme · 5 rue Portail Matheron · 84000 Avignon</p>
+      <p className="mt-3">Théâtre de l&apos;Oriflamme · 5&nbsp;rue&nbsp;Portail&nbsp;Matheron · 84000&nbsp;Avignon</p>
       <p className="mt-1">
         <a href="tel:+33623181579" className="underline">
           06 23 18 15 79
