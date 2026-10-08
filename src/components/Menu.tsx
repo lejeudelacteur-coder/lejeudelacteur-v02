@@ -2,7 +2,6 @@
 
 // Menu du site de l'école : en haut, fixe. Sur téléphone, un bouton ☰ ouvre
 // la liste ; sur ordinateur, les liens sont visibles directement.
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -38,8 +37,8 @@ export default function Menu() {
   return (
     <header className="sticky top-0 z-40 border-b border-secondaire/15 bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3">
-        <Link href="/" aria-label="Le Jeu de l'Acteur, Avignon — accueil">
-          <Image src="/logo/jeu-de-lacteur-blanc.png" alt="Le Jeu de l'Acteur" width={1400} height={87} priority className="h-auto w-[190px]" />
+        <Link href="/" className="font-affiche text-xl uppercase tracking-wide">
+          Le Jeu de l&apos;<span className="text-rouge">A</span>cteur
         </Link>
         <nav className="hidden items-center gap-4 lg:flex">
           {LIENS.map((l) => (
