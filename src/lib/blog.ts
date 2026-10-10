@@ -78,6 +78,15 @@ export const LES_PLUS_LUS = ARTICLES.length ? [...ARTICLES_IACTEUR].map((s) => A
 export const LES_PLUS_RECENTS = ARTICLES.slice(0, 12);
 export const articlePourIacteur = (a: Article) => ARTICLES_IACTEUR.has(a.slug);
 
+// CV PRO (10/10/2026) : les articles sur le casting et le monde du travail, où le
+// bandeau IACTEUR devient « Ton CV d'acteur Pro, gratuit » (titre et mots-clés).
+const METIER =
+  /casting|audition|bande d[ée]mo|self.?tape|\bagents?\b|\bcv\b|\bbook\b|shooting photo|figuration|silhouette|pr[ée]sentation professionnelle|intermitten/i;
+export function estArticleMetier(a: Article) {
+  // Le TITRE seul : les mots-clés des articles sont trop larges (« métier », « carrière »…)
+  return METIER.test(a.titre) && !/^LE SHOOTING DU JOUR$/i.test(a.titre.trim()) && !/iacteur/i.test(a.titre);
+}
+
 export function estArticleActeur(a: Article) {
   return TRAVAIL_ACTEUR.test(a.titre) && !/^LE SHOOTING DU JOUR$/i.test(a.titre.trim());
 }

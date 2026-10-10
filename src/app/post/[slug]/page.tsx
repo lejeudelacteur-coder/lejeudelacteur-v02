@@ -10,7 +10,7 @@ import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, articlePourIacteur, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, articlePourIacteur, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -59,6 +59,9 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
   if (!a) notFound();
   const html = await corpsArticle(a);
   const iacteurDabord = articlePourIacteur(a);
+  // CV PRO (10/10, David) : bandeau « Ton CV d'acteur Pro » sur les articles casting / métier,
+  // les plus lus (ceux qui amènent du monde) et les 12 plus récents ; ailleurs, le bandeau habituel
+  const metier = estArticleMetier(a) || articlePourIacteur(a) || LES_PLUS_RECENTS.some((x) => x.slug === a.slug);
   const [debutHtml, suiteHtml] = iacteurDabord ? couperVersLeTiers(html) : [html, ""];
   const voisins = ARTICLES.filter((x) => x.slug !== a.slug && x.categories.some((c) => a.categories.some((d) => d.slug === c.slug))).slice(0, 3);
   // Liens vers les plus lus et les plus récents (jamais l'article lui-même ni ceux déjà proposés) ;
@@ -113,7 +116,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
       {iacteurDabord ? (
         <>
           <CorpsArticle html={debutHtml} titre={a.titre} />
-          <BandeauIacteur />
+          <BandeauIacteur variante={metier ? "cv" : "public"} />
           {suiteHtml && <CorpsArticle html={suiteHtml} titre={a.titre} />}
         </>
       ) : (
@@ -134,7 +137,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
             </div>
           </section>
         }
-        iacteur={<BandeauIacteur />}
+        iacteur={<BandeauIacteur variante={metier ? "cv" : "public"} />}
       />
       )}
 
