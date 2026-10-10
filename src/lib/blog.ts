@@ -35,6 +35,16 @@ export async function corpsArticle(a: Article) {
   return readFile(path.join(process.cwd(), "src/content/blog/corps", `${a.fichier}.html`), "utf8");
 }
 
+// LE GROS CLAP ROUGE (David, 10/10/2026) : l'image de fin d'article reprise de Wix,
+// qui renvoyait vers l'ancienne lettre Substack, est obsolète. On la retire à
+// l'affichage (les textes importés ne sont pas modifiés) et l'article affiche à
+// la place le bandeau IACTEUR de fin d'article.
+const CLAP = /<figure>(?:(?!<\/figure>)[\s\S])*?2b942a_47e3a774bc3049abb75856bb40e472f2(?:(?!<\/figure>)[\s\S])*?<\/figure>/g;
+export function retirerClap(html: string) {
+  const sans = html.replace(CLAP, "");
+  return { html: sans, avaitClap: sans.length !== html.length };
+}
+
 export function categories() {
   const m = new Map<string, { slug: string; nom: string; nombre: number }>();
   for (const a of ARTICLES) {

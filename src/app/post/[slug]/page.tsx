@@ -10,7 +10,7 @@ import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, articlePourIacteur, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, articlePourIacteur, retirerClap, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -57,7 +57,7 @@ function couperVersLeTiers(html: string): [string, string] {
 export default async function Article({ params }: PageProps<"/post/[slug]">) {
   const a = articleParSlug(decoder((await params).slug));
   if (!a) notFound();
-  const html = await corpsArticle(a);
+  const { html, avaitClap } = retirerClap(await corpsArticle(a));
   const iacteurDabord = articlePourIacteur(a);
   // CV PRO (10/10, David) : bandeau « Ton CV d'acteur Pro » sur les articles casting / métier,
   // les plus lus (ceux qui amènent du monde) et les 12 plus récents ; ailleurs, le bandeau habituel
@@ -127,7 +127,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
 
       {!iacteurDabord && (
       <CtaArticle
-        acteur={estArticleActeur(a)}
+        acteur={estArticleActeur(a) || avaitClap}
         ecole={
           <section className="flex flex-col gap-3 rounded-lg border-2 border-rouge p-6">
             <p className="font-affiche text-3xl uppercase leading-none">Envie de jouer ?</p>
