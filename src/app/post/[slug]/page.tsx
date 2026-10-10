@@ -10,7 +10,7 @@ import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, articlePourIacteur, articlesLies, nettoyerCorps, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, articlePourIacteur, articlesLies, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -65,9 +65,11 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
   const [debutHtml, suiteHtml] = iacteurDabord ? couperVersLeTiers(html) : [html, ""];
   // MAILLAGE (10/10) : les articles du même SUJET ; le plus proche est proposé dans le texte
   // (« À lire aussi », vers les deux tiers d'un article assez long), les 3 suivants en fin d'article
-  const lies = articlesLies(a, 4);
-  const dansLeTexte = html.length > 3500 ? lies[0] : undefined;
-  const voisins = (dansLeTexte ? lies.slice(1) : lies).slice(0, 3);
+  // Dans les articles casting / métier, le lien du texte mène à l'article sur le CV d'acteur (même court)
+  const articleCv = estArticleMetier(a) && a.slug !== SLUG_ARTICLE_CV ? articleParSlug(SLUG_ARTICLE_CV) : undefined;
+  const lies = articlesLies(a, 4).filter((x) => x.slug !== articleCv?.slug);
+  const dansLeTexte = articleCv ?? (html.length > 3500 ? lies[0] : undefined);
+  const voisins = (dansLeTexte && !articleCv ? lies.slice(1) : lies).slice(0, 3);
   // Dans un article « IACTEUR d'abord », le bandeau est déjà au premier tiers : le lien va dans la suite
   const [avantLien, apresLien] = dansLeTexte
     ? iacteurDabord
@@ -159,7 +161,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
 
       {!iacteurDabord && (
       <CtaArticle
-        acteur={estArticleActeur(a) || avaitClap}
+        acteur={estArticleActeur(a) || avaitClap || metier}
         ecole={
           <section className="flex flex-col gap-3 rounded-lg border-2 border-rouge p-6">
             <p className="font-affiche text-3xl uppercase leading-none">Envie de jouer ?</p>

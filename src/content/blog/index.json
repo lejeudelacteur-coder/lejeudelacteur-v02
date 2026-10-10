@@ -1,5 +1,36 @@
 [
  {
+  "slug": "le-cv-d-acteur-comment-le-faire-et-le-faire-bien",
+  "fichier": "p164",
+  "titre": "Le CV d'acteur : comment le faire, et le faire bien",
+  "date": "2026-10-10",
+  "modifie": "2026-10-10",
+  "description": "Photos, rubriques, une ligne par œuvre, débutants, erreurs à éviter : tout pour faire un CV d'acteur clair et professionnel, qui donne envie de vous voir.",
+  "couverture": "cv-acteur-couverture.jpg",
+  "miniature": "cv-acteur-couverture-m.jpg",
+  "largeur": 1600,
+  "hauteur": 900,
+  "categories": [
+   {
+    "slug": "actualités",
+    "nom": "Actualités"
+   }
+  ],
+  "tags": [
+   "cv",
+   "cv d'acteur",
+   "cv de comédien",
+   "casting",
+   "comédien",
+   "comédienne",
+   "book photos",
+   "bande démo",
+   "directrice de casting",
+   "fiche casting"
+  ],
+  "lecture": "5 min de lecture"
+ },
+ {
   "slug": "casting-call-dans-iacteur-comment-ça-marche",
   "fichier": "p001",
   "titre": "CASTING CALL dans IACTEUR, comment ça marche ?",
