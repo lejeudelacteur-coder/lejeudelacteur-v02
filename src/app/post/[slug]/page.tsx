@@ -10,7 +10,7 @@ import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, articlePourIacteur, retirerClap, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, articlePourIacteur, articlesLies, nettoyerCorps, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -39,8 +39,8 @@ export async function generateMetadata({ params }: PageProps<"/post/[slug]">): P
 
 // Pour les articles « IACTEUR d'abord » : on coupe le texte vers le premier tiers, à la fin d'un
 // paragraphe qui n'est ni dans une liste ni dans une citation, et le bandeau s'y glisse.
-function couperVersLeTiers(html: string): [string, string] {
-  const debut = Math.floor(html.length * 0.3);
+function couperVersLeTiers(html: string, part = 0.3): [string, string] {
+  const debut = Math.floor(html.length * part);
   const fin = /<\/p>/g;
   fin.lastIndex = debut;
   for (let m = fin.exec(html); m; m = fin.exec(html)) {
@@ -57,13 +57,31 @@ function couperVersLeTiers(html: string): [string, string] {
 export default async function Article({ params }: PageProps<"/post/[slug]">) {
   const a = articleParSlug(decoder((await params).slug));
   if (!a) notFound();
-  const { html, avaitClap } = retirerClap(await corpsArticle(a));
+  const { html, avaitClap } = nettoyerCorps(await corpsArticle(a));
   const iacteurDabord = articlePourIacteur(a);
   // CV PRO (10/10, David) : bandeau « Ton CV d'acteur Pro » sur les articles casting / métier,
   // les plus lus (ceux qui amènent du monde) et les 12 plus récents ; ailleurs, le bandeau habituel
   const metier = estArticleMetier(a) || articlePourIacteur(a) || LES_PLUS_RECENTS.some((x) => x.slug === a.slug);
   const [debutHtml, suiteHtml] = iacteurDabord ? couperVersLeTiers(html) : [html, ""];
-  const voisins = ARTICLES.filter((x) => x.slug !== a.slug && x.categories.some((c) => a.categories.some((d) => d.slug === c.slug))).slice(0, 3);
+  // MAILLAGE (10/10) : les articles du même SUJET ; le plus proche est proposé dans le texte
+  // (« À lire aussi », vers les deux tiers d'un article assez long), les 3 suivants en fin d'article
+  const lies = articlesLies(a, 4);
+  const dansLeTexte = html.length > 3500 ? lies[0] : undefined;
+  const voisins = (dansLeTexte ? lies.slice(1) : lies).slice(0, 3);
+  // Dans un article « IACTEUR d'abord », le bandeau est déjà au premier tiers : le lien va dans la suite
+  const [avantLien, apresLien] = dansLeTexte
+    ? iacteurDabord
+      ? couperVersLeTiers(suiteHtml, 0.5)
+      : couperVersLeTiers(html, 0.66)
+    : ["", ""];
+  const aLire = dansLeTexte && apresLien ? (
+    <aside className="border-l-4 border-rouge py-1 pl-4">
+      <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">À lire aussi</p>
+      <Link href={`/post/${encodeURIComponent(dansLeTexte.slug)}`} className="font-affiche text-xl uppercase leading-tight underline hover:text-rouge">
+        {dansLeTexte.titre}
+      </Link>
+    </aside>
+  ) : null;
   // Liens vers les plus lus et les plus récents (jamais l'article lui-même ni ceux déjà proposés) ;
   // la sélection tourne d'un article à l'autre pour que tous reçoivent des liens
   const dejaVus = new Set([a.slug, ...voisins.map((v) => v.slug)]);
@@ -117,7 +135,21 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
         <>
           <CorpsArticle html={debutHtml} titre={a.titre} />
           <BandeauIacteur variante={metier ? "cv" : "public"} />
-          {suiteHtml && <CorpsArticle html={suiteHtml} titre={a.titre} />}
+          {aLire ? (
+            <>
+              <CorpsArticle html={avantLien} titre={a.titre} />
+              {aLire}
+              <CorpsArticle html={apresLien} titre={a.titre} />
+            </>
+          ) : (
+            suiteHtml && <CorpsArticle html={suiteHtml} titre={a.titre} />
+          )}
+        </>
+      ) : aLire ? (
+        <>
+          <CorpsArticle html={avantLien} titre={a.titre} />
+          {aLire}
+          <CorpsArticle html={apresLien} titre={a.titre} />
         </>
       ) : (
         <CorpsArticle html={html} titre={a.titre} />
