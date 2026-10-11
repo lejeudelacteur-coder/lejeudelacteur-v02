@@ -7,6 +7,7 @@ import { headers } from "next/headers";
 import { base } from "@/lib/supabase";
 import { envoyerEmail } from "@/lib/emails";
 import { estUnRobot } from "@/lib/robots";
+import { estUnSpam } from "@/lib/spam";
 
 export type EtatContact = { ok: boolean; message: string } | undefined;
 
@@ -30,6 +31,11 @@ export async function envoyerContact(_etat: EtatContact, formData: FormData): Pr
   const sujet = SUJETS[champ("sujet", 20)] ? champ("sujet", 20) : "autre";
   if (!prenom || !telephone || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { ok: false, message: "Il manque ton prénom, ton téléphone ou un e-mail valide." };
+  }
+  // Démarchage : on fait comme si c'était parti (rien n'est enregistré ni envoyé)
+  if (estUnSpam({ prenom, nom, telephone, message })) {
+    console.log("[CONTACT] Spam écarté :", email);
+    return { ok: true, message: `Merci ${prenom} ! On te répond sous 24 heures.` };
   }
 
   const { error } = await base()

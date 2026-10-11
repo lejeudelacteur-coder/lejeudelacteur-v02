@@ -7,6 +7,7 @@ import { base } from "@/lib/supabase";
 import { envoyerEmail } from "@/lib/emails";
 import { QUESTIONS_INTENSIF, libelle } from "@/lib/candidature";
 import { estUnRobot } from "@/lib/robots";
+import { estUnSpam } from "@/lib/spam";
 
 export type EtatCandidature = { ok: boolean; message: string } | null;
 
@@ -33,6 +34,11 @@ export async function envoyerCandidature(
   }
   if (contact.consentement !== "oui") {
     return { ok: false, message: "Coche la case d'accord pour qu'on puisse te recontacter." };
+  }
+  // Démarchage : on fait comme si c'était parti (rien n'est enregistré ni envoyé)
+  if (estUnSpam({ prenom, nom, telephone, message: motivation })) {
+    console.log("[INTENSIF] Spam écarté :", email);
+    return { ok: true, message: `Merci ${prenom} ! Ta candidature est bien arrivée. On te rappelle sous 24 heures pour fixer ton entretien.` };
   }
   const r = (cle: string) => {
     const v = champ(reponses[cle], 40);
