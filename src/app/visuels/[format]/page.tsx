@@ -9,9 +9,8 @@ import { notFound } from "next/navigation";
 import BandeauIacteur from "@/components/BandeauIacteur";
 
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
-export const dynamicParams = false;
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "cv-bandeau", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -43,6 +42,32 @@ const PhotoReplique = ({ largeur, haut, fondu }: { largeur: number; haut: number
     />
   </div>
 );
+
+// CV PRO : les trois modèles en éventail (portraits de David, © Olivier ALLARD, crédité en petit)
+const EventailCv = ({ largeur }: { largeur: number }) => {
+  const l = Math.round(largeur * 0.52);
+  const h = Math.round(l * 1.414);
+  const carte = (id: string, extra: React.CSSProperties) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={`/iacteur/cv-${id}.jpg`} alt="" width={l} height={h} style={{ position: "absolute", top: 0, width: l, height: h, boxShadow: "0 12px 40px rgba(0,0,0,.6)", ...extra }} />
+  );
+  return (
+    <div style={{ position: "relative", width: largeur, height: h + 20 }}>
+      {carte("theatre", { left: 0, transform: "rotate(-9deg)", transformOrigin: "bottom center" })}
+      {carte("vip", { right: 0, transform: "rotate(9deg)", transformOrigin: "bottom center" })}
+      {carte("cine", { left: (largeur - l) / 2, zIndex: 2 })}
+    </div>
+  );
+};
+const CreditPhotos = ({ taille }: { taille: number }) => (
+  <p style={{ position: "absolute", right: 24, bottom: 8, margin: 0, zIndex: 5, fontSize: taille, color: "rgba(255,255,255,.85)" }}>Photos © Olivier ALLARD</p>
+);
+const TITRE_CV = (
+  <>
+    Ton CV d&apos;acteur Pro, <span style={{ color: "#e3191d", display: "block" }}>en 3 modèles.</span>
+  </>
+);
+const TEXTE_CV = "Gratuit, en un clic, à partir de ta fiche casting : CINÉ, THÉÂTRE ou VIP.";
 
 const TITRE_REPLIQUE = (
   <>
@@ -158,6 +183,63 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
         <div style={{ position: "absolute", right: 50, bottom: 70 }}>
           <Telephone largeur={330} haut={520} />
         </div>
+        {bandeBas(70, 42)}
+      </div>
+    );
+  }
+
+  if (format === "cv-instagram") {
+    // 1080 × 1350
+    return (
+      <div style={{ ...cadre, width: 1080, height: 1350 }}>
+        <style>{MASQUER}</style>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24, paddingTop: 60, textAlign: "center" }}>
+          <Logo largeur={380} />
+          <p className="font-affiche uppercase" style={{ fontSize: 104, lineHeight: 1.08, margin: "10px 50px 0" }}>{TITRE_CV}</p>
+          <p style={{ fontSize: 38, lineHeight: 1.35, margin: "0 100px", color: "#bdb2a6" }}>{TEXTE_CV}</p>
+        </div>
+        <div style={{ position: "absolute", left: 0, right: 0, bottom: 150, display: "flex", justifyContent: "center" }}>
+          <EventailCv largeur={820} />
+        </div>
+        <CreditPhotos taille={20} />
+        {bandeBas(120, 64)}
+      </div>
+    );
+  }
+
+  if (format === "cv-carre") {
+    // 1080 × 1080
+    return (
+      <div style={{ ...cadre, width: 1080, height: 1080 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", left: 60, top: 50, width: 480 }}>
+          <Logo largeur={290} />
+          <p className="font-affiche uppercase" style={{ fontSize: 84, lineHeight: 1.08, margin: "30px 0 0" }}>{TITRE_CV}</p>
+          <p style={{ fontSize: 30, lineHeight: 1.35, margin: "22px 0 0", color: "#bdb2a6" }}>{TEXTE_CV}</p>
+        </div>
+        <div style={{ position: "absolute", right: 30, bottom: 130 }}>
+          <EventailCv largeur={560} />
+        </div>
+        <CreditPhotos taille={18} />
+        {bandeBas(100, 56)}
+      </div>
+    );
+  }
+
+  if (format === "cv-facebook") {
+    // 1200 × 630
+    return (
+      <div style={{ ...cadre, width: 1200, height: 630 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", left: 56, top: 40, width: 620 }}>
+          <Logo largeur={250} />
+          <p className="font-affiche uppercase" style={{ fontSize: 74, lineHeight: 1.08, margin: "22px 0 0" }}>{TITRE_CV}</p>
+          <p style={{ fontSize: 27, lineHeight: 1.3, margin: "16px 0 0", color: "#bdb2a6" }}>{TEXTE_CV}</p>
+        </div>
+        <div style={{ position: "absolute", right: 40, top: 40 }}>
+          <EventailCv largeur={430} />
+        </div>
+        <CreditPhotos taille={16} />
         {bandeBas(70, 42)}
       </div>
     );
