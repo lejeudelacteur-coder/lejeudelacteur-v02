@@ -39,7 +39,7 @@ const TEXTES = {
     // L'accroche : l'idée de David (« Tu apprends seul tes scènes ? Plus maintenant ! »), tournée
     // sans masculin
     titre: "Personne pour te donner la réplique ? Plus maintenant.",
-    texte: "IACTEUR te donne la réplique, avec une vraie voix, et te souffle quand tu as un trou. À la fin, tes répliques à retravailler. Ton premier texte est offert.",
+    texte: "IACTEUR te donne la réplique, avec une vraie voix, et te souffle quand tu as un trou. À la fin, tes répliques à retravailler.",
     bouton: "Apprendre mon texte",
   },
 } as const;
@@ -62,6 +62,8 @@ export default function BandeauIacteur({
         <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">{t.eyebrow}</p>
         <p className="font-affiche text-3xl uppercase leading-none">{t.titre}</p>
         <p className="text-lg">{t.texte}</p>
+        {/* RÉPLIQUE : l'offre sur sa propre ligne, en gras (David, 12/10) */}
+        {variante === "replique" && <p className="text-lg font-bold">Ton premier texte est offert.</p>}
         {variante === "eleves" && (
           <p className="relative z-10 text-lg font-semibold text-rouge">
             Et ton CV d&apos;acteur Pro, en un clic.{" "}
