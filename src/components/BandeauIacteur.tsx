@@ -115,6 +115,7 @@ export default function BandeauIacteur({
               className={`absolute top-0 h-auto w-36 rounded-sm shadow-lg sm:w-44 ${pos}`}
             />
           ))}
+          <p className="absolute bottom-1 right-2 z-20 text-[9px] leading-none text-foreground/50">Photos © Olivier ALLARD</p>
         </div>
       ) : (
       /* Le téléphone dépasse du cadre par le bas : on n'en voit que le haut */
