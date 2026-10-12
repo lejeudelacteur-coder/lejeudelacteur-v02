@@ -1,7 +1,7 @@
 // LE BANDEAU IACTEUR (07/10/2026) : le téléphone avec la fiche casting, « Les
 // castings viennent à toi ». Un seul composant, plusieurs textes selon l'endroit
 // (articles du blog, accueil, pages des élèves).
-// CV PRO (10/10/2026) : version « cv » (accueil, articles sur le casting et le
+// CV PRO (10/10/2026, 12/10 : trois modèles en éventail) : version « cv » (accueil, articles sur le casting et le
 // métier) : un exemple de CV Pro à la place du téléphone, lien iacteur.com/cv-pro ;
 // et une ligne « Et ton CV d'acteur Pro » dans la version élèves.
 // RÉPLIQUE (12/10/2026) : version « replique » (accueil, cours Loisirs, articles sur l'audition,
@@ -16,21 +16,21 @@ const TEXTES = {
   public: {
     eyebrow: "IACTEUR · l'espace personnel de l'acteur",
     titre: "Les castings viennent à toi.",
-    texte: "Crée ta fiche casting, gratuitement : IACTEUR te propose les rôles qui te correspondent. Tes textes, ton coaching et le suivi de ta carrière sont dedans.",
+    texte: "Crée ta fiche casting, gratuitement : IACTEUR te propose les rôles qui te correspondent. Dedans aussi : ton CV Pro, un partenaire pour apprendre ton texte, ton coaching et le suivi de ta carrière.",
     bouton: "Entrer dans IACTEUR",
   },
   // Pour les élèves de l'école (Pro du lundi, stages)
   eleves: {
     eyebrow: "Offert à nos élèves",
     titre: "IACTEUR est offert à tous nos élèves.",
-    texte: "Des textes à travailler, du coaching, le suivi de ta carrière et les castings qui te correspondent : l'espace personnel de l'acteur, gratuit pour les élèves de l'école.",
+    texte: "Des textes à travailler, une voix qui te donne la réplique, du coaching, ton CV Pro, le suivi de ta carrière et les castings qui te correspondent : l'espace personnel de l'acteur, gratuit pour les élèves de l'école.",
     bouton: "Découvrir IACTEUR",
   },
   // Le CV Pro : accueil et articles sur le casting et le métier (David, 10/10)
   cv: {
     eyebrow: "IACTEUR · gratuit",
     titre: "Ton CV d'acteur Pro, gratuit.",
-    texte: "Un CV propre et pro en un clic : tes photos, ton agent, tes expériences. Remplis ta fiche casting, ton CV est prêt.",
+    texte: "Un CV propre et pro en un clic, en 3 modèles : CINÉ, THÉÂTRE ou VIP. Tes photos, ton agent, tes expériences : remplis ta fiche casting, ton CV est prêt.",
     bouton: "Créer mon CV Pro",
   },
   // RÉPLIQUE : apprendre son texte (David, 12/10)
@@ -98,16 +98,23 @@ export default function BandeauIacteur({
           <div className="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-transparent sm:bg-gradient-to-r" />
         </div>
       ) : variante === "cv" ? (
-        // Un exemple de CV Pro (fiche fictive, silhouettes), un peu incliné, qui dépasse par le bas
-        <div className="relative mx-auto mb-[-3rem] w-56 rotate-3 sm:absolute sm:bottom-[-3rem] sm:right-8 sm:m-0 sm:w-60">
-          <Image
-            src="/iacteur/cv-pro-exemple.png"
-            alt="Exemple de CV d'acteur Pro créé avec IACTEUR"
-            width={700}
-            height={991}
-            sizes="240px"
-            className="h-auto w-full rounded-sm"
-          />
+        // Les trois modèles (CINÉ, THÉÂTRE, VIP) en éventail, avec les portraits de David (exemples)
+        <div className="relative mx-auto mt-2 h-56 w-72 sm:absolute sm:bottom-[-2.5rem] sm:right-6 sm:m-0 sm:h-72 sm:w-80">
+          {[
+            ["theatre", "-rotate-12 left-0", "THÉÂTRE"],
+            ["vip", "rotate-12 right-0", "VIP"],
+            ["cine", "left-1/2 -translate-x-1/2 z-10", "CINÉ"],
+          ].map(([id, pos, nom]) => (
+            <Image
+              key={id}
+              src={`/iacteur/cv-${id}.jpg`}
+              alt={`CV Pro, modèle ${nom}, créé avec IACTEUR`}
+              width={520}
+              height={735}
+              sizes="160px"
+              className={`absolute top-0 h-auto w-36 rounded-sm shadow-lg sm:w-44 ${pos}`}
+            />
+          ))}
         </div>
       ) : (
       /* Le téléphone dépasse du cadre par le bas : on n'en voit que le haut */

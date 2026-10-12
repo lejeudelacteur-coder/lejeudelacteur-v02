@@ -11,7 +11,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "cv-bandeau", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -53,6 +53,15 @@ const TEXTE_REPLIQUE = "IACTEUR te donne la réplique avec une voix française n
 
 export default async function Visuel({ params }: PageProps<"/visuels/[format]">) {
   const { format } = await params;
+
+  if (format === "cv-bandeau") {
+    return (
+      <main style={{ width: 1100, padding: 20, margin: "0 auto" }}>
+        <style>{MASQUER}</style>
+        <BandeauIacteur variante="cv" />
+      </main>
+    );
+  }
 
   if (format === "replique-bandeau") {
     return (
