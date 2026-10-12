@@ -3,6 +3,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import FormulaireContact from "@/components/FormulaireContact";
+import BandeauIacteur from "@/components/BandeauIacteur";
 import { BoutonRouge, Scene, Titre } from "@/components/Scene";
 
 export const metadata: Metadata = {
@@ -95,6 +96,9 @@ export default function CoursLoisirs() {
           </ul>
           <p className="text-secondaire">De septembre à juin, hors vacances scolaires.</p>
         </section>
+
+        {/* ── IACTEUR : RÉPLIQUE (12/10) : apprendre ses textes chez soi, une demande récurrente ── */}
+        <BandeauIacteur variante="replique" />
 
         <section className="flex flex-col gap-6">
           <Scene numero="03" nom="L'investissement" />

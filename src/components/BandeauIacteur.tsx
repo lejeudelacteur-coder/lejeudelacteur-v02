@@ -4,6 +4,9 @@
 // CV PRO (10/10/2026) : version « cv » (accueil, articles sur le casting et le
 // métier) : un exemple de CV Pro à la place du téléphone, lien iacteur.com/cv-pro ;
 // et une ligne « Et ton CV d'acteur Pro » dans la version élèves.
+// RÉPLIQUE (12/10/2026) : version « replique » (accueil, cours Loisirs, articles sur l'audition,
+// le monologue, l'italienne) : la photo de David derrière son texte, lien iacteur.com/replique.
+// Apprendre son texte est une demande récurrente des élèves (David).
 import type { ReactNode } from "react";
 import Image from "next/image";
 import { BoutonRouge } from "@/components/Scene";
@@ -30,9 +33,19 @@ const TEXTES = {
     texte: "Un CV propre et pro en un clic : tes photos, ton agent, tes expériences. Remplis ta fiche casting, ton CV est prêt.",
     bouton: "Créer mon CV Pro",
   },
+  // RÉPLIQUE : apprendre son texte (David, 12/10)
+  replique: {
+    eyebrow: "IACTEUR · nouveau",
+    // L'accroche : l'idée de David (« Tu apprends seul tes scènes ? Plus maintenant ! »), tournée
+    // sans masculin
+    titre: "Personne pour te donner la réplique ? Plus maintenant.",
+    texte: "IACTEUR te donne la réplique, avec une vraie voix, et te souffle quand tu as un trou. À la fin, tes répliques à retravailler. Ton premier texte est offert.",
+    bouton: "Apprendre mon texte",
+  },
 } as const;
 
 const LIEN_CV_PRO = "https://iacteur.com/cv-pro";
+const LIEN_REPLIQUE = "https://iacteur.com/replique";
 
 export default function BandeauIacteur({
   variante = "public",
@@ -42,7 +55,7 @@ export default function BandeauIacteur({
   href?: string;
 }): ReactNode {
   const t = TEXTES[variante];
-  const lien = href ?? (variante === "cv" ? LIEN_CV_PRO : "https://iacteur.com");
+  const lien = href ?? (variante === "cv" ? LIEN_CV_PRO : variante === "replique" ? LIEN_REPLIQUE : "https://iacteur.com");
   return (
     <section className="relative overflow-hidden rounded-lg border-2 border-rouge bg-surface">
       <div className="flex flex-col gap-3 p-6 pr-6 sm:w-3/5">
@@ -62,7 +75,20 @@ export default function BandeauIacteur({
           <BoutonRouge href={lien}>{t.bouton}</BoutonRouge>
         </div>
       </div>
-      {variante === "cv" ? (
+      {variante === "replique" ? (
+        // La photo de RÉPLIQUE : David derrière son texte, quelqu'un de dos en face ; elle se fond
+        // dans le fond sombre côté texte
+        <div className="relative h-48 w-full sm:absolute sm:inset-y-0 sm:right-0 sm:h-auto sm:w-2/5">
+          <Image
+            src="/iacteur/replique.jpg"
+            alt="Un comédien derrière son texte, face à un partenaire : RÉPLIQUE, dans IACTEUR"
+            fill
+            sizes="(min-width: 640px) 320px, 100vw"
+            className="object-cover object-[75%_30%]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-transparent sm:bg-gradient-to-r" />
+        </div>
+      ) : variante === "cv" ? (
         // Un exemple de CV Pro (fiche fictive, silhouettes), un peu incliné, qui dépasse par le bas
         <div className="relative mx-auto mb-[-3rem] w-56 rotate-3 sm:absolute sm:bottom-[-3rem] sm:right-8 sm:m-0 sm:w-60">
           <Image

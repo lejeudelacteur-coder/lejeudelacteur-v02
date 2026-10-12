@@ -10,7 +10,7 @@ import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, articlePourIacteur, articlesLies, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, articlePourIacteur, articlesLies, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -62,6 +62,8 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
   // CV PRO (10/10, David) : bandeau « Ton CV d'acteur Pro » sur les articles casting / métier,
   // les plus lus (ceux qui amènent du monde) et les 12 plus récents ; ailleurs, le bandeau habituel
   const metier = estArticleMetier(a) || articlePourIacteur(a) || LES_PLUS_RECENTS.some((x) => x.slug === a.slug);
+  // Le bandeau IACTEUR : RÉPLIQUE pour la préparation, l'audition, le monologue (12/10), sinon CV Pro ou général
+  const versionBandeau = estArticleReplique(a) ? "replique" : metier ? "cv" : "public";
   const [debutHtml, suiteHtml] = iacteurDabord ? couperVersLeTiers(html) : [html, ""];
   // MAILLAGE (10/10) : les articles du même SUJET ; le plus proche est proposé dans le texte
   // (« À lire aussi », vers les deux tiers d'un article assez long), les 3 suivants en fin d'article
@@ -136,7 +138,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
       {iacteurDabord ? (
         <>
           <CorpsArticle html={debutHtml} titre={a.titre} />
-          <BandeauIacteur variante={metier ? "cv" : "public"} />
+          <BandeauIacteur variante={versionBandeau} />
           {aLire ? (
             <>
               <CorpsArticle html={avantLien} titre={a.titre} />
@@ -171,7 +173,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
             </div>
           </section>
         }
-        iacteur={<BandeauIacteur variante={metier ? "cv" : "public"} />}
+        iacteur={<BandeauIacteur variante={versionBandeau} />}
       />
       )}
 

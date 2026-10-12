@@ -160,8 +160,9 @@ export default function Accueil() {
           </p>
         </section>
 
-        {/* ── IACTEUR : le CV Pro (10/10) ── */}
+        {/* ── IACTEUR : le CV Pro (10/10), puis RÉPLIQUE (12/10) ── */}
         <BandeauIacteur variante="cv" />
+        <BandeauIacteur variante="replique" />
 
         {/* ── Le lieu ── */}
         <section className="flex flex-col gap-6">

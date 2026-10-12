@@ -178,6 +178,15 @@ export function estArticleMetier(a: Article) {
   return METIER.test(a.titre) && !/^LE SHOOTING DU JOUR$/i.test(a.titre.trim()) && !/iacteur/i.test(a.titre);
 }
 
+// RÉPLIQUE (12/10/2026) : les articles sur la préparation, l'audition, le monologue,
+// l'italienne : le bandeau IACTEUR y devient « Ton texte, par cœur » (titre seul, comme METIER).
+const REPLIQUE =
+  /monologue|italienne|r[ée]plique|par c(œ|oe)ur|m[ée]moris|apprendre (son|ses|un|le|les) texte|retenir (son|un) texte|pr[ée]parer avant|r[ée]ussir un casting|pourquoi 90|audition|self.?tape|travail de table|filage|soliloque/i;
+
+export function estArticleReplique(a: Article) {
+  return REPLIQUE.test(a.titre) && !/iacteur/i.test(a.titre);
+}
+
 export function estArticleActeur(a: Article) {
   return TRAVAIL_ACTEUR.test(a.titre) && !/^LE SHOOTING DU JOUR$/i.test(a.titre.trim());
 }
