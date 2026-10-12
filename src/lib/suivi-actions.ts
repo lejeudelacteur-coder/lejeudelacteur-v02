@@ -26,10 +26,19 @@ async function lieu() {
   return { ville: court(ville, 80), pays: court(h.get("x-vercel-ip-country"), 4) };
 }
 
+// Les robots qui se font passer pour un vrai navigateur (David, 12/10 : « Beijing (CN) ») ne sont pas
+// reconnus à leur User-Agent. Pour une école d'Avignon, le trafic venu de ces pays est presque
+// toujours automatique : on ne le compte pas. À compléter si d'autres apparaissent.
+const PAYS_ROBOTS = ["CN", "RU"];
+async function robotParLieu() {
+  const pays = ((await headers()).get("x-vercel-ip-country") ?? "").toUpperCase();
+  return PAYS_ROBOTS.includes(pays);
+}
+
 export async function noterVisite(page: string, source: string, campagne: string, session: string, visiteur = "") {
   if (EN_TEST) return;
   const ua = (await headers()).get("user-agent");
-  if (estUnRobot(ua)) return;
+  if (estUnRobot(ua) || (await robotParLieu())) return;
   await base()
     .from("ecole_visites")
     .insert({
@@ -47,7 +56,7 @@ export async function noterVisite(page: string, source: string, campagne: string
 export async function noterClic(cible: string, page: string, source: string, session: string, visiteur: string) {
   if (EN_TEST) return;
   const ua = (await headers()).get("user-agent");
-  if (estUnRobot(ua)) return;
+  if (estUnRobot(ua) || (await robotParLieu())) return;
   await base()
     .from("ecole_clics")
     .insert({ cible: court(cible, 40), page: court(page, 200), source: court(source), session: court(session, 60), visiteur: court(visiteur, 60) });
@@ -56,7 +65,7 @@ export async function noterClic(cible: string, page: string, source: string, ses
 export async function noterEtape(formation: string, etape: number, session: string) {
   if (EN_TEST || !Number.isInteger(etape) || etape < 1 || etape > 7) return;
   const ua = (await headers()).get("user-agent");
-  if (estUnRobot(ua)) return;
+  if (estUnRobot(ua) || (await robotParLieu())) return;
   await base().from("ecole_etapes").insert({ formation: court(formation, 40), etape, session: court(session, 60) });
 }
 
@@ -65,7 +74,7 @@ export async function noterEtape(formation: string, etape: number, session: stri
 export async function signeDeVie(page: string, visiteur: string, source: string) {
   if (EN_TEST || !visiteur) return;
   const ua = (await headers()).get("user-agent");
-  if (estUnRobot(ua)) return;
+  if (estUnRobot(ua) || (await robotParLieu())) return;
   const b = base();
   await b.from("ecole_presence").upsert({
     visiteur: court(visiteur, 60),
