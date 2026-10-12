@@ -39,7 +39,7 @@ const TEXTES = {
     // L'accroche : l'idée de David (« Tu apprends seul tes scènes ? Plus maintenant ! »), tournée
     // sans masculin
     titre: "Personne pour te donner la réplique ? Plus maintenant.",
-    texte: "IACTEUR te donne la réplique, avec une vraie voix, et te souffle quand tu as un trou. À la fin, tes répliques à retravailler.",
+    texte: "IACTEUR te donne la réplique avec une voix française naturelle, et te souffle quand tu as un trou. À la fin, tes répliques à retravailler.",
     bouton: "Apprendre mon texte",
   },
 } as const;

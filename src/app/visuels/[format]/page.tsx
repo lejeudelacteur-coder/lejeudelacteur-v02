@@ -49,7 +49,7 @@ const TITRE_REPLIQUE = (
     Personne pour te donner la réplique ? <span style={{ color: "#e3191d", display: "block" }}>Plus maintenant.</span>
   </>
 );
-const TEXTE_REPLIQUE = "IACTEUR te donne la réplique, avec une vraie voix, et te souffle quand tu as un trou. À la fin, tes répliques à retravailler.";
+const TEXTE_REPLIQUE = "IACTEUR te donne la réplique avec une voix française naturelle, et te souffle quand tu as un trou. À la fin, tes répliques à retravailler.";
 
 export default async function Visuel({ params }: PageProps<"/visuels/[format]">) {
   const { format } = await params;
