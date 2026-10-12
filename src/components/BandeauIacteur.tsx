@@ -60,7 +60,14 @@ export default function BandeauIacteur({
     <section className="relative overflow-hidden rounded-lg border-2 border-rouge bg-surface">
       <div className="flex flex-col gap-3 p-6 pr-6 sm:w-3/5">
         <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">{t.eyebrow}</p>
-        <p className="font-affiche text-3xl uppercase leading-none">{t.titre}</p>
+        {variante === "replique" ? (
+          // « Plus maintenant. » en rouge, sur sa ligne, comme sur les visuels (David, 12/10)
+          <p className="font-affiche text-3xl uppercase leading-none">
+            Personne pour te donner la réplique ? <span className="block text-rouge">Plus maintenant.</span>
+          </p>
+        ) : (
+          <p className="font-affiche text-3xl uppercase leading-none">{t.titre}</p>
+        )}
         <p className="text-lg">{t.texte}</p>
         {/* RÉPLIQUE : l'offre sur sa propre ligne, en gras (David, 12/10) */}
         {variante === "replique" && <p className="text-lg font-bold">Ton premier texte est offert.</p>}
