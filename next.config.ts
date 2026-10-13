@@ -42,6 +42,13 @@ const nextConfig: NextConfig = {
       { source: "/creer", destination: "https://iacteur.com/loge", permanent: true },
       { source: "/ma-carriere", destination: "https://iacteur.com/carriere", permanent: true },
       { source: "/casting", destination: "https://iacteur.com/casting-call", permanent: true },
+      // Lien cassé par la newsletter Substack du 13/10 (le « ç » est devenu « &?#231; » : le « # »
+      // coupe l'adresse après le « & ») : on renvoie vers le bon article
+      ...["%26", "&"].map((fin) => ({
+        source: `/post/casting-call-dans-iacteur-comment-${fin}`,
+        destination: "/post/casting-call-dans-iacteur-comment-%C3%A7a-marche",
+        permanent: true,
+      })),
       // Anciennes pages du site Wix
       { source: "/copie-de-rgpd", destination: "/rgpd", permanent: true },
       { source: "/actualit%C3%A9", destination: "/news", permanent: true },
