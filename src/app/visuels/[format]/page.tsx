@@ -10,7 +10,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -115,6 +115,30 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
       <span style={{ fontSize: taille, letterSpacing: "0.04em", color: "#fff" }}>iacteur.com</span>
     </div>
   );
+
+  if (format === "couverture-7-exercices") {
+    // Couverture de l'article « Apprendre son texte : 7 exercices » (1200 × 630)
+    return (
+      <div style={{ ...cadre, width: 1200, height: 630 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", left: 60, top: 44, right: 60 }}>
+          <p className="font-mono" style={{ fontSize: 24, letterSpacing: "0.25em", color: "#e3191d", margin: 0 }}>LE JEU DE L&apos;ACTEUR · MÉTHODE</p>
+          <p className="font-affiche uppercase" style={{ fontSize: 112, lineHeight: 1.02, margin: "20px 0 0" }}>
+            <span style={{ color: "#e3191d" }}>7 exercices</span> pour apprendre son texte
+          </p>
+          <p style={{ fontSize: 34, lineHeight: 1.3, margin: "26px 0 0", color: "#bdb2a6" }}>
+            Les modes, le phrasé, la vitesse, le crayon dans la bouche… Avec la fiche PDF à télécharger.
+          </p>
+        </div>
+        <div
+          style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 70, background: "#e3191d", display: "flex", alignItems: "center", justifyContent: "center" }}
+          className="font-affiche uppercase"
+        >
+          <span style={{ fontSize: 42, letterSpacing: "0.04em", color: "#fff" }}>lejeudelacteur.com</span>
+        </div>
+      </div>
+    );
+  }
 
   if (format === "instagram") {
     // 1080 × 1350 (post vertical)
