@@ -1,5 +1,34 @@
 [
  {
+  "slug": "apprendre-son-texte-7-exercices-methode",
+  "fichier": "p166",
+  "titre": "Apprendre son texte : 7 exercices pour le savoir vraiment",
+  "date": "2026-10-14",
+  "modifie": "2026-10-14",
+  "description": "Dire son texte sur plusieurs modes, couper le phrasé, bégayer, déconstruire la ponctuation, changer de vitesse, crayon dans la bouche, voyelles et consonnes : la méthode en 7 exercices, à télécharger en PDF.",
+  "couverture": "replique-couverture.jpg",
+  "miniature": "replique-couverture-m.jpg",
+  "largeur": 1200,
+  "hauteur": 630,
+  "categories": [
+   {
+    "slug": "actualités",
+    "nom": "Actualités"
+   }
+  ],
+  "tags": [
+   "apprendre son texte",
+   "mémoriser un texte",
+   "exercices d'acteur",
+   "méthode",
+   "répéter seul",
+   "phrasé",
+   "comédien",
+   "RÉPLIQUE"
+  ],
+  "lecture": "4 min de lecture"
+ },
+ {
   "slug": "apprendre-son-texte-seul-comment-repeter-sans-partenaire",
   "fichier": "p165",
   "titre": "Apprendre son texte seul : comment répéter sans partenaire",
