@@ -183,6 +183,14 @@ export function estArticleMetier(a: Article) {
 const REPLIQUE =
   /monologue|italienne|r[ée]plique|par c(œ|oe)ur|m[ée]moris|apprendre (son|ses|un|le|les) texte|retenir (son|un) texte|pr[ée]parer avant|r[ée]ussir un casting|pourquoi 90|audition|self.?tape|travail de table|filage|soliloque/i;
 
+// MINI-COACH (17/10/2026) : les articles sur le casting et sa préparation (et les annonces de casting) :
+// le bandeau devient « Ton casting approche ? Colle ton texte. » ; il passe avant RÉPLIQUE et le CV Pro.
+const MINI_COACH = /r[ée]ussir un casting|audition|self.?tape|pr[ée]parer avant|pourquoi 90|casting/i;
+
+export function estArticleMiniCoach(a: Article) {
+  return MINI_COACH.test(a.titre) && !/iacteur/i.test(a.titre);
+}
+
 export function estArticleReplique(a: Article) {
   return REPLIQUE.test(a.titre) && !/iacteur/i.test(a.titre);
 }

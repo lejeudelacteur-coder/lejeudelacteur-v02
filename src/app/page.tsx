@@ -160,7 +160,8 @@ export default function Accueil() {
           </p>
         </section>
 
-        {/* ── IACTEUR : le CV Pro (10/10), puis RÉPLIQUE (12/10) ── */}
+        {/* ── IACTEUR : le mini-COACH (17/10), le CV Pro (10/10), puis RÉPLIQUE (12/10) ── */}
+        <BandeauIacteur variante="minicoach" />
         <BandeauIacteur variante="cv" />
         <BandeauIacteur variante="replique" />
 
