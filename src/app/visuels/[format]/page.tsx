@@ -97,7 +97,7 @@ const PhotoCoach = ({ largeur, haut, position = "62% 15%", fondu }: { largeur: n
 const EXEMPLE_MC: [string, string][] = [
   ["Ce que veut ton personnage", "Convaincre Philinte qu'on doit dire aux gens ce qu'on pense d'eux."],
   ["Ce qui l'en empêche", "Philinte défend les politesses du monde, avec calme et ironie."],
-  ["Ce qui se joue", "Alceste reproche à Philinte d'avoir embrassé un inconnu. Philinte refuse de s'emporter."],
+  ["Ce qui se joue", "Alceste reproche à Philinte ses grandes démonstrations d'amitié envers un homme qu'il connaît à peine. Philinte refuse de s'emporter."],
 ];
 const ExempleMiniCoach = ({ echelle }: { echelle: number }) => (
   <div
