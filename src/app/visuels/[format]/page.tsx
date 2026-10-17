@@ -132,6 +132,14 @@ const TITRE_MC = (
   </>
 );
 const TEXTE_MC = "En quelques secondes : l'objectif de ton personnage, son obstacle, et ce qui se joue dans la scène.";
+// Post et story (texte centré) : « dans la scène » sur sa propre ligne (David, 17/10)
+const TEXTE_MC_CENTRE = (
+  <>
+    En quelques secondes : l&apos;objectif de ton personnage, son obstacle, et ce qui se joue
+    <br />
+    dans la scène.
+  </>
+);
 
 export default async function Visuel({ params }: PageProps<"/visuels/[format]">) {
   const { format } = await params;
@@ -339,7 +347,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
         <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", gap: 24, paddingTop: story ? 130 : 60, textAlign: "center" }}>
           <Logo largeur={story ? 400 : 360} />
           <p className="font-affiche uppercase" style={{ fontSize: story ? 112 : 100, lineHeight: 1.06, margin: "10px 50px 0" }}>{TITRE_MC}</p>
-          <p style={{ fontSize: 38, lineHeight: 1.35, margin: "0 90px", color: "#bdb2a6" }}>{TEXTE_MC}</p>
+          <p style={{ fontSize: 38, lineHeight: 1.35, margin: "0 90px", color: "#bdb2a6" }}>{TEXTE_MC_CENTRE}</p>
           {!story && <p style={{ fontSize: 40, fontWeight: 700, margin: 0 }}>Gratuit, sans compte.</p>}
         </div>
         <div style={{ position: "absolute", left: story ? 120 : 60, right: story ? 120 : 60, bottom: story ? 300 : 145 }}>
