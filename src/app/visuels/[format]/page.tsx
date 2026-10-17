@@ -342,8 +342,8 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
           <p style={{ fontSize: 38, lineHeight: 1.35, margin: "0 90px", color: "#bdb2a6" }}>{TEXTE_MC}</p>
           {!story && <p style={{ fontSize: 40, fontWeight: 700, margin: 0 }}>Gratuit, sans compte.</p>}
         </div>
-        <div style={{ position: "absolute", left: story ? 120 : 260, right: story ? 120 : 40, bottom: story ? 300 : 150 }}>
-          <ExempleMiniCoach echelle={story ? 1.25 : 0.95} />
+        <div style={{ position: "absolute", left: story ? 120 : 60, right: story ? 120 : 60, bottom: story ? 300 : 145 }}>
+          <ExempleMiniCoach echelle={story ? 1.25 : 1.22} />
           {story && <p style={{ fontSize: 40, fontWeight: 700, margin: "28px 0 0", textAlign: "center" }}>Gratuit, sans compte.</p>}
         </div>
         {bandeBas(story ? 140 : 120, story ? 64 : 58, "iacteur.com/mini-coach")}
