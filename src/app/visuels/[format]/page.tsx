@@ -352,21 +352,21 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
   }
 
   if (format === "minicoach-carre") {
-    // 1080 × 1080
+    // 1080 × 1080 : l'exemple en grand, en pleine largeur (David, 17/10 : quitte à moins voir le visage)
     return (
       <div style={{ ...cadre, width: 1080, height: 1080 }}>
         <style>{MASQUER}</style>
-        <div style={{ position: "absolute", right: 0, top: 0, bottom: 100 }}>
-          <PhotoCoach largeur={620} haut={970} position="58% 20%" fondu="gauche" />
+        <div style={{ position: "absolute", left: 0, right: 0, top: 150, bottom: 100 }}>
+          <PhotoCoach largeur={1060} haut={830} position="62% 18%" fondu="haut" />
         </div>
-        <div style={{ position: "absolute", left: 60, top: 54, width: 560 }}>
-          <Logo largeur={290} />
-          <p className="font-affiche uppercase" style={{ fontSize: 86, lineHeight: 1.06, margin: "30px 0 0" }}>{TITRE_MC}</p>
-          <p style={{ fontSize: 31, lineHeight: 1.35, margin: "22px 0 0", color: "#bdb2a6" }}>{TEXTE_MC}</p>
-          <p style={{ fontSize: 34, fontWeight: 700, margin: "16px 0 0" }}>Gratuit, sans compte.</p>
+        <div style={{ position: "absolute", left: 60, top: 50, right: 60 }}>
+          <Logo largeur={260} />
+          <p className="font-affiche uppercase" style={{ fontSize: 78, lineHeight: 1.04, margin: "24px 0 0" }}>{TITRE_MC}</p>
+          <p style={{ fontSize: 30, lineHeight: 1.3, margin: "18px 0 0", color: "#d6cdc2", maxWidth: 820 }}>{TEXTE_MC}</p>
+          <p style={{ fontSize: 32, fontWeight: 700, margin: "12px 0 0" }}>Gratuit, sans compte.</p>
         </div>
-        <div style={{ position: "absolute", right: 50, bottom: 140, width: 560 }}>
-          <ExempleMiniCoach echelle={1} />
+        <div style={{ position: "absolute", left: 60, right: 60, bottom: 125 }}>
+          <ExempleMiniCoach echelle={1.22} />
         </div>
         {bandeBas(100, 52, "iacteur.com/mini-coach")}
       </div>
