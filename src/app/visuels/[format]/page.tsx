@@ -3,6 +3,8 @@
 // référencées : on les ouvre dans un navigateur pour en tirer des PNG.
 // RÉPLIQUE (12/10/2026) : les mêmes formats pour RÉPLIQUE (« replique-… »), à partager
 // sur Facebook, Instagram et LinkedIn (1200 × 630 vaut pour les deux).
+// MINI-COACH (17/10/2026) : « minicoach-… » : la photo de David (sa caméra) fondue dans le noir, et
+// l'exemple de résultat (Alceste) dans un cadre semi-transparent, comme le bandeau du site.
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -10,7 +12,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -76,6 +78,61 @@ const TITRE_REPLIQUE = (
 );
 const TEXTE_REPLIQUE = "IACTEUR te donne la réplique avec une voix française naturelle, et te souffle quand tu as un trou. À la fin, tes répliques à retravailler.";
 
+// MINI-COACH : la photo (portrait de David, sa caméra) fondue dans le noir, et l'exemple par-dessus
+const PhotoCoach = ({ largeur, haut, position = "62% 15%", fondu }: { largeur: number; haut: number; position?: string; fondu: "haut" | "gauche" }) => (
+  <div style={{ position: "relative", width: largeur, height: haut, overflow: "hidden" }}>
+    <Image src="/iacteur/coach.jpg" alt="" fill sizes={`${largeur}px`} className="object-cover" style={{ objectPosition: position }} priority />
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        background:
+          fondu === "haut"
+            ? "linear-gradient(to bottom, #0b0909 0%, transparent 30%, transparent 70%, #0b0909 100%)"
+            : "linear-gradient(to right, #0b0909 0%, transparent 40%)",
+      }}
+    />
+  </div>
+);
+const EXEMPLE_MC: [string, string][] = [
+  ["Ce que veut ton personnage", "Convaincre Philinte qu'on doit dire aux gens ce qu'on pense d'eux."],
+  ["Ce qui l'en empêche", "Philinte défend les politesses du monde, avec calme et ironie."],
+  ["Ce qui se joue", "Alceste reproche à Philinte d'avoir embrassé un inconnu. Philinte refuse de s'emporter."],
+];
+const ExempleMiniCoach = ({ echelle }: { echelle: number }) => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: 14 * echelle,
+      padding: 26 * echelle,
+      borderRadius: 14 * echelle,
+      border: "1px solid rgba(243,237,228,.28)",
+      background: "rgba(11,9,9,.55)",
+      backdropFilter: "blur(6px)",
+      WebkitBackdropFilter: "blur(6px)",
+    }}
+  >
+    <p className="font-mono" style={{ margin: 0, fontSize: 15 * echelle, letterSpacing: "0.2em", color: "rgba(243,237,228,.6)" }}>
+      EXEMPLE · ALCESTE, LE MISANTHROPE
+    </p>
+    {EXEMPLE_MC.map(([titre, phrase]) => (
+      <div key={titre}>
+        <p className="font-mono" style={{ margin: 0, fontSize: 15 * echelle, fontWeight: 900, letterSpacing: "0.15em", color: "#e3191d" }}>
+          {titre.toUpperCase()}
+        </p>
+        <p style={{ margin: `${4 * echelle}px 0 0`, fontSize: 24 * echelle, lineHeight: 1.3 }}>{phrase}</p>
+      </div>
+    ))}
+  </div>
+);
+const TITRE_MC = (
+  <>
+    Ton casting approche ? <span style={{ color: "#e3191d", display: "block" }}>Colle ton texte.</span>
+  </>
+);
+const TEXTE_MC = "En quelques secondes : l'objectif de ton personnage, son obstacle, et ce qui se joue dans la scène.";
+
 export default async function Visuel({ params }: PageProps<"/visuels/[format]">) {
   const { format } = await params;
 
@@ -107,12 +164,12 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
   }
 
   const cadre = { position: "relative" as const, overflow: "hidden", background: "#0b0909", border: "10px solid #e3191d", color: "#f3ede4" };
-  const bandeBas = (hauteur: number, taille: number) => (
+  const bandeBas = (hauteur: number, taille: number, texte = "iacteur.com") => (
     <div
       style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: hauteur, background: "#e3191d", display: "flex", alignItems: "center", justifyContent: "center" }}
       className="font-affiche uppercase"
     >
-      <span style={{ fontSize: taille, letterSpacing: "0.04em", color: "#fff" }}>iacteur.com</span>
+      <span style={{ fontSize: taille, letterSpacing: "0.04em", color: "#fff" }}>{texte}</span>
     </div>
   );
 
@@ -265,6 +322,75 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
         </div>
         <CreditPhotos taille={16} />
         {bandeBas(70, 42)}
+      </div>
+    );
+  }
+
+  if (format === "minicoach-instagram" || format === "minicoach-story") {
+    // 1080 × 1350 (post vertical) ou 1080 × 1920 (story)
+    const story = format === "minicoach-story";
+    const haut = story ? 1920 : 1350;
+    return (
+      <div style={{ ...cadre, width: 1080, height: haut }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", left: 0, right: 0, top: story ? 560 : 400, height: story ? 1000 : 820 }}>
+          <PhotoCoach largeur={1060} haut={story ? 1000 : 820} position={story ? "62% 15%" : "35% 20%"} fondu="haut" />
+        </div>
+        <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", gap: 24, paddingTop: story ? 130 : 60, textAlign: "center" }}>
+          <Logo largeur={story ? 400 : 360} />
+          <p className="font-affiche uppercase" style={{ fontSize: story ? 112 : 100, lineHeight: 1.06, margin: "10px 50px 0" }}>{TITRE_MC}</p>
+          <p style={{ fontSize: 38, lineHeight: 1.35, margin: "0 90px", color: "#bdb2a6" }}>{TEXTE_MC}</p>
+          {!story && <p style={{ fontSize: 40, fontWeight: 700, margin: 0 }}>Gratuit, sans compte.</p>}
+        </div>
+        <div style={{ position: "absolute", left: story ? 120 : 260, right: story ? 120 : 40, bottom: story ? 300 : 150 }}>
+          <ExempleMiniCoach echelle={story ? 1.25 : 0.95} />
+          {story && <p style={{ fontSize: 40, fontWeight: 700, margin: "28px 0 0", textAlign: "center" }}>Gratuit, sans compte.</p>}
+        </div>
+        {bandeBas(story ? 140 : 120, story ? 64 : 58, "iacteur.com/mini-coach")}
+      </div>
+    );
+  }
+
+  if (format === "minicoach-carre") {
+    // 1080 × 1080
+    return (
+      <div style={{ ...cadre, width: 1080, height: 1080 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", right: 0, top: 0, bottom: 100 }}>
+          <PhotoCoach largeur={620} haut={970} position="58% 20%" fondu="gauche" />
+        </div>
+        <div style={{ position: "absolute", left: 60, top: 54, width: 560 }}>
+          <Logo largeur={290} />
+          <p className="font-affiche uppercase" style={{ fontSize: 86, lineHeight: 1.06, margin: "30px 0 0" }}>{TITRE_MC}</p>
+          <p style={{ fontSize: 31, lineHeight: 1.35, margin: "22px 0 0", color: "#bdb2a6" }}>{TEXTE_MC}</p>
+          <p style={{ fontSize: 34, fontWeight: 700, margin: "16px 0 0" }}>Gratuit, sans compte.</p>
+        </div>
+        <div style={{ position: "absolute", right: 50, bottom: 140, width: 560 }}>
+          <ExempleMiniCoach echelle={1} />
+        </div>
+        {bandeBas(100, 52, "iacteur.com/mini-coach")}
+      </div>
+    );
+  }
+
+  if (format === "minicoach-facebook") {
+    // 1200 × 630 : Facebook et LinkedIn (aperçu de lien, publication)
+    return (
+      <div style={{ ...cadre, width: 1200, height: 630 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", right: 0, top: 0, bottom: 70 }}>
+          <PhotoCoach largeur={560} haut={540} fondu="gauche" />
+        </div>
+        <div style={{ position: "absolute", left: 56, top: 40, width: 620 }}>
+          <Logo largeur={250} />
+          <p className="font-affiche uppercase" style={{ fontSize: 72, lineHeight: 1.06, margin: "22px 0 0" }}>{TITRE_MC}</p>
+          <p style={{ fontSize: 26, lineHeight: 1.3, margin: "16px 0 0", color: "#bdb2a6" }}>{TEXTE_MC}</p>
+          <p style={{ fontSize: 28, fontWeight: 700, margin: "10px 0 0" }}>Gratuit, sans compte.</p>
+        </div>
+        <div style={{ position: "absolute", right: 36, bottom: 96, width: 430 }}>
+          <ExempleMiniCoach echelle={0.72} />
+        </div>
+        {bandeBas(70, 40, "iacteur.com/mini-coach")}
       </div>
     );
   }
