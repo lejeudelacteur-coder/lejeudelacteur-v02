@@ -63,6 +63,12 @@ const nextConfig: NextConfig = {
       { source: "/ancienne-page", destination: "/", permanent: true },
       { source: "/copie-de-app", destination: "/", permanent: true },
       { source: "/essai-boite-scrolle", destination: "/", permanent: true },
+      // Adresses en erreur 404 relevées dans la Search Console (18/10)
+      { source: "/post/sp%C3%A9cial-", destination: "/post/sp%C3%A9cial-book-photos", permanent: true },
+      { source: "/post/cas-d-ecole-01-monologue-solo", destination: "/post/comment-choisir-un-monologue", permanent: true },
+      { source: "/copie-de-le-jeu-de-l-acteur", destination: "/", permanent: true },
+      { source: "/i-acteur-duo", destination: "https://iacteur.com/duo", permanent: true },
+      { source: "/et-si", destination: "https://iacteur.com", permanent: true },
       // Catégorie du blog sans aucun article : retour à la liste
       { source: "/news/categories/sacr%C3%A9-coeur", destination: "/news", permanent: true },
     ];
