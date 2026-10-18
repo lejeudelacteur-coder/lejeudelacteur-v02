@@ -1,5 +1,33 @@
 [
  {
+  "slug": "carriere-ce-que-vous-vivez-entre-deux-castings",
+  "fichier": "p167",
+  "titre": "Ce que vous vivez entre deux castings mérite mieux qu'un souvenir flou",
+  "date": "2026-10-18",
+  "modifie": "2026-10-18",
+  "description": "CARRIÈRE, dans IACTEUR : raconter un casting en trente secondes, recevoir une question qui ouvre, noter ce qui arrive et être rappelé le jour venu, tout retrouver en cartes. Et le Fil Conducteur, au bout de dix événements.",
+  "couverture": "carriere-couverture.jpg",
+  "miniature": "carriere-couverture-m.jpg",
+  "largeur": 1200,
+  "hauteur": 630,
+  "categories": [
+   {
+    "slug": "actualités",
+    "nom": "Actualités"
+   }
+  ],
+  "tags": [
+   "carrière d'acteur",
+   "casting",
+   "carnet de contacts",
+   "suivi de carrière",
+   "comédien",
+   "IACTEUR",
+   "CARRIÈRE"
+  ],
+  "lecture": "5 min de lecture"
+ },
+ {
   "slug": "apprendre-son-texte-7-exercices-methode",
   "fichier": "p166",
   "titre": "Apprendre son texte : 7 exercices pour le savoir vraiment",

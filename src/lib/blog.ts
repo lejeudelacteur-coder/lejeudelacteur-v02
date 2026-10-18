@@ -187,8 +187,9 @@ const REPLIQUE =
 // le bandeau devient « Ton casting approche ? Colle ton texte. » ; il passe avant RÉPLIQUE et le CV Pro.
 const MINI_COACH = /r[ée]ussir un casting|audition|self.?tape|pr[ée]parer avant|pourquoi 90|casting/i;
 
+// Les articles sur CARRIÈRE (18/10) parlent déjà d'IACTEUR : pas de bandeau mini-coach malgré « casting » dans le titre
 export function estArticleMiniCoach(a: Article) {
-  return MINI_COACH.test(a.titre) && !/iacteur/i.test(a.titre);
+  return MINI_COACH.test(a.titre) && !/iacteur/i.test(a.titre) && !a.tags.includes("CARRIÈRE");
 }
 
 export function estArticleReplique(a: Article) {
