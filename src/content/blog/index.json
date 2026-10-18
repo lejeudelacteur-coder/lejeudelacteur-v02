@@ -1,5 +1,33 @@
 [
  {
+  "slug": "preparer-un-casting-seul-travail-de-table",
+  "fichier": "p168",
+  "titre": "Préparer un casting seul : du mini-COACH au vrai travail de table",
+  "date": "2026-10-18",
+  "modifie": "2026-10-18",
+  "description": "La scène arrive la veille, et personne pour la travailler avec vous. Le mini-COACH gratuit vous donne l'essentiel en trente secondes ; COACH vous offre un vrai travail de table, sur n'importe quel texte, dans n'importe quelle langue.",
+  "couverture": "minicoach-couverture.jpg",
+  "miniature": "minicoach-couverture-m.jpg",
+  "largeur": 1200,
+  "hauteur": 630,
+  "categories": [
+   {
+    "slug": "actualités",
+    "nom": "Actualités"
+   }
+  ],
+  "tags": [
+   "casting",
+   "self-tape",
+   "travail de table",
+   "préparer un casting",
+   "coaching d'acteur",
+   "IACTEUR",
+   "COACH"
+  ],
+  "lecture": "4 min de lecture"
+ },
+ {
   "slug": "carriere-ce-que-vous-vivez-entre-deux-castings",
   "fichier": "p167",
   "titre": "Ce que vous vivez entre deux castings mérite mieux qu'un souvenir flou",
