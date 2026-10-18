@@ -12,7 +12,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -141,6 +141,62 @@ const TEXTE_MC_CENTRE = (
   </>
 );
 
+// CARRIÈRE (18/10/2026) : la « récompense » en exemple (noms inventés) : la question reçue après un
+// événement, ou la lecture du parcours (le Fil Conducteur, sans ce mot)
+const ExempleCarriere = ({ echelle, mode }: { echelle: number; mode: "question" | "fil" }) => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: 12 * echelle,
+      padding: 26 * echelle,
+      borderRadius: 14 * echelle,
+      border: "1px solid rgba(201,162,39,.45)",
+      background: "rgba(20,17,14,.9)",
+    }}
+  >
+    {mode === "question" ? (
+      <>
+        <p className="font-mono" style={{ margin: 0, fontSize: 15 * echelle, letterSpacing: "0.2em", color: "rgba(201,162,39,.85)" }}>
+          CASTING · JEUDI 15 OCTOBRE
+        </p>
+        <p style={{ margin: 0, fontSize: 26 * echelle, lineHeight: 1.25 }}>Les Remparts, avec Claire Martin</p>
+        <p style={{ margin: 0, fontSize: 19 * echelle, lineHeight: 1.35, color: "rgba(243,237,228,.65)" }}>
+          « Elle m&apos;a demandé d&apos;être plus calme, et j&apos;ai trouvé quelque chose. »
+        </p>
+        <p style={{ margin: `${6 * echelle}px 0 0`, paddingLeft: 16 * echelle, borderLeft: `${3 * echelle}px solid rgba(201,162,39,.7)`, fontSize: 25 * echelle, lineHeight: 1.3, fontStyle: "italic", color: "#d9b44a" }}>
+          Qu&apos;est-ce que tu as trouvé, quand elle t&apos;a demandé d&apos;être plus calme ?
+        </p>
+      </>
+    ) : (
+      <>
+        <p className="font-mono" style={{ margin: 0, fontSize: 15 * echelle, letterSpacing: "0.2em", color: "rgba(201,162,39,.85)" }}>
+          TON PARCOURS · APRÈS 10 ÉVÉNEMENTS
+        </p>
+        <p style={{ margin: 0, fontSize: 22 * echelle, lineHeight: 1.35, fontStyle: "italic", color: "rgba(243,237,228,.85)" }}>
+          Deux castings, un atelier face caméra, une rencontre avec une agente. Et un mot qui revient dans tes récits : « calme ».
+        </p>
+        <p style={{ margin: `${4 * echelle}px 0 0`, paddingLeft: 16 * echelle, borderLeft: `${3 * echelle}px solid rgba(201,162,39,.7)`, fontSize: 25 * echelle, lineHeight: 1.3, fontStyle: "italic", color: "#d9b44a" }}>
+          Et si ce calme était déjà en train de devenir une signature ?
+        </p>
+      </>
+    )}
+  </div>
+);
+
+const TITRE_CARRIERE_VOUS = (
+  <>
+    Ce que vous vivez<br /><span style={{ color: "#e3191d" }}>entre deux castings</span>
+  </>
+);
+const TITRE_CARRIERE_TU = (
+  <>
+    Ce que tu vis<br /><span style={{ color: "#e3191d" }}>entre deux castings</span>
+  </>
+);
+const TEXTE_CARRIERE_TU = "Raconte-le en trente secondes. IACTEUR relie les fils de ton parcours.";
+const OFFERT_CARRIERE = "Tes 10 premiers événements offerts.";
+
 export default async function Visuel({ params }: PageProps<"/visuels/[format]">) {
   const { format } = await params;
 
@@ -181,26 +237,61 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
     </div>
   );
 
-  if (format === "couverture-carriere") {
-    // Couverture de l'article CARRIÈRE V02 (1200 × 630, 19/10/2026)
+  if (format === "couverture-carriere" || format === "carriere-facebook") {
+    // CARRIÈRE (18/10, option B de David) : la récompense en exemple, la lecture du parcours.
+    // Couverture de l'article (vous, lejeudelacteur.com) ou Facebook / LinkedIn (tu, iacteur.com)
+    const fb = format === "carriere-facebook";
     return (
       <div style={{ ...cadre, width: 1200, height: 630 }}>
         <style>{MASQUER}</style>
-        <div style={{ position: "absolute", left: 60, top: 44, right: 60 }}>
-          <p className="font-mono" style={{ fontSize: 24, letterSpacing: "0.25em", color: "#e3191d", margin: 0 }}>IACTEUR · CARRIÈRE</p>
-          <p className="font-affiche uppercase" style={{ fontSize: 92, lineHeight: 1.02, margin: "20px 0 0" }}>
-            Ce que vous vivez<br /><span style={{ color: "#e3191d" }}>entre deux castings</span>
-          </p>
-          <p style={{ fontSize: 34, lineHeight: 1.3, margin: "24px 0 0", color: "#bdb2a6" }}>
-            Raconter en trente secondes, noter ce qui arrive, tout retrouver d&apos;un geste.
-          </p>
+        <div style={{ position: "absolute", left: 56, top: 44, width: 560 }}>
+          <p className="font-mono" style={{ fontSize: 22, letterSpacing: "0.25em", color: "#e3191d", margin: 0 }}>IACTEUR · CARRIÈRE</p>
+          <p className="font-affiche uppercase" style={{ fontSize: 80, lineHeight: 1.02, margin: "18px 0 0" }}>{fb ? TITRE_CARRIERE_TU : TITRE_CARRIERE_VOUS}</p>
+          <p style={{ fontSize: 28, lineHeight: 1.3, margin: "22px 0 0", color: "#bdb2a6" }}>{fb ? TEXTE_CARRIERE_TU : "Racontez-le en trente secondes. IACTEUR relie les fils de votre parcours."}</p>
+          {fb && <p style={{ fontSize: 28, fontWeight: 700, margin: "10px 0 0" }}>{OFFERT_CARRIERE}</p>}
         </div>
-        <div
-          style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 70, background: "#e3191d", display: "flex", alignItems: "center", justifyContent: "center" }}
-          className="font-affiche uppercase"
-        >
-          <span style={{ fontSize: 42, letterSpacing: "0.04em", color: "#fff" }}>lejeudelacteur.com</span>
+        <div style={{ position: "absolute", right: 44, top: 0, bottom: 70, width: 470, display: "flex", alignItems: "center" }}>
+          <ExempleCarriere echelle={0.9} mode="fil" />
         </div>
+        {bandeBas(70, 40, fb ? "iacteur.com" : "lejeudelacteur.com")}
+      </div>
+    );
+  }
+
+  if (format === "carriere-instagram") {
+    // 1080 × 1350 (post vertical)
+    return (
+      <div style={{ ...cadre, width: 1080, height: 1350 }}>
+        <style>{MASQUER}</style>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 26, paddingTop: 70, textAlign: "center" }}>
+          <Logo largeur={340} />
+          <p className="font-affiche uppercase" style={{ fontSize: 112, lineHeight: 1.02, margin: "14px 40px 0" }}>{TITRE_CARRIERE_TU}</p>
+          <p style={{ fontSize: 38, lineHeight: 1.35, margin: "0 90px", color: "#bdb2a6" }}>{TEXTE_CARRIERE_TU}</p>
+        </div>
+        <div style={{ position: "absolute", left: 70, right: 70, bottom: 230 }}>
+          <ExempleCarriere echelle={1.45} mode="fil" />
+          <p style={{ fontSize: 38, fontWeight: 700, margin: "34px 0 0", textAlign: "center" }}>{OFFERT_CARRIERE}</p>
+        </div>
+        {bandeBas(120, 58, "iacteur.com")}
+      </div>
+    );
+  }
+
+  if (format === "carriere-carre") {
+    // 1080 × 1080
+    return (
+      <div style={{ ...cadre, width: 1080, height: 1080 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", left: 60, top: 50, right: 60 }}>
+          <Logo largeur={260} />
+          <p className="font-affiche uppercase" style={{ fontSize: 92, lineHeight: 1.02, margin: "24px 0 0" }}>{TITRE_CARRIERE_TU}</p>
+          <p style={{ fontSize: 32, lineHeight: 1.3, margin: "18px 0 0", color: "#bdb2a6" }}>{TEXTE_CARRIERE_TU}</p>
+        </div>
+        <div style={{ position: "absolute", left: 60, right: 60, bottom: 135 }}>
+          <ExempleCarriere echelle={1.3} mode="fil" />
+          <p style={{ fontSize: 32, fontWeight: 700, margin: "22px 0 0" }}>{OFFERT_CARRIERE}</p>
+        </div>
+        {bandeBas(100, 52, "iacteur.com")}
       </div>
     );
   }
