@@ -174,7 +174,7 @@ const ExempleCarriere = ({ echelle, mode }: { echelle: number; mode: "question" 
           TON PARCOURS · APRÈS 10 ÉVÉNEMENTS
         </p>
         <p style={{ margin: 0, fontSize: 22 * echelle, lineHeight: 1.35, fontStyle: "italic", color: "rgba(243,237,228,.85)" }}>
-          Deux castings, un atelier face caméra, une rencontre avec une agente. Et un mot qui revient dans tes récits : « calme ».
+          Deux castings, un atelier face caméra, une rencontre avec un agent. Et un mot qui revient dans tes récits : « calme ».
         </p>
         <p style={{ margin: `${4 * echelle}px 0 0`, paddingLeft: 16 * echelle, borderLeft: `${3 * echelle}px solid rgba(201,162,39,.7)`, fontSize: 25 * echelle, lineHeight: 1.3, fontStyle: "italic", color: "#d9b44a" }}>
           Et si ce calme était déjà en train de devenir une signature ?
