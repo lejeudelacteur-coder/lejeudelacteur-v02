@@ -261,8 +261,8 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
               </>}</p>
           {fb && <p style={{ fontSize: 28, fontWeight: 700, margin: "10px 0 0" }}>{OFFERT_CARRIERE}</p>}
         </div>
-        <div style={{ position: "absolute", right: 44, top: 0, bottom: 70, width: 470, display: "flex", alignItems: "center" }}>
-          <ExempleCarriere echelle={0.9} mode="fil" />
+        <div style={{ position: "absolute", right: 36, top: 0, bottom: 70, width: 505, display: "flex", alignItems: "center" }}>
+          <ExempleCarriere echelle={1.04} mode="fil" />
         </div>
         {bandeBas(70, 40, fb ? "iacteur.com" : "lejeudelacteur.com")}
       </div>
@@ -298,7 +298,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
           <p className="font-affiche uppercase" style={{ fontSize: 92, lineHeight: 1.02, margin: "24px 0 0" }}>{TITRE_CARRIERE_TU}</p>
           <p style={{ fontSize: 32, lineHeight: 1.3, margin: "18px 0 0", color: "#bdb2a6" }}>{TEXTE_CARRIERE_TU}</p>
         </div>
-        <div style={{ position: "absolute", left: 60, right: 60, bottom: 135 }}>
+        <div style={{ position: "absolute", left: 60, right: 60, bottom: 185 }}>
           <ExempleCarriere echelle={1.3} mode="fil" />
           <p style={{ fontSize: 32, fontWeight: 700, margin: "22px 0 0" }}>{OFFERT_CARRIERE}</p>
         </div>
