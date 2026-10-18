@@ -189,7 +189,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
         <div style={{ position: "absolute", left: 60, top: 44, right: 60 }}>
           <p className="font-mono" style={{ fontSize: 24, letterSpacing: "0.25em", color: "#e3191d", margin: 0 }}>IACTEUR · CARRIÈRE</p>
           <p className="font-affiche uppercase" style={{ fontSize: 92, lineHeight: 1.02, margin: "20px 0 0" }}>
-            Ce que vous vivez <span style={{ color: "#e3191d" }}>entre deux castings</span>
+            Ce que vous vivez<br /><span style={{ color: "#e3191d" }}>entre deux castings</span>
           </p>
           <p style={{ fontSize: 34, lineHeight: 1.3, margin: "24px 0 0", color: "#bdb2a6" }}>
             Raconter en trente secondes, noter ce qui arrive, tout retrouver d&apos;un geste.
