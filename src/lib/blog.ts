@@ -123,6 +123,22 @@ export function articlesLies(a: Article, combien: number): Article[] {
     .map((r) => r.x);
 }
 
+// DANS LES ARCHIVES (19/10/2026) : la Search Console montre ~40 articles que Google n'a jamais
+// visités, faute de liens (ils ne sont jamais dans les « À lire aussi »). Chaque article propose donc
+// en plus l'article proche le moins relié : chacun finit par recevoir des liens.
+let entrants: Map<string, number> | null = null;
+export function articleDesArchives(a: Article, deja: string[]): Article | undefined {
+  if (!entrants) {
+    const m = new Map<string, number>();
+    for (const x of ARTICLES) for (const y of articlesLies(x, 4)) m.set(y.slug, (m.get(y.slug) ?? 0) + 1);
+    entrants = m;
+  }
+  const n = entrants;
+  // Parmi les 12 articles les plus proches : le moins relié (2 liens au plus), le plus proche à égalité
+  const proches = articlesLies(a, 12).filter((x) => !deja.includes(x.slug) && (n.get(x.slug) ?? 0) <= 2);
+  return proches.reduce<Article | undefined>((m, x) => (!m || (n.get(x.slug) ?? 0) < (n.get(m.slug) ?? 0) ? x : m), undefined);
+}
+
 export function categories() {
   const m = new Map<string, { slug: string; nom: string; nombre: number }>();
   for (const a of ARTICLES) {

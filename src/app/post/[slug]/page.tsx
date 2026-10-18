@@ -10,7 +10,7 @@ import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, estArticleMiniCoach, articlePourIacteur, articlesLies, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, estArticleMiniCoach, articlePourIacteur, articlesLies, articleDesArchives, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -73,6 +73,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
   const lies = articlesLies(a, 4).filter((x) => x.slug !== articleCv?.slug);
   const dansLeTexte = articleCv ?? (html.length > 3500 ? lies[0] : undefined);
   const voisins = (dansLeTexte && !articleCv ? lies.slice(1) : lies).slice(0, 3);
+  const archive = articleDesArchives(a, [a.slug, ...voisins.map((v) => v.slug), ...(dansLeTexte ? [dansLeTexte.slug] : [])]);
   // Dans un article « IACTEUR d'abord », le bandeau est déjà au premier tiers : le lien va dans la suite
   const [avantLien, apresLien] = dansLeTexte
     ? iacteurDabord
@@ -186,6 +187,14 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
               <CarteArticle key={v.slug} a={v} />
             ))}
           </ul>
+          {archive && (
+            <p className="text-secondaire">
+              Dans les archives :{" "}
+              <Link href={`/post/${archive.slug}`} className="text-foreground underline underline-offset-4">
+                {archive.titre}
+              </Link>
+            </p>
+          )}
         </section>
       )}
       <div className="grid gap-8 border-t border-secondaire/20 pt-8 sm:grid-cols-2">
