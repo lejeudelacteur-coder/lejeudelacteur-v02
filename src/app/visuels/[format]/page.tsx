@@ -194,7 +194,14 @@ const TITRE_CARRIERE_TU = (
     Ce que tu vis<br /><span style={{ color: "#e3191d" }}>entre deux castings</span>
   </>
 );
-const TEXTE_CARRIERE_TU = "Raconte-le en trente secondes. IACTEUR relie les fils de ton parcours.";
+// Saut de ligne avant « IACTEUR relie… » (David, 19/10)
+const TEXTE_CARRIERE_TU = (
+  <>
+    Raconte-le en trente secondes.
+    <br />
+    IACTEUR relie les fils de ton parcours.
+  </>
+);
 const OFFERT_CARRIERE = "Tes 10 premiers événements offerts.";
 
 export default async function Visuel({ params }: PageProps<"/visuels/[format]">) {
@@ -247,7 +254,11 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
         <div style={{ position: "absolute", left: 56, top: 44, width: 560 }}>
           <p className="font-mono" style={{ fontSize: 22, letterSpacing: "0.25em", color: "#e3191d", margin: 0 }}>IACTEUR · CARRIÈRE</p>
           <p className="font-affiche uppercase" style={{ fontSize: 80, lineHeight: 1.02, margin: "18px 0 0" }}>{fb ? TITRE_CARRIERE_TU : TITRE_CARRIERE_VOUS}</p>
-          <p style={{ fontSize: 28, lineHeight: 1.3, margin: "22px 0 0", color: "#bdb2a6" }}>{fb ? TEXTE_CARRIERE_TU : "Racontez-le en trente secondes. IACTEUR relie les fils de votre parcours."}</p>
+          <p style={{ fontSize: 28, lineHeight: 1.3, margin: "22px 0 0", color: "#bdb2a6" }}>{fb ? TEXTE_CARRIERE_TU : <>
+                Racontez-le en trente secondes.
+                <br />
+                IACTEUR relie les fils de votre parcours.
+              </>}</p>
           {fb && <p style={{ fontSize: 28, fontWeight: 700, margin: "10px 0 0" }}>{OFFERT_CARRIERE}</p>}
         </div>
         <div style={{ position: "absolute", right: 44, top: 0, bottom: 70, width: 470, display: "flex", alignItems: "center" }}>
