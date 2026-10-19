@@ -12,7 +12,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook", "carriere-tiktok-1", "carriere-tiktok-2", "carriere-tiktok-3"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -243,6 +243,56 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
       <span style={{ fontSize: taille, letterSpacing: "0.04em", color: "#fff" }}>{texte}</span>
     </div>
   );
+
+  if (format === "carriere-tiktok-1" || format === "carriere-tiktok-2" || format === "carriere-tiktok-3") {
+    // TikTok (19/10) : carrousel « mode photo » en 3 images 1080 × 1920, comme un mini-film :
+    // 1. le comédien croit avoir raté · 2. la question d'IACTEUR · 3. CARRIÈRE, offert, lien en bio
+    const n = Number(format.slice(-1));
+    const haut = { position: "absolute" as const, left: 90, right: 90, top: 330 };
+    return (
+      <div style={{ ...cadre, width: 1080, height: 1920 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", left: 0, right: 0, top: 110, display: "flex", justifyContent: "center" }}>
+          <Logo largeur={300} />
+        </div>
+        {n === 1 && (
+          <div style={haut}>
+            <p className="font-mono" style={{ margin: 0, fontSize: 30, letterSpacing: "0.25em", color: "#e3191d" }}>TU SORS D&apos;UN CASTING</p>
+            <p className="font-affiche uppercase" style={{ fontSize: 150, lineHeight: 1.15, margin: "40px 0 0" }}>
+              Tu te dis&nbsp;:<br /><span style={{ color: "#e3191d" }}>« raté. »</span>
+            </p>
+            <p style={{ fontSize: 52, lineHeight: 1.35, margin: "70px 0 0", color: "#d6cdc2" }}>
+              Tu n&apos;étais pas dedans.<br />Tu avais la tête ailleurs.<br />Elle t&apos;a juste dit<br />«&nbsp;merci, c&apos;est bien&nbsp;».
+            </p>
+            <p style={{ fontSize: 40, margin: "120px 0 0", color: "rgba(243,237,228,.55)" }}>→ fais glisser</p>
+          </div>
+        )}
+        {n === 2 && (
+          <div style={haut}>
+            <p className="font-mono" style={{ margin: 0, fontSize: 30, letterSpacing: "0.25em", color: "#e3191d" }}>ET IACTEUR TE DEMANDE</p>
+            <div style={{ marginTop: 60, padding: "60px 56px", borderRadius: 28, border: "2px solid rgba(201,162,39,.5)", background: "rgba(20,17,14,.9)" }}>
+              <p style={{ margin: 0, paddingLeft: 36, borderLeft: "6px solid rgba(201,162,39,.75)", fontSize: 76, lineHeight: 1.25, fontStyle: "italic", color: "#d9b44a" }}>
+                Tu n&apos;étais pas dedans. Qu&apos;est-ce qu&apos;elle a vu, elle, de l&apos;autre côté de la caméra&nbsp;?
+              </p>
+            </div>
+            <p style={{ fontSize: 52, lineHeight: 1.35, margin: "80px 0 0", color: "#d6cdc2" }}>La question que tu ne te serais pas posée.</p>
+          </div>
+        )}
+        {n === 3 && (
+          <div style={haut}>
+            <p className="font-affiche uppercase" style={{ fontSize: 130, lineHeight: 1, margin: 0 }}>
+              Raconte<br />ton casting.<br /><span style={{ color: "#e3191d" }}>IACTEUR te pose la question.</span>
+            </p>
+            <p style={{ fontSize: 50, lineHeight: 1.4, margin: "70px 0 0", color: "#d6cdc2" }}>
+              30 secondes, à voix haute.<br />Il range tout : date, rôle, contacts.<br />Il te rappelle tes rendez-vous.
+            </p>
+            <p style={{ fontSize: 56, fontWeight: 700, margin: "80px 0 0" }}>Tes 10 premiers événements offerts.</p>
+          </div>
+        )}
+        {bandeBas(170, 76, n === 3 ? "iacteur.com · lien en bio" : "iacteur.com")}
+      </div>
+    );
+  }
 
   if (format === "couverture-carriere" || format === "carriere-facebook") {
     // CARRIÈRE (18/10, option B de David) : la récompense en exemple, la lecture du parcours.
