@@ -158,7 +158,7 @@ export default function Accueil() {
             </figure>
             <figure className="flex flex-col gap-2">
               <VideoYoutube id="zc_YmcTmScA" titre="Improvisation sur le lâcher-prise" />
-              <figcaption className="text-sm text-secondaire">Improvisation sur le lâcher-prise.</figcaption>
+              <figcaption className="text-sm text-secondaire">Improvisation sur le lâcher-prise, au Pro du lundi.</figcaption>
             </figure>
           </div>
         </section>

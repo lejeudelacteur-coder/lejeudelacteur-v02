@@ -5,11 +5,15 @@
 // avant que le visiteur le demande). « fin » (en secondes) : ne lire que le début (21/10, la
 // projection de fin d'année : seulement la partie des cours Loisirs).
 import { useState } from "react";
+import { ficheVideo } from "@/lib/videos";
 
 export default function VideoYoutube({ id, titre, fin }: { id: string; titre: string; fin?: number }) {
   const [lecture, setLecture] = useState(false);
+  // La fiche pour Google (21/10), si la vidéo est décrite dans lib/videos.ts
+  const fiche = ficheVideo(id);
   return (
     <div className="relative aspect-video overflow-hidden rounded-lg bg-black">
+      {fiche && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(fiche).replace(/</g, "\\u003c") }} />}
       {lecture ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0${fin ? `&end=${fin}` : ""}`}
