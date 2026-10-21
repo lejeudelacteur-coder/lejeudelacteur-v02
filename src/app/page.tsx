@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import FormulaireContact from "@/components/FormulaireContact";
+import DerniersArticles from "@/components/DerniersArticles";
 import { BoutonRouge, Scene, Titre } from "@/components/Scene";
 
 export const metadata: Metadata = {
@@ -200,6 +201,9 @@ export default function Accueil() {
           </p>
           <FormulaireContact sujet="loisirs" />
         </section>
+
+        {/* ── Le blog : les derniers articles (21/10) ── */}
+        <DerniersArticles mode="bande" numero="05" />
       </div>
     </main>
   );

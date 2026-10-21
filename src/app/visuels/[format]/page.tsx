@@ -12,7 +12,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook", "carriere-tiktok-1", "carriere-tiktok-2", "carriere-tiktok-3"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook", "carriere-tiktok-1", "carriere-tiktok-2", "carriere-tiktok-3", "pub2-a-instagram", "pub2-b-instagram", "pub2-a-carre", "pub2-b-carre"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -315,6 +315,62 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
           <ExempleCarriere echelle={1.04} mode="fil" />
         </div>
         {bandeBas(70, 40, fb ? "iacteur.com" : "lejeudelacteur.com")}
+      </div>
+    );
+  }
+
+  if (format.startsWith("pub2-")) {
+    // PUB META 02 (21/10/2026, David + GPT) : la question qu'on rumine en sortant d'un casting, face à
+    // celle d'IACTEUR, tirée d'un détail. Promesse : ne plus être seul face à ce qu'on vit.
+    // A = deux bulles (une conversation) · B = comme une page de texte de théâtre
+    const carre = format.endsWith("carre");
+    const k = carre ? 0.86 : 1;
+    // Espaces insécables : jamais un « ? » ou un « » » seul en début de ligne
+    const toi = "«\u00a0Elle m'a fait refaire la scène trois fois. Vont-ils me rappeler\u00a0?\u00a0»";
+    const iac = "«\u00a0Qu'est-ce qu'elle cherchait, à la troisième prise\u00a0?\u00a0»";
+    const nomRole = (nom: string, couleur: string) => (
+      <p className="font-mono" style={{ margin: 0, fontSize: 26 * k, fontWeight: 900, letterSpacing: "0.25em", color: couleur }}>{nom}</p>
+    );
+    const dialogue = format.startsWith("pub2-a") ? (
+      <div style={{ display: "flex", flexDirection: "column", gap: 34 * k }}>
+        <div style={{ alignSelf: "flex-start", maxWidth: "82%", padding: `${26 * k}px ${32 * k}px`, borderRadius: `${30 * k}px ${30 * k}px ${30 * k}px 6px`, background: "rgba(243,237,228,.1)" }}>
+          {nomRole("TOI", "rgba(243,237,228,.6)")}
+          <p style={{ margin: `${10 * k}px 0 0`, fontSize: 46 * k, lineHeight: 1.28 }}>{toi}</p>
+        </div>
+        <div style={{ alignSelf: "flex-end", maxWidth: "82%", padding: `${26 * k}px ${32 * k}px`, borderRadius: `${30 * k}px ${30 * k}px 6px ${30 * k}px`, border: "2px solid rgba(201,162,39,.6)", background: "rgba(20,17,14,.95)" }}>
+          {nomRole("IACTEUR", "#c9a227")}
+          <p style={{ margin: `${10 * k}px 0 0`, fontSize: 48 * k, lineHeight: 1.25, fontStyle: "italic", color: "#d9b44a" }}>{iac}</p>
+        </div>
+      </div>
+    ) : (
+      <div style={{ display: "flex", flexDirection: "column", gap: 40 * k, paddingLeft: 30 * k, borderLeft: "3px solid rgba(201,162,39,.5)" }}>
+        <div>
+          {nomRole("TOI", "rgba(243,237,228,.6)")}
+          <p style={{ margin: `${12 * k}px 0 0`, fontSize: 52 * k, lineHeight: 1.28 }}>{toi}</p>
+        </div>
+        <div>
+          {nomRole("IACTEUR", "#c9a227")}
+          <p style={{ margin: `${12 * k}px 0 0`, fontSize: 56 * k, lineHeight: 1.22, fontStyle: "italic", color: "#d9b44a" }}>{iac}</p>
+        </div>
+      </div>
+    );
+    return (
+      <div style={{ ...cadre, width: 1080, height: carre ? 1080 : 1350 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", left: 70, right: 70, top: carre ? 50 : 70, display: "flex", flexDirection: "column", gap: (carre ? 34 : 52) }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <p className="font-mono" style={{ margin: 0, fontSize: 30 * k, letterSpacing: "0.22em", color: "#e3191d" }}>EN SORTANT D&apos;UN CASTING…</p>
+            <Logo largeur={carre ? 170 : 200} />
+          </div>
+          {dialogue}
+        </div>
+        <div style={{ position: "absolute", left: 70, right: 70, bottom: carre ? 140 : 175 }}>
+          <p className="font-affiche uppercase" style={{ margin: 0, fontSize: carre ? 120 : 140, lineHeight: 1.02 }}>
+            N&apos;avance plus <span style={{ color: "#e3191d" }}>seul.</span>
+          </p>
+          <p style={{ margin: `${20 * k}px 0 0`, fontSize: 38 * k, lineHeight: 1.35, color: "#bdb2a6" }}>Raconte ce que tu vis. IACTEUR t&apos;aide à prendre du recul.</p>
+        </div>
+        {bandeBas(carre ? 100 : 120, carre ? 46 : 54, "iacteur.com · essaie sans compte")}
       </div>
     );
   }
