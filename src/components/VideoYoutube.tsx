@@ -2,16 +2,17 @@
 
 // Une vidéo YouTube de l'article : on affiche d'abord l'image, la vidéo ne se
 // charge qu'au toucher (page plus rapide, et rien n'est envoyé à YouTube
-// avant que le visiteur le demande).
+// avant que le visiteur le demande). « fin » (en secondes) : ne lire que le début (21/10, la
+// projection de fin d'année : seulement la partie des cours Loisirs).
 import { useState } from "react";
 
-export default function VideoYoutube({ id, titre }: { id: string; titre: string }) {
+export default function VideoYoutube({ id, titre, fin }: { id: string; titre: string; fin?: number }) {
   const [lecture, setLecture] = useState(false);
   return (
     <div className="relative aspect-video overflow-hidden rounded-lg bg-black">
       {lecture ? (
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0${fin ? `&end=${fin}` : ""}`}
           title={titre}
           allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
           allowFullScreen

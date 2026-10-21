@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import FormulaireContact from "@/components/FormulaireContact";
 import BandeauIacteur from "@/components/BandeauIacteur";
+import VideoYoutube from "@/components/VideoYoutube";
 import { BoutonRouge, Scene, Titre } from "@/components/Scene";
 
 export const metadata: Metadata = {
@@ -78,6 +79,16 @@ export default function CoursLoisirs() {
           <p className="font-affiche text-2xl uppercase leading-snug sm:text-3xl">
             En fin d&apos;année : <span className="text-rouge">projection sur grand écran</span> de vos films.
           </p>
+          {/* La projection 2025/2026 (21/10) : seulement les 45 premières minutes, celles des cours Loisirs */}
+          <figure className="flex flex-col gap-2">
+            <VideoYoutube id="AvduR_iX13c" titre="Le Jeu de l'Acteur, projection 2025/2026 (cours Loisirs)" fin={45 * 60} />
+            <figcaption className="text-sm text-secondaire">
+              La projection 2025/2026 : les films des cours Loisirs (45 min).{" "}
+              <a href="https://youtu.be/AvduR_iX13c" target="_blank" rel="noreferrer" className="underline underline-offset-2">
+                Voir la projection complète
+              </a>
+            </figcaption>
+          </figure>
         </section>
 
         <section className="flex flex-col gap-6">
