@@ -181,7 +181,7 @@ export default function Accueil() {
               [
                 ["4R08WX35UZo", "Monologue créé avec IACTEUR SOLO (Manon)", "Manon"],
                 ["JYzKl9enSJw", "Monologue créé avec IACTEUR SOLO (Nicolas)", "Nicolas"],
-                ["eeznJ-zPYTg", "I.ACTEUR, extrait 05", "Extrait 05"],
+                ["eeznJ-zPYTg", "Monologue créé avec IACTEUR SOLO (Agnès)", "Agnès"],
               ] as const
             ).map(([id, titre, nom]) => (
               <li key={id} className="flex w-[80%] shrink-0 snap-start flex-col gap-2 sm:w-auto">
