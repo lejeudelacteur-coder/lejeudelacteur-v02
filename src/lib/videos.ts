@@ -12,7 +12,7 @@ export const VIDEOS: Record<string, FicheVideo> = {
   "eeznJ-zPYTg": { titre: "Monologue créé avec IACTEUR SOLO : Agnès", description: "Un monologue créé avec IACTEUR SOLO, puis travaillé et interprété par Agnès, élève du Jeu de l'Acteur à Avignon.", date: "2026-07-09T02:25:10-07:00", duree: "PT1M52S" },
   "nq-YjEEBH8c": { titre: "Jeu face caméra au Cours Pro du lundi", description: "Extrait de « Folle à demi » de Cassidie Gardès, par Elina Maurel : première prise du travail face caméra au Cours Pro du lundi, Le Jeu de l'Acteur, Avignon.", date: "2025-10-20T01:56:21-07:00", duree: "PT1M20S" },
   "zc_YmcTmScA": { titre: "Improvisation sur le lâcher-prise", description: "Improvisation sur le lâcher-prise avec Cindy Malbon, au Cours Pro du lundi du Jeu de l'Acteur, école de théâtre et de cinéma à Avignon.", date: "2024-12-24T04:52:47-08:00", duree: "PT2M18S" },
-  "AvduR_iX13c": { titre: "Projection de fin d'année 2025/2026 du Jeu de l'Acteur", description: "Projection du cursus 2025-2026 des élèves Pros et Loisirs du Jeu de l'Acteur, école de théâtre et de cinéma à Avignon : monologues, scènes et films tournés pendant l'année.", date: "2026-07-03T17:24:03-07:00", duree: "PT1H28M28S" },
+  "AvduR_iX13c": { titre: "Projection de fin d'année 2026 du Jeu de l'Acteur", description: "Projection 2026 des élèves Pros et Loisirs du Jeu de l'Acteur, école de théâtre et de cinéma à Avignon : monologues, scènes et films tournés pendant l'année.", date: "2026-07-03T17:24:03-07:00", duree: "PT1H28M28S" },
 };
 
 export function ficheVideo(id: string) {

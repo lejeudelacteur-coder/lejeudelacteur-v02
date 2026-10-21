@@ -79,11 +79,11 @@ export default function CoursLoisirs() {
           <p className="font-affiche text-2xl uppercase leading-snug sm:text-3xl">
             En fin d&apos;année : <span className="text-rouge">projection sur grand écran</span> de vos films.
           </p>
-          {/* La projection 2025/2026 (21/10) : seulement les 42 min 50 du début, celles des cours Loisirs */}
+          {/* La projection 2026 (21/10) : seulement les 42 min 50 du début, celles des cours Loisirs */}
           <figure className="flex flex-col gap-2">
-            <VideoYoutube id="AvduR_iX13c" titre="Le Jeu de l'Acteur, projection 2025/2026 (cours Loisirs)" fin={42 * 60 + 50} />
+            <VideoYoutube id="AvduR_iX13c" titre="Le Jeu de l'Acteur, projection 2026 (cours Loisirs)" fin={42 * 60 + 50} />
             <figcaption className="text-sm text-secondaire">
-              La projection 2025/2026 : les films des cours Loisirs (43 min).{" "}
+              La projection 2026 : les films des cours Loisirs (43 min).{" "}
               <a href="https://youtu.be/AvduR_iX13c" target="_blank" rel="noreferrer" className="underline underline-offset-2">
                 Voir la projection complète
               </a>
