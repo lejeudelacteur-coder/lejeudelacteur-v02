@@ -150,11 +150,17 @@ export default function Accueil() {
             regardant jouer un camarade, tu prends conscience de ce qui sépare le jeu pour la scène du jeu pour
             l&apos;image.
           </p>
-          {/* Vidéo remise le 21/10 */}
-          <figure className="flex flex-col gap-2">
-            <VideoYoutube id="nq-YjEEBH8c" titre="Jeu face caméra au Cours Pro du Lundi" />
-            <figcaption className="text-sm text-secondaire">Jeu face caméra, au Pro du lundi.</figcaption>
-          </figure>
+          {/* Deux extraits de jeu (21/10) */}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <figure className="flex flex-col gap-2">
+              <VideoYoutube id="nq-YjEEBH8c" titre="Jeu face caméra au Cours Pro du Lundi" />
+              <figcaption className="text-sm text-secondaire">Jeu face caméra, au Pro du lundi.</figcaption>
+            </figure>
+            <figure className="flex flex-col gap-2">
+              <VideoYoutube id="zc_YmcTmScA" titre="Improvisation sur le lâcher-prise" />
+              <figcaption className="text-sm text-secondaire">Improvisation sur le lâcher-prise.</figcaption>
+            </figure>
+          </div>
         </section>
 
         {/* ── Partenaire de jeu ── */}
