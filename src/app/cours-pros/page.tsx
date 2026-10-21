@@ -4,6 +4,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 import type { Metadata } from "next";
 import Image from "next/image";
 import FormulaireContact from "@/components/FormulaireContact";
+import VideoYoutube from "@/components/VideoYoutube";
 import { BoutonRouge, Scene, Titre } from "@/components/Scene";
 
 export const metadata: Metadata = {
@@ -89,6 +90,11 @@ export default function CoursPros() {
               </div>
             ))}
           </dl>
+          {/* Vidéo remise le 21/10 (sur Wix, elle était hébergée par Wix) */}
+          <figure className="flex flex-col gap-2">
+            <VideoYoutube id="AKAJuX7xyWQ" titre="Cours pour Acteurs à Avignon" />
+            <figcaption className="text-sm text-secondaire">Le Pro du lundi, en interview.</figcaption>
+          </figure>
         </section>
 
         <section className="flex flex-col gap-6">

@@ -7,6 +7,7 @@ import Link from "next/link";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import FormulaireContact from "@/components/FormulaireContact";
 import DerniersArticles from "@/components/DerniersArticles";
+import VideoYoutube from "@/components/VideoYoutube";
 import { BoutonRouge, Scene, Titre } from "@/components/Scene";
 
 export const metadata: Metadata = {
@@ -149,6 +150,11 @@ export default function Accueil() {
             regardant jouer un camarade, tu prends conscience de ce qui sépare le jeu pour la scène du jeu pour
             l&apos;image.
           </p>
+          {/* Vidéo remise le 21/10 */}
+          <figure className="flex flex-col gap-2">
+            <VideoYoutube id="nq-YjEEBH8c" titre="Jeu face caméra au Cours Pro du Lundi" />
+            <figcaption className="text-sm text-secondaire">Jeu face caméra, au Pro du lundi.</figcaption>
+          </figure>
         </section>
 
         {/* ── Partenaire de jeu ── */}
@@ -159,6 +165,25 @@ export default function Accueil() {
             Pour les formations pro, recommande un talent et profitez-en tous les deux : un mois de formation offert
             chacun sur l&apos;Intensif, 10 % de réduction sur le Pro du lundi.
           </p>
+        </section>
+
+        {/* ── IACTEUR SOLO à l'œuvre (21/10) : des monologues écrits avec IACTEUR, joués par les élèves ── */}
+        <section className="flex flex-col gap-4">
+          <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">Écrits avec IACTEUR SOLO, joués à l&apos;école</p>
+          <ul className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
+            {(
+              [
+                ["4R08WX35UZo", "Monologue créé avec IACTEUR SOLO (Manon)", "Manon"],
+                ["JYzKl9enSJw", "Monologue créé avec IACTEUR SOLO (Nicolas)", "Nicolas"],
+                ["eeznJ-zPYTg", "I.ACTEUR, extrait 05", "Extrait 05"],
+              ] as const
+            ).map(([id, titre, nom]) => (
+              <li key={id} className="flex w-[80%] shrink-0 snap-start flex-col gap-2 sm:w-auto">
+                <VideoYoutube id={id} titre={titre} />
+                <p className="text-sm text-secondaire">{nom}</p>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* ── IACTEUR : le mini-COACH (17/10), le CV Pro (10/10), puis RÉPLIQUE (12/10) ── */}

@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Candidature from "./Candidature";
+import VideoYoutube from "@/components/VideoYoutube";
 import { Scene, Titre } from "@/components/Scene";
 
 export const metadata: Metadata = {
@@ -186,6 +187,11 @@ export default function CoursIntensif() {
               </div>
             ))}
           </dl>
+          {/* Vidéos remises le 21/10 (sur Wix, elles étaient hébergées par Wix) */}
+          <figure className="flex flex-col gap-2">
+            <VideoYoutube id="D28GrQ93KXM" titre="Cours Intensif pour Acteur" />
+            <figcaption className="text-sm text-secondaire">Le teaser de la formation intensive.</figcaption>
+          </figure>
         </section>
 
         {/* ── Citation de David (page Wix) ── */}
@@ -230,6 +236,10 @@ export default function CoursIntensif() {
               </p>
             </li>
           </ul>
+          <figure className="flex flex-col gap-2">
+            <VideoYoutube id="iRF6VPelnrk" titre="Démo de comédien (Amaury B.)" />
+            <figcaption className="text-sm text-secondaire">Une bande démo montée à l&apos;école : Amaury B.</figcaption>
+          </figure>
         </section>
 
         {/* ── SC. 03 FEUILLE DE SERVICE ── */}
