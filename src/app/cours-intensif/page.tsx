@@ -50,7 +50,7 @@ const PROGRAMME: { titre: string; texte: string; image: string }[] = [
   { titre: "Interprétation & émotions", texte: "Le cœur du métier, travaillé chaque semaine.", image: "interpretation" },
   { titre: "Préparation aux castings", texte: "Avec Laetitia Gaune, directrice de casting.", image: "casting" },
   { titre: "Cascade", texte: "Initiation avec Aureck.", image: "cascade" },
-  { titre: "Voix, respiration, confiance", texte: "Techniques de respiration avec Isabelle Delaetre.", image: "respiration" },
+  // « Voix, respiration, confiance » (Isabelle Delaetre) retiré le 23/10 à la demande de David (peut revenir)
 ];
 
 const EQUIPE: { nom: string; role: string; image: string }[] = [
@@ -294,7 +294,7 @@ export default function CoursIntensif() {
           <Titre rouge="avec une directrice de casting.">Tu t&apos;entraînes au casting</Titre>
           <p className="max-w-2xl text-lg">
             Les cours sont menés essentiellement par David Rousseau et Nicolas Laurent. L&apos;entraînement au casting, par
-            Laetitia Gaune. L&apos;initiation à la cascade par Aureck, et les techniques de respiration par Isabelle Delaetre.
+            Laetitia Gaune. Et l&apos;initiation à la cascade, par Aureck.
           </p>
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {EQUIPE.map((e) => (

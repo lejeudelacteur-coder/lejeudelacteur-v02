@@ -12,7 +12,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook", "carriere-tiktok-1", "carriere-tiktok-2", "carriere-tiktok-3", "pub2-a-instagram", "pub2-b-instagram", "pub2-a-carre", "pub2-b-carre"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook", "carriere-tiktok-1", "carriere-tiktok-2", "carriere-tiktok-3", "pub2-a-instagram", "pub2-b-instagram", "pub2-a-carre", "pub2-b-carre", "prolonger-a", "prolonger-b"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -315,6 +315,57 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
           <ExempleCarriere echelle={1.04} mode="fil" />
         </div>
         {bandeBas(70, 40, fb ? "iacteur.com" : "lejeudelacteur.com")}
+      </div>
+    );
+  }
+
+  if (format === "prolonger-a" || format === "prolonger-b") {
+    // PROLONGER (21/10/2026, newsletter 04, 1200 × 630) : le même texte qui continue, et change de style.
+    // Extraits réels d'un essai (monologue de Lucas, « Le quai ») : partie 1 en drame, partie 3 en comédie.
+    // A = deux cartes reliées par une flèche · B = une seule page, la coupure au milieu
+    const parties: [string, string][] = [
+      ["PARTIE 1 · DRAME", "« Vas-y. Monte. Je serai là quand tu reviendras. »"],
+      ["PARTIE 2 · COMÉDIE", "« Je t'avais donné une demi-barre de chocolat volée pour ton anniversaire. Et t'avais dit merci. »"],
+    ];
+    const titre = (
+      <>
+        <p className="font-mono" style={{ fontSize: 22, letterSpacing: "0.25em", color: "#e3191d", margin: 0 }}>IACTEUR · PROLONGER</p>
+        <p className="font-affiche uppercase" style={{ fontSize: 76, lineHeight: 1.02, margin: "16px 0 0" }}>
+          Votre texte<br />continue.<br /><span style={{ color: "#e3191d" }}>Le style change.</span>
+        </p>
+        <p style={{ fontSize: 26, lineHeight: 1.35, margin: "20px 0 0", color: "#bdb2a6" }}>
+          Mêmes personnages, nouvelle couleur :<br />de quoi travailler les ruptures de jeu.
+        </p>
+      </>
+    );
+    const carte = ([etiquette, phrase]: [string, string], dore: boolean) => (
+      <div style={{ padding: "22px 26px", borderRadius: 14, border: `1px solid ${dore ? "rgba(201,162,39,.6)" : "rgba(243,237,228,.25)"}`, background: dore ? "rgba(20,17,14,.95)" : "rgba(243,237,228,.06)" }}>
+        <p className="font-mono" style={{ margin: 0, fontSize: 16, fontWeight: 900, letterSpacing: "0.2em", color: dore ? "#c9a227" : "rgba(243,237,228,.6)" }}>{etiquette}</p>
+        <p style={{ margin: "10px 0 0", fontSize: 25, lineHeight: 1.3, fontStyle: "italic", color: dore ? "#d9b44a" : "#f3ede4" }}>{phrase}</p>
+      </div>
+    );
+    return (
+      <div style={{ ...cadre, width: 1200, height: 630 }}>
+        <style>{MASQUER}</style>
+        <div style={{ position: "absolute", left: 56, top: 44, width: 540 }}>{titre}</div>
+        <div style={{ position: "absolute", right: 46, top: 0, bottom: 70, width: 500, display: "flex", flexDirection: "column", justifyContent: "center", gap: 18 }}>
+          {format === "prolonger-a" ? (
+            <>
+              {carte(parties[0], false)}
+              <p className="font-affiche" style={{ margin: 0, textAlign: "center", fontSize: 44, lineHeight: 1, color: "#e3191d" }}>↓ ➕ PROLONGER</p>
+              {carte(parties[1], true)}
+            </>
+          ) : (
+            <div style={{ padding: "26px 30px", borderRadius: 14, border: "1px solid rgba(243,237,228,.25)", background: "rgba(243,237,228,.05)" }}>
+              <p className="font-mono" style={{ margin: 0, fontSize: 16, fontWeight: 900, letterSpacing: "0.2em", color: "rgba(243,237,228,.6)" }}>{parties[0][0]}</p>
+              <p style={{ margin: "10px 0 0", fontSize: 25, lineHeight: 1.3, fontStyle: "italic" }}>{parties[0][1]}</p>
+              <p className="font-mono" style={{ margin: "22px 0", paddingTop: 14, borderTop: "2px dashed rgba(227,25,29,.8)", fontSize: 16, fontWeight: 900, letterSpacing: "0.2em", color: "#e3191d" }}>➕ PROLONGER</p>
+              <p className="font-mono" style={{ margin: 0, fontSize: 16, fontWeight: 900, letterSpacing: "0.2em", color: "#c9a227" }}>{parties[1][0]}</p>
+              <p style={{ margin: "10px 0 0", fontSize: 25, lineHeight: 1.3, fontStyle: "italic", color: "#d9b44a" }}>{parties[1][1]}</p>
+            </div>
+          )}
+        </div>
+        {bandeBas(70, 40, "iacteur.com")}
       </div>
     );
   }

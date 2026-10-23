@@ -58,7 +58,8 @@ const COACHS: { nom: string; role: string; image: string; lien?: [string, string
 
 const INTERVENANTS: { nom: string; sujet: string; image: string; cadrage: string }[] = [
   { nom: "Aureck", sujet: "Initiation à la cascade", image: "aureck", cadrage: "object-[28%_center]" },
-  { nom: "Isabelle Delaetre", sujet: "Voix, techniques de respiration, confiance", image: "isabelle-delaetre", cadrage: "object-[center_12%]" },
+  // Isabelle Delaetre retirée le 23/10 à la demande de David (peut revenir) :
+  // { nom: "Isabelle Delaetre", sujet: "Voix, techniques de respiration, confiance", image: "isabelle-delaetre", cadrage: "object-[center_12%]" },
 ];
 
 export default function Equipe() {
