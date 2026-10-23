@@ -24,8 +24,15 @@ export type Article = {
   lecture: string;
 };
 
+// Articles MIS DE CÔTÉ (David) : absents du blog, des listes, de la recherche et du plan du site ; leur
+// adresse renvoie « page introuvable ». Les remettre en ligne = les retirer de cette liste.
+// - « La sophrologie pour le jeu de l'acteur » (23/10/2026) : avec Isabelle Delaetre, à remettre plus tard.
+export const ARTICLES_MIS_DE_COTE = new Set(["la-sophrologie-pour-le-jeu-de-l-acteur"]);
+
 // Du plus récent au plus ancien
-export const ARTICLES = (index as Article[]).toSorted((a, b) => b.date.localeCompare(a.date));
+export const ARTICLES = (index as Article[])
+  .filter((a) => !ARTICLES_MIS_DE_COTE.has(a.slug))
+  .toSorted((a, b) => b.date.localeCompare(a.date));
 
 export function articleParSlug(slug: string) {
   return ARTICLES.find((a) => a.slug === slug);
