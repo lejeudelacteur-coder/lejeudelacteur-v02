@@ -190,6 +190,10 @@ export default function Accueil() {
               </li>
             ))}
           </ul>
+          {/* GUIDES IACTEUR (24/10/2026) */}
+          <a href="https://iacteur.com/guides" className="mt-2 self-start font-bold underline underline-offset-4 hover:text-rouge">
+            Les guides IACTEUR pour comédiens : apprendre son texte, préparer un casting, travailler une scène →
+          </a>
         </section>
 
         {/* ── IACTEUR : le mini-COACH (17/10), le CV Pro (10/10), puis RÉPLIQUE (12/10) ── */}

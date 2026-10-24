@@ -57,6 +57,11 @@ export function PiedDePage() {
           Le blog
         </Link>{" "}
         ·{" "}
+        {/* GUIDES IACTEUR (24/10/2026) : lien présent sur tout le site, pour Google et les visiteurs */}
+        <a href="https://iacteur.com/guides" className="underline">
+          Guides pour comédiens
+        </a>{" "}
+        ·{" "}
         <Link href="/rgpd" className="underline">
           Mentions légales
         </Link>{" "}
