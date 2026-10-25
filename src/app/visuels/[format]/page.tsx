@@ -12,7 +12,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 
 export const metadata: Metadata = { title: "Visuels IACTEUR", robots: { index: false, follow: false } };
 export function generateStaticParams() {
-  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook", "carriere-tiktok-1", "carriere-tiktok-2", "carriere-tiktok-3", "pub2-a-instagram", "pub2-b-instagram", "pub2-a-carre", "pub2-b-carre", "prolonger-a", "prolonger-b"].map((format) => ({ format }));
+  return ["bandeau", "instagram", "carre", "facebook", "couverture-7-exercices", "cv-bandeau", "cv-instagram", "cv-carre", "cv-facebook", "replique-bandeau", "replique-instagram", "replique-carre", "replique-facebook", "minicoach-instagram", "minicoach-story", "minicoach-carre", "minicoach-facebook", "couverture-carriere", "carriere-instagram", "carriere-carre", "carriere-facebook", "carriere-tiktok-1", "carriere-tiktok-2", "carriere-tiktok-3", "pub2-a-instagram", "pub2-b-instagram", "pub2-a-carre", "pub2-b-carre", "prolonger-a", "prolonger-b", "prolonger-monologue"].map((format) => ({ format }));
 }
 
 const MASQUER = `
@@ -319,10 +319,12 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
     );
   }
 
-  if (format === "prolonger-a" || format === "prolonger-b") {
+  if (format === "prolonger-a" || format === "prolonger-b" || format === "prolonger-monologue") {
     // PROLONGER (21/10/2026, newsletter 04, 1200 × 630) : le même texte qui continue, et change de style.
     // Un monologue, un seul personnage (David, 25/10) : il promet (drame), puis la même promesse continue en comédie.
     // A = deux cartes reliées par une flèche · B = une seule page, la coupure au milieu
+    // monologue = la carte A, mais « Même personnage » au singulier (A reste celle des DUO)
+    const monologue = format === "prolonger-monologue";
     const parties: [string, string][] = [
       ["PARTIE 1 · DRAME", "« Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
       ["PARTIE 2 · COMÉDIE", "« … Au buffet de la gare, comme d'habitude. Je te garderai un croissant. »"],
@@ -334,7 +336,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
           Votre texte<br />continue.<br /><span style={{ color: "#e3191d" }}>Le style change.</span>
         </p>
         <p style={{ fontSize: 26, lineHeight: 1.35, margin: "20px 0 0", color: "#bdb2a6" }}>
-          Mêmes personnages, nouvelle couleur :<br />de quoi travailler les ruptures de jeu.
+          {monologue ? "Même personnage" : "Mêmes personnages"}, nouvelle couleur :<br />de quoi travailler les ruptures de jeu.
         </p>
       </>
     );
@@ -349,7 +351,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
         <style>{MASQUER}</style>
         <div style={{ position: "absolute", left: 56, top: 44, width: 540 }}>{titre}</div>
         <div style={{ position: "absolute", right: 46, top: 0, bottom: 70, width: 500, display: "flex", flexDirection: "column", justifyContent: "center", gap: 18 }}>
-          {format === "prolonger-a" ? (
+          {format !== "prolonger-b" ? (
             <>
               {carte(parties[0], false)}
               <p className="font-affiche" style={{ margin: 0, textAlign: "center", fontSize: 44, lineHeight: 1, color: "#e3191d" }}>↓ ➕ PROLONGER</p>
