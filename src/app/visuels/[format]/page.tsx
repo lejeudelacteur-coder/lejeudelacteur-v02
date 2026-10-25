@@ -324,7 +324,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
     // A = deux cartes reliées par une flèche · B = une seule page, la coupure au milieu
     // monologue = la carte A, mais « Même personnage » au singulier (A reste celle des DUO)
     const monologue = format === "prolonger-monologue";
-    // DUO (A et B) : Lucas promet, Maxime répond · monologue : un seul personnage, la promesse continue
+    // DUO (A et B) : Lucas promet, Susie répond (un couple) · monologue : un seul personnage, la promesse continue
     const parties: [string, string][] = monologue
       ? [
           ["PARTIE 1 · DRAME", "« Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
@@ -332,7 +332,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
         ]
       : [
           ["PARTIE 1 · DRAME", "LUCAS — « Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
-          ["PARTIE 2 · COMÉDIE", "MAXIME — « Tu dis ça à chaque fois. Et à chaque fois, je te retrouve au buffet de la gare. »"],
+          ["PARTIE 2 · COMÉDIE", "SUSIE — « Tu dis ça à chaque fois. Et à chaque fois, je te retrouve au buffet de la gare. »"],
         ];
     const titre = (
       <>
