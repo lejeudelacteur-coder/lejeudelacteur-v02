@@ -321,11 +321,11 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
 
   if (format === "prolonger-a" || format === "prolonger-b") {
     // PROLONGER (21/10/2026, newsletter 04, 1200 × 630) : le même texte qui continue, et change de style.
-    // Extraits réels d'un essai (monologue de Lucas, « Le quai ») : partie 1 en drame, partie 3 en comédie.
+    // La même réplique qui continue (David, 25/10 : les deux phrases doivent se suivre) : drame, puis bascule en comédie.
     // A = deux cartes reliées par une flèche · B = une seule page, la coupure au milieu
     const parties: [string, string][] = [
-      ["PARTIE 1 · DRAME", "« Vas-y. Monte. Je serai là quand tu reviendras. »"],
-      ["PARTIE 2 · COMÉDIE", "« Je t'avais donné une demi-barre de chocolat volée pour ton anniversaire. Et t'avais dit merci. »"],
+      ["PARTIE 1 · DRAME", "« Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
+      ["PARTIE 2 · COMÉDIE", "« … Enfin, sauf s'il pleut. Ou si j'ai faim. Disons que je serai pas loin. »"],
     ];
     const titre = (
       <>
