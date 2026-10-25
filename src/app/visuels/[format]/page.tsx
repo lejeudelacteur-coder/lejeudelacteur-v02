@@ -321,11 +321,11 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
 
   if (format === "prolonger-a" || format === "prolonger-b") {
     // PROLONGER (21/10/2026, newsletter 04, 1200 × 630) : le même texte qui continue, et change de style.
-    // Deux répliques qui se répondent (David, 25/10 : logiques, l'une à la suite de l'autre) : Lucas promet (drame), Maxime répond (comédie).
+    // Un monologue, un seul personnage (David, 25/10) : il promet (drame), puis la même promesse continue en comédie.
     // A = deux cartes reliées par une flèche · B = une seule page, la coupure au milieu
     const parties: [string, string][] = [
-      ["PARTIE 1 · DRAME", "LUCAS — « Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
-      ["PARTIE 2 · COMÉDIE", "MAXIME — « Tu dis ça à chaque fois. Et à chaque fois, je te retrouve au buffet de la gare. »"],
+      ["PARTIE 1 · DRAME", "« Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
+      ["PARTIE 2 · COMÉDIE", "« … Au buffet de la gare, comme d'habitude. Je te garderai un croissant. »"],
     ];
     const titre = (
       <>
