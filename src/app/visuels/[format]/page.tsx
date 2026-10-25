@@ -321,14 +321,19 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
 
   if (format === "prolonger-a" || format === "prolonger-b" || format === "prolonger-monologue") {
     // PROLONGER (21/10/2026, newsletter 04, 1200 × 630) : le même texte qui continue, et change de style.
-    // Un monologue, un seul personnage (David, 25/10) : il promet (drame), puis la même promesse continue en comédie.
     // A = deux cartes reliées par une flèche · B = une seule page, la coupure au milieu
     // monologue = la carte A, mais « Même personnage » au singulier (A reste celle des DUO)
     const monologue = format === "prolonger-monologue";
-    const parties: [string, string][] = [
-      ["PARTIE 1 · DRAME", "« Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
-      ["PARTIE 2 · COMÉDIE", "« … Au buffet de la gare, comme d'habitude. Je te garderai un croissant. »"],
-    ];
+    // DUO (A et B) : Lucas promet, Maxime répond · monologue : un seul personnage, la promesse continue
+    const parties: [string, string][] = monologue
+      ? [
+          ["PARTIE 1 · DRAME", "« Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
+          ["PARTIE 2 · COMÉDIE", "« … Au buffet de la gare, comme d'habitude. Je te garderai un croissant. »"],
+        ]
+      : [
+          ["PARTIE 1 · DRAME", "LUCAS — « Vas-y. Monte dans ce train. Je serai là quand tu reviendras. »"],
+          ["PARTIE 2 · COMÉDIE", "MAXIME — « Tu dis ça à chaque fois. Et à chaque fois, je te retrouve au buffet de la gare. »"],
+        ];
     const titre = (
       <>
         <p className="font-mono" style={{ fontSize: 22, letterSpacing: "0.25em", color: "#e3191d", margin: 0 }}>IACTEUR · PROLONGER</p>
