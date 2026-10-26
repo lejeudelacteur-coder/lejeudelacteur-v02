@@ -29,7 +29,11 @@ async function lieu() {
 // Les robots qui se font passer pour un vrai navigateur (David, 12/10 : « Beijing (CN) ») ne sont pas
 // reconnus à leur User-Agent. Pour une école d'Avignon, le trafic venu de ces pays est presque
 // toujours automatique : on ne le compte pas. À compléter si d'autres apparaissent.
-const PAYS_ROBOTS = ["CN", "RU"];
+// US (David, 26/10) : « Council Bluffs (US) », ville des centres de données de Google, gonflait les
+// statistiques (20 visites). Ce sont des robots ; les vrais visiteurs américains sont quasi inexistants
+// (Search Console : 11 clics sur 4 000 en 3 mois). Seules les STATISTIQUES les ignorent : le site reste
+// ouvert à tous (bloquer les États-Unis bloquerait aussi Googlebot, donc le référencement).
+const PAYS_ROBOTS = ["CN", "RU", "US"];
 async function robotParLieu() {
   const pays = ((await headers()).get("x-vercel-ip-country") ?? "").toUpperCase();
   return PAYS_ROBOTS.includes(pays);
