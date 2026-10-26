@@ -56,9 +56,31 @@ const FORMATIONS: {
   },
 ];
 
+// FICHE « ÉCOLE » POUR GOOGLE (26/10/2026) : la même adresse et le même téléphone que la fiche Google Maps
+// et que le bas de page, pour que Google relie le site à la fiche (recherches « cours de théâtre avignon »)
+const FICHE_ECOLE = {
+  "@context": "https://schema.org",
+  "@type": ["School", "LocalBusiness"],
+  name: "Le Jeu de l'Acteur",
+  description: "École de théâtre et de cinéma à Avignon : cours loisirs, cours pros, formation intensive, jeu face caméra.",
+  url: "https://www.lejeudelacteur.com",
+  telephone: "+33623181579",
+  email: "contact@lejeudelacteur.com",
+  image: "https://www.lejeudelacteur.com/accueil/logo-ecole.jpg",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Théâtre de l'Oriflamme, 5 rue Portail Matheron",
+    postalCode: "84000",
+    addressLocality: "Avignon",
+    addressCountry: "FR",
+  },
+  founder: { "@type": "Person", name: "David Rousseau" },
+};
+
 export default function Accueil() {
   return (
     <main className="flex flex-col overflow-x-clip">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FICHE_ECOLE).replace(/</g, "\\u003c") }} />
       {/* ── Affiche ── */}
       <header className="relative flex min-h-[85svh] flex-col justify-end overflow-hidden">
         <Image
