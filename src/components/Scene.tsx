@@ -62,6 +62,11 @@ export function PiedDePage() {
           Guides pour comédiens
         </a>{" "}
         ·{" "}
+        {/* PRESSE (28/10/2026) : la page presse d'IACTEUR (communiqué, citations, visuels) */}
+        <a href="https://iacteur.com/presse" className="underline">
+          Presse
+        </a>{" "}
+        ·{" "}
         <Link href="/rgpd" className="underline">
           Mentions légales
         </Link>{" "}
