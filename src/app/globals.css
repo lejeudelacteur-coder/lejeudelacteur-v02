@@ -176,3 +176,20 @@ h3 {
   font-size: 0.95rem;
   line-height: 1.4;
 }
+
+/* La queue promotionnelle des articles (30/10) : l'iPhone et les logos importés de Wix, en petit et centrés */
+.queue-article img {
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 360px;
+  margin-inline: auto;
+}
+/* le logo « Le Jeu de l'Acteur » (lien vers /lejeudelacteur) : un peu plus large, mais petit */
+.queue-article a[href="/lejeudelacteur"] img {
+  max-width: 240px;
+}
+.queue-article figure {
+  display: flex;
+  justify-content: center;
+}

@@ -55,6 +55,23 @@ function couperApresLePremierParagraphe(html: string): [string, string] {
   return ["", html];
 }
 
+// LA QUEUE DES ARTICLES (30/10, David : « l'article se termine, puis le guide, puis les hashtags, et ensuite seulement la pub
+// de l'école ») : la plupart des articles importés de Wix finissent par un bloc promotionnel (« L'avis de nos élèves »,
+// « Rejoignez nos cours… », « Vous êtes acteur ? » avec l'iPhone et le logo d'IACTEUR). On le sépare du texte pour le poser
+// APRÈS le lien vers le guide et les hashtags. Seulement s'il commence dans le dernier tiers de l'article.
+// (ou l'image du logo « Le Jeu de l'Acteur », qui renvoie vers /lejeudelacteur et précède souvent ce bloc)
+const MARQUEUR_QUEUE = /<figure>\s*<a href="\/lejeudelacteur"|<h[1-6][^>]*>\s*(?:🎬\s*)?(?:Rejoignez nos cours|L['’]avis de nos élèves|Les avis|Vous êtes acteur|Alors, pourquoi IACTEUR)/gi;
+function separerQueue(html: string): [string, string] {
+  let debut = -1;
+  for (const m of html.matchAll(MARQUEUR_QUEUE)) {
+    if (m.index !== undefined && m.index > html.length * 0.6) {
+      debut = m.index;
+      break;
+    }
+  }
+  return debut < 0 ? [html, ""] : [html.slice(0, debut), html.slice(debut)];
+}
+
 // Pour les articles « IACTEUR d'abord » : on coupe le texte vers le premier tiers, à la fin d'un
 // paragraphe qui n'est ni dans une liste ni dans une citation, et le bandeau s'y glisse.
 function couperVersLeTiers(html: string, part = 0.3): [string, string] {
@@ -75,7 +92,8 @@ function couperVersLeTiers(html: string, part = 0.3): [string, string] {
 export default async function Article({ params }: PageProps<"/post/[slug]">) {
   const a = articleParSlug(decoder((await params).slug));
   if (!a) notFound();
-  const { html: htmlComplet, avaitClap } = nettoyerCorps(await corpsArticle(a));
+  const { html: htmlBrut, avaitClap } = nettoyerCorps(await corpsArticle(a));
+  const [htmlComplet, queue] = separerQueue(htmlBrut);
   const moduleEnc = moduleEncart(a);
   const pilier = pilierArticle(a);
   const [intro, html] = couperApresLePremierParagraphe(htmlComplet);
@@ -190,9 +208,16 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
       )}
 
       {/* pas de doublon : neuf articles citent déjà un guide dans leur texte */}
-      {pilier && !htmlComplet.includes("iacteur.com/guides") && <LienGuide pilier={pilier} slug={a.slug} />}
+      {pilier && !htmlBrut.includes("iacteur.com/guides") && <LienGuide pilier={pilier} slug={a.slug} />}
 
       {a.tags.length > 0 && <p className="text-sm text-secondaire">{a.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join("  ")}</p>}
+
+      {/* La pub de l'école et d'IACTEUR importée de Wix, APRÈS l'article, le guide et les hashtags ; images réduites */}
+      {queue && (
+        <div className="queue-article">
+          <CorpsArticle html={queue} titre={a.titre} />
+        </div>
+      )}
 
       {!iacteurDabord && (
       <CtaArticle
