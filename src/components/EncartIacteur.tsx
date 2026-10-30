@@ -34,11 +34,11 @@ const TEXTES: Record<ModuleEncart, { page: string; eyebrow: string; titre: strin
     bouton: "Extraire mon rôle",
   },
   casting: {
-    page: "casting-call",
+    page: "mon-pass", // la fiche casting (30/10, David : plutôt la fiche que la page recruteur de CASTING CALL)
     eyebrow: "IACTEUR · CASTING CALL",
     titre: "Les castings viennent à toi.",
     texte: "Crée ta fiche casting, gratuitement : quand une annonce correspond à ton profil, IACTEUR te prévient et tu choisis de postuler ou non.",
-    bouton: "Découvrir CASTING CALL",
+    bouton: "Créer ma fiche casting",
   },
   carriere: {
     page: "carriere",
