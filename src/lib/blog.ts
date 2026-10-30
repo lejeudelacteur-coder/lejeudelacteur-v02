@@ -329,3 +329,46 @@ export function moduleEncart(a: Article): ModuleEncart | null {
 // Un article sans accents ni majuscules, ≤ 40 signes : l'étiquette de campagne du lien (« ecole-<article> » dans les statistiques d'IACTEUR)
 export const campagneArticle = (slug: string) =>
   sansAccents(slug).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40).replace(/-+$/, "");
+
+// ── LES GUIDES D'IACTEUR, DEPUIS LE BLOG (30/10/2026, David : « un aller-retour entre iacteur.com et le Jeu de
+// l'Acteur ») ── chaque article éditorial sur un sujet des guides (iacteur.com/guides) en est un « satellite » :
+// en fin d'article, un lien vers son guide (et le guide, de son côté, liste ces articles). Rattachement choisi à la
+// main, article par article (les annonces de casting, les actualités de l'école et la culture ciné/théâtre n'en ont pas).
+export type PilierGuide = "texte" | "casting" | "jeu" | "entrainement" | "carriere" | "ia";
+export const GUIDES_IACTEUR: Record<PilierGuide, { nom: string; go: string; phrase: string }> = {
+  texte: { nom: "Apprendre son texte seul", go: "guide-texte", phrase: "De la première lecture au par cœur." },
+  casting: { nom: "Préparer un casting ou une self-tape", go: "guide-casting", phrase: "De la convocation au lendemain." },
+  jeu: { nom: "Travailler une scène", go: "guide-scene", phrase: "Objectifs, obstacles, enjeux." },
+  entrainement: { nom: "S'entraîner seul", go: "guide-entrainement", phrase: "Progresser entre deux cours ou deux contrats." },
+  carriere: { nom: "Gérer sa carrière de comédien", go: "guide-carriere", phrase: "CV, contacts, agent, suivi du parcours." },
+  ia: { nom: "IA et comédiens", go: "guide-ia", phrase: "Ce qu'une application apporte, et ce qu'elle ne fera jamais à ta place." },
+};
+const PILIER_PAR_ARTICLE: Record<string, PilierGuide> = {
+  "apprendre-son-texte-7-exercices-methode": "texte",
+  "apprendre-son-texte-seul-comment-repeter-sans-partenaire": "texte",
+  "comment-choisir-un-monologue": "texte",
+  "qu-est-ce-qu-une-italienne-et-une-allemande": "texte",
+  "qu-est-ce-que-le-filage-au-théâtre": "texte",
+  "qu-est-ce-qu-un-souffleur-au-théâtre": "texte",
+  "comment-préparer-un-casting": "casting",
+  "preparer-un-casting-seul-travail-de-table": "casting",
+  "masterclass-casting": "casting",
+  "se-préparer-pour-casting-guide-pratique-pour-le-réussir": "casting",
+  "carriere-ce-que-vous-vivez-entre-deux-castings": "casting",
+  "pourquoi-tourner-une-scène-ou-un-monologue-peut-transformer-votre-candidature-de-comédien-ne": "casting",
+  "le-travail-de-table-la-préparation-qui-libère-le-jeu": "jeu",
+  "le-travail-de-table": "jeu",
+  "maîtriser-la-méthode-o-q-p-pour-une-interprétation-réaliste": "jeu",
+  "le-jeu-non-verbal-à-l-image": "jeu",
+  "exercices-jeu-dacteur": "entrainement",
+  "10-exercices-de-théâtre-pour-débutants-apprendre-à-jouer-en-s-amusant": "entrainement",
+  "le-cv-d-acteur-comment-le-faire-et-le-faire-bien": "carriere",
+  "comment-devenir-acteur-quand-on-habite-à-avignon-guide-complet": "carriere",
+  "pourquoi-une-vidéo-de-présentation-professionnelle": "carriere",
+  "comment-bien-se-préparer-pour-un-shooting-photo": "carriere",
+  "les-erreurs-à-éviter-lors-d-un-shooting-photo": "carriere",
+  "conseils-et-astuces-pour-une-séance-de-shooting-réussie": "carriere",
+  "l-ia-peut-elle-remplacer-l-acteur-non-l-aider-à-mieux-préparer-oui": "ia",
+  "pourquoi-iacteur-et-pas-chatgpt-claude-ou-gemini": "ia",
+};
+export const pilierArticle = (a: Article): PilierGuide | null => PILIER_PAR_ARTICLE[a.slug] ?? null;

@@ -9,9 +9,10 @@ import CorpsArticle from "@/components/CorpsArticle";
 import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import EncartIacteur from "@/components/EncartIacteur";
+import LienGuide from "@/components/LienGuide";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, estArticleMiniCoach, articlePourIacteur, moduleEncart, articlesLies, articleDesArchives, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, estArticleMiniCoach, articlePourIacteur, moduleEncart, pilierArticle, articlesLies, articleDesArchives, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -76,6 +77,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
   if (!a) notFound();
   const { html: htmlComplet, avaitClap } = nettoyerCorps(await corpsArticle(a));
   const moduleEnc = moduleEncart(a);
+  const pilier = pilierArticle(a);
   const [intro, html] = couperApresLePremierParagraphe(htmlComplet);
   const iacteurDabord = articlePourIacteur(a);
   // CV PRO (10/10, David) : bandeau « Ton CV d'acteur Pro » sur les articles casting / métier,
@@ -186,6 +188,9 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
       ) : (
         <CorpsArticle html={html} titre={a.titre} />
       )}
+
+      {/* pas de doublon : neuf articles citent déjà un guide dans leur texte */}
+      {pilier && !htmlComplet.includes("iacteur.com/guides") && <LienGuide pilier={pilier} slug={a.slug} />}
 
       {a.tags.length > 0 && <p className="text-sm text-secondaire">{a.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join("  ")}</p>}
 
