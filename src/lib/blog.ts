@@ -257,3 +257,75 @@ export function decoder(slug: string) {
     return slug;
   }
 }
+
+// ── ENCARTS IACTEUR DANS LE TEXTE (30/10/2026, David : « un petit encart après le premier paragraphe, vers
+// le module qui correspond au sujet de l'article ») ──
+// monologue → SOLO · scène à deux → DUO · texte, technique de jeu → RÉPLIQUE · pièce ou scénario entier →
+// MON RÔLE · casting, audition, CV, agent → CASTING CALL · métier, quotidien, doutes → CARRIÈRE. Un article
+// de culture (brèves, théâtre, cinéma) reçoit SOLO ou DUO, en alternance (le même article garde toujours le sien).
+export type ModuleEncart = "solo" | "duo" | "replique" | "role" | "casting" | "carriere";
+
+// Les articles les plus lus, choisis à la main (classement 30 jours, 30/10) ; les autres suivent les règles
+const MODULE_PAR_ARTICLE: Record<string, ModuleEncart> = {
+  "qu-est-ce-qu-une-italienne-et-une-allemande": "replique",
+  "apprendre-son-texte-seul-comment-repeter-sans-partenaire": "replique",
+  "10-exercices-de-théâtre-pour-débutants-apprendre-à-jouer-en-s-amusant": "duo",
+  "exercices-jeu-dacteur": "solo",
+  "la-règle-des-trois-unités": "duo",
+  "le-fusil-de-tchekhov-un-principe-dramaturgique-essentiel": "solo",
+  "pourquoi-dit-on-merde-avant-une-représentation": "solo",
+  "qu-est-ce-qu-un-souffleur-au-théâtre": "replique",
+  "qu-est-ce-que-le-filage-au-théâtre": "replique",
+  "le-cv-d-acteur-comment-le-faire-et-le-faire-bien": "casting",
+  "se-préparer-pour-casting-guide-pratique-pour-le-réussir": "casting",
+  "casting-court-rôles-figuration-tournage-vaucluse-bouches-du-rhône": "casting",
+  "qu-est-ce-que-le-métier-de-hmc-dans-l-audiovisuel": "carriere",
+};
+const R_SOLO = /monologue|soliloque|one.?man|seul en sc[eè]ne/;
+const R_ROLE = /sc[ée]nario|pi[eè]ce enti[eè]re|analyse de r[oô]le|extraire|d[ée]couper/;
+const R_DUO = /sc[eè]ne a deux|duo|dialogue|partenaire|improvis|deux personnages|en bin[oô]me/;
+const R_TEXTE_FORT = /italienne|allemande|replique|par c(oe|œ)ur|memoris|apprendre (son|ses|un|le|les) texte|retenir|souffleur|filage|travail de table|lecture a la table/;
+const R_TEXTE = new RegExp(`${R_TEXTE_FORT.source}|texte`);
+// le résumé et les mots-clés sont plus larges que le titre : on n'y cherche que les mots sans ambiguïté
+const R_CASTING_FORT = /casting|audition|self.?tape/;
+const R_CASTING = new RegExp(`${R_CASTING_FORT.source}|bande demo|\\bagents?\\b|\\bcv\\b|\\bbook\\b|figuration|silhouette|intermitten|candidature`);
+const R_CARRIERE_FORT = /quotidien|doute|vivre de|stress|reconversion/;
+const R_CARRIERE = new RegExp(`${R_CARRIERE_FORT.source}|carri[eè]re|m[eé]tier|trac\\b|confiance|peur|motivation|perseve|routine|debut dans`);
+// (« Le Jeu de l'Acteur » est le nom de l'école : il ne dit rien du sujet de l'article)
+const R_JEU = /jeu d.acteur|jeu non verbal|exercice|interpret|ecoute/;
+
+// Les articles qui parlent déjà d'IACTEUR n'ont pas besoin de l'encart
+export function moduleEncart(a: Article): ModuleEncart | null {
+  const impose = MODULE_PAR_ARTICLE[a.slug];
+  if (impose) return impose;
+  if (/iacteur/i.test(a.titre)) return null;
+  const titre = sansAccents(a.titre);
+  const resume = sansAccents(`${a.description} ${a.tags.join(" ")}`);
+  const parDefaut = (): ModuleEncart => {
+    let h = 0;
+    for (const c of a.slug) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+    return h % 2 === 0 ? "solo" : "duo";
+  };
+  // les « Saviez-vous que… » (anecdotes de cinéma) : leur résumé parle de carrière ou de casting, pas leur sujet
+  if (/^saviez/.test(titre)) return parDefaut();
+  // le titre d'abord (le plus parlant), puis le résumé et les mots-clés avec les mots précis seulement
+  const passes: [string, RegExp, RegExp, RegExp, boolean][] = [
+    [titre, R_TEXTE, R_CASTING, R_CARRIERE, true],
+    [`${titre} ${resume}`, R_TEXTE_FORT, R_CASTING_FORT, R_CARRIERE_FORT, false],
+  ];
+  for (const [t, texte, casting, carriere, jeu] of passes) {
+    if (R_SOLO.test(t)) return "solo";
+    if (R_ROLE.test(t)) return "role";
+    if (R_DUO.test(t)) return "duo";
+    if (texte.test(t)) return "replique";
+    if (casting.test(t)) return "casting";
+    if (carriere.test(t)) return "carriere";
+    if (jeu && R_JEU.test(t)) return "replique";
+  }
+  // culture générale (théâtre, cinéma, brèves) : SOLO ou DUO, selon une empreinte stable de l'adresse
+  return parDefaut();
+}
+
+// Un article sans accents ni majuscules, ≤ 40 signes : l'étiquette de campagne du lien (« ecole-<article> » dans les statistiques d'IACTEUR)
+export const campagneArticle = (slug: string) =>
+  sansAccents(slug).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40).replace(/-+$/, "");

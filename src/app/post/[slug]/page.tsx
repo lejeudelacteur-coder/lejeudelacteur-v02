@@ -8,9 +8,10 @@ import CarteArticle from "@/components/CarteArticle";
 import CorpsArticle from "@/components/CorpsArticle";
 import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
+import EncartIacteur from "@/components/EncartIacteur";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, estArticleMiniCoach, articlePourIacteur, articlesLies, articleDesArchives, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, estArticleMiniCoach, articlePourIacteur, moduleEncart, articlesLies, articleDesArchives, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -37,6 +38,22 @@ export async function generateMetadata({ params }: PageProps<"/post/[slug]">): P
   };
 }
 
+// L'ENCART DANS LE TEXTE (30/10, David) : on coupe juste après le premier vrai paragraphe (au moins 100 signes,
+// ni dans une liste ni dans une citation) ; l'encart IACTEUR s'y glisse, puis la suite de l'article.
+function couperApresLePremierParagraphe(html: string): [string, string] {
+  const fin = /<\/p>/g;
+  for (let m = fin.exec(html); m; m = fin.exec(html)) {
+    const avant = html.slice(0, m.index + 4);
+    const ouvre = (balise: string) => (avant.match(new RegExp(`<${balise}[ >]`, "g")) ?? []).length;
+    const ferme = (balise: string) => (avant.match(new RegExp(`</${balise}>`, "g")) ?? []).length;
+    if (ouvre("li") !== ferme("li") || ouvre("blockquote") !== ferme("blockquote") || ouvre("ul") !== ferme("ul") || ouvre("ol") !== ferme("ol")) continue;
+    const dernier = avant.slice(avant.lastIndexOf("<p"));
+    if (dernier.replace(/<[^>]+>/g, "").trim().length >= 100) return [avant, html.slice(avant.length)];
+    if (avant.length > 4000) break; // rien de convenable au début : pas d'encart dans le texte
+  }
+  return ["", html];
+}
+
 // Pour les articles « IACTEUR d'abord » : on coupe le texte vers le premier tiers, à la fin d'un
 // paragraphe qui n'est ni dans une liste ni dans une citation, et le bandeau s'y glisse.
 function couperVersLeTiers(html: string, part = 0.3): [string, string] {
@@ -57,7 +74,9 @@ function couperVersLeTiers(html: string, part = 0.3): [string, string] {
 export default async function Article({ params }: PageProps<"/post/[slug]">) {
   const a = articleParSlug(decoder((await params).slug));
   if (!a) notFound();
-  const { html, avaitClap } = nettoyerCorps(await corpsArticle(a));
+  const { html: htmlComplet, avaitClap } = nettoyerCorps(await corpsArticle(a));
+  const moduleEnc = moduleEncart(a);
+  const [intro, html] = couperApresLePremierParagraphe(htmlComplet);
   const iacteurDabord = articlePourIacteur(a);
   // CV PRO (10/10, David) : bandeau « Ton CV d'acteur Pro » sur les articles casting / métier,
   // les plus lus (ceux qui amènent du monde) et les 12 plus récents ; ailleurs, le bandeau habituel
@@ -65,13 +84,13 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
   // Le bandeau IACTEUR : RÉPLIQUE pour la préparation, l'audition, le monologue (12/10), sinon CV Pro ou général
   // MINI-COACH (17/10) : le casting et sa préparation d'abord
   const versionBandeau = estArticleMiniCoach(a) ? "minicoach" : estArticleReplique(a) ? "replique" : metier ? "cv" : "public";
-  const [debutHtml, suiteHtml] = iacteurDabord ? couperVersLeTiers(html) : [html, ""];
+  const [debutHtml, suiteHtml] = iacteurDabord ? couperVersLeTiers(html, 0.45) : [html, ""];
   // MAILLAGE (10/10) : les articles du même SUJET ; le plus proche est proposé dans le texte
   // (« À lire aussi », vers les deux tiers d'un article assez long), les 3 suivants en fin d'article
   // Dans les articles casting / métier, le lien du texte mène à l'article sur le CV d'acteur (même court)
   const articleCv = estArticleMetier(a) && a.slug !== SLUG_ARTICLE_CV ? articleParSlug(SLUG_ARTICLE_CV) : undefined;
   const lies = articlesLies(a, 4).filter((x) => x.slug !== articleCv?.slug);
-  const dansLeTexte = articleCv ?? (html.length > 3500 ? lies[0] : undefined);
+  const dansLeTexte = articleCv ?? (htmlComplet.length > 3500 ? lies[0] : undefined);
   const voisins = (dansLeTexte && !articleCv ? lies.slice(1) : lies).slice(0, 3);
   const archive = articleDesArchives(a, [a.slug, ...voisins.map((v) => v.slug), ...(dansLeTexte ? [dansLeTexte.slug] : [])]);
   // Dans un article « IACTEUR d'abord », le bandeau est déjà au premier tiers : le lien va dans la suite
@@ -135,6 +154,13 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
         <div className="relative aspect-[16/9] overflow-hidden rounded-lg bg-surface">
           <Image src={`/blog/${a.couverture}`} alt={a.titre} fill priority sizes="(min-width: 768px) 720px, 100vw" className="object-cover" />
         </div>
+      )}
+
+      {intro && (
+        <>
+          <CorpsArticle html={intro} titre={a.titre} />
+          {moduleEnc && <EncartIacteur module={moduleEnc} slug={a.slug} />}
+        </>
       )}
 
       {iacteurDabord ? (
