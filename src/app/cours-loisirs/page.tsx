@@ -3,6 +3,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import FormulaireContact from "@/components/FormulaireContact";
+import BoutonFiche from "@/components/BoutonFiche";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import VideoYoutube from "@/components/VideoYoutube";
 import { BoutonRouge, Scene, Titre } from "@/components/Scene";
@@ -126,6 +127,7 @@ export default function CoursLoisirs() {
             Frais d&apos;inscription inclus. Engagement à l&apos;année ; modalités de paiement sur la fiche de
             pré-inscription.
           </p>
+          <BoutonFiche cours="loisirs" />
         </section>
 
         <section id="contact" className="flex scroll-mt-20 flex-col gap-6">

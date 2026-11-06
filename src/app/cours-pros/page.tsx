@@ -4,6 +4,7 @@ import BandeauIacteur from "@/components/BandeauIacteur";
 import type { Metadata } from "next";
 import Image from "next/image";
 import FormulaireContact from "@/components/FormulaireContact";
+import BoutonFiche from "@/components/BoutonFiche";
 import VideoYoutube from "@/components/VideoYoutube";
 import { BoutonRouge, Scene, Titre } from "@/components/Scene";
 
@@ -126,6 +127,7 @@ export default function CoursPros() {
             À l&apos;année : paiement possible par trimestre ou au mois. En option : book photo comédien à 300 €, et toute
             demande spécifique sur devis.
           </p>
+          <BoutonFiche cours="pro" />
           <div className="flex flex-col gap-2 rounded-lg border-2 border-rouge p-6">
             <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">Partenaire de jeu</p>
             <p className="font-affiche text-3xl uppercase">Partage la scène, divise les frais.</p>

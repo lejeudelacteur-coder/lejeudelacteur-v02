@@ -2,6 +2,7 @@
 // le référencement. Style et déroulé de la page de référence (scènes
 // numérotées), contenus complétés avec la page Wix actuelle.
 // Présente la promo 2027-2028 (lundi à jeudi) : voir CLAUDE.md.
+import BoutonFiche from "@/components/BoutonFiche";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Candidature from "./Candidature";
@@ -437,6 +438,7 @@ export default function CoursIntensif() {
             Hors cursus, la bande démo est sur devis et le book photo à 300 €. Paiement mensuel. Formation non
             éligible au CPF ni à France Travail.
           </p>
+          <BoutonFiche cours="intensif" />
         </section>
 
         {/* ── SC. 08 L'AUDITION ── */}

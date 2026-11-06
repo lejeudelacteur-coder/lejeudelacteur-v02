@@ -98,6 +98,8 @@ export function cibleDuLien(href: string): string | null {
   if (/wa\.me|whatsapp/i.test(href)) return "whatsapp";
   if (/iacteur\.com/i.test(href)) return "iacteur";
   if (/google\.[a-z.]+\/maps|maps\.google|maps\.app\.goo\.gl/i.test(href)) return "google-maps";
+  const fiche = href.match(/\/documents\/fiche-preinscription-([a-z]+)\.pdf/i);
+  if (fiche) return `fiche-${fiche[1].toLowerCase()}`;
   if (/instagram\.com/i.test(href)) return "instagram";
   if (/facebook\.com/i.test(href)) return "facebook";
   return null;
