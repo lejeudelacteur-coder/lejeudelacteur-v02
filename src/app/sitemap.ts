@@ -20,6 +20,7 @@ const PAGES = [
   "/david-rousseau-realisateur",
   "/rgpd",
   "/news",
+  "/comparatifs/iacteur-vs-imparato",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
