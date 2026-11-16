@@ -191,6 +191,11 @@ export default function ComparatifImparato() {
         <p>
           IACTEUR fonctionne avec des <strong>Répèt</strong>, des crédits sans abonnement, qui ne périment jamais.
         </p>
+        <p>
+          Pourquoi des crédits plutôt qu&apos;un abonnement ? Parce qu&apos;un parcours d&apos;acteur alterne des périodes très actives
+          (castings, répétitions, tournages) et des creux. Les Répèt suivent ce rythme : tu en prends quand tu travailles, elles
+          t&apos;attendent quand tu fais une pause, et rien ne se paie dans le vide.
+        </p>
       </div>
       <Tableau
         entetes={["Pack", "Prix", "Prix d'une Répèt"]}
