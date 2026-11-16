@@ -219,8 +219,8 @@ export default function ComparatifImparato() {
       <Tableau
         entetes={["", "Imparato", "IACTEUR"]}
         lignes={[
-          ["10 scènes ou textes différents, répétitions illimitées sur chacun", "10 × 7,99 € = 79,90 € en Solo, ou 39,99 € en Illimité sur 12 mois", "9 Répèt (le premier texte est offert) : de 5 € à 7 € selon le pack"],
-          ["Ton rôle dans une pièce de 12 scènes", "Le site ne précise pas si une pièce importée compte pour un seul texte. L'Illimité (19,99 € pour 3 mois) couvre tous les textes", "Découper la pièce et repérer tes scènes : gratuit, sans compte. Puis 1 Répèt par scène apprise : 11 Répèt (la première est offerte), de 6 € à 9 €"],
+          ["10 scènes ou textes différents, répétitions sans limite de temps sur chacun", "Solo : 10 × 7,99 € = 79,90 €. Illimité : 19,99 € pour 3 mois, ou 39,99 € pour 12 mois", "10 Répèt : un pack de 15 Répèt à 9,90 € (il t'en reste 5 pour la suite)"],
+          ["Ton rôle dans une pièce, 10 scènes à apprendre", "Le Solo « s'applique sur un seul texte », et le site ne dit pas si une pièce entière en est un. L'Illimité (19,99 € pour 3 mois) couvre plusieurs textes", "Découper la pièce et repérer tes scènes : gratuit, sans compte. Puis 1 Répèt par scène apprise : 10 Répèt, un pack de 15 à 9,90 €"],
         ]}
       />
       <div className="article-corps">
