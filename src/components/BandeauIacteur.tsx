@@ -126,7 +126,7 @@ export default function BandeauIacteur({
         )}
         <p className="text-lg">{t.texte}</p>
         {/* RÉPLIQUE : l'offre sur sa propre ligne, en gras (David, 12/10) */}
-        {variante === "replique" && <p className="text-lg font-bold">Ton premier texte est offert.</p>}
+        {variante === "replique" && <p className="text-lg font-bold">5 Répèt offertes à l'inscription.</p>}
         {variante === "eleves" && (
           <p className="relative z-10 text-lg font-semibold text-rouge">
             Et ton CV d&apos;acteur Pro, en un clic.{" "}

@@ -704,7 +704,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
             {TITRE_REPLIQUE}
           </p>
           <p style={{ fontSize: 38, lineHeight: 1.35, margin: "0 90px", color: "#bdb2a6" }}>{TEXTE_REPLIQUE}</p>
-          <p style={{ fontSize: 42, fontWeight: 700, margin: 0 }}>Ton premier texte est offert.</p>
+          <p style={{ fontSize: 42, fontWeight: 700, margin: 0 }}>5 Répèt offertes à l'inscription.</p>
         </div>
         <div style={{ position: "absolute", left: 0, right: 0, bottom: 120 }}>
           <PhotoReplique largeur={1060} haut={420} fondu="haut" />
@@ -725,7 +725,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
             {TITRE_REPLIQUE}
           </p>
           <p style={{ fontSize: 32, lineHeight: 1.35, margin: "22px 0 0", color: "#bdb2a6" }}>{TEXTE_REPLIQUE}</p>
-          <p style={{ fontSize: 36, fontWeight: 700, margin: "16px 0 0" }}>Ton premier texte est offert.</p>
+          <p style={{ fontSize: 36, fontWeight: 700, margin: "16px 0 0" }}>5 Répèt offertes à l'inscription.</p>
         </div>
         <div style={{ position: "absolute", left: 0, right: 0, bottom: 100 }}>
           <PhotoReplique largeur={1060} haut={330} fondu="haut" />
@@ -749,7 +749,7 @@ export default async function Visuel({ params }: PageProps<"/visuels/[format]">)
             {TITRE_REPLIQUE}
           </p>
           <p style={{ fontSize: 26, lineHeight: 1.3, margin: "16px 0 0", color: "#bdb2a6" }}>{TEXTE_REPLIQUE}</p>
-          <p style={{ fontSize: 28, fontWeight: 700, margin: "10px 0 0" }}>Ton premier texte est offert.</p>
+          <p style={{ fontSize: 28, fontWeight: 700, margin: "10px 0 0" }}>5 Répèt offertes à l'inscription.</p>
         </div>
         {bandeBas(70, 42)}
       </div>

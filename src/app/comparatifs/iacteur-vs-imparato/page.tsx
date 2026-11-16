@@ -212,8 +212,7 @@ export default function ComparatifImparato() {
           chaque semaine (elle ne vaut pas pour RÉPLIQUE).
         </p>
         <p>
-          <strong>Pour RÉPLIQUE</strong> : ton premier texte est offert, ensuite 1 Répèt par texte, et tu répètes ce texte autant que tu
-          veux.
+          <strong>Pour RÉPLIQUE</strong> : 1 Répèt par scène préparée, et tu répètes cette scène autant que tu veux.
         </p>
 
         <h2>Quel est ton besoin ?</h2>

@@ -34,7 +34,7 @@ const QUESTIONS: [string, string][] = [
   ],
   [
     "IACTEUR est-il payant ?",
-    "L'inscription est gratuite et 5 Répèt sont offertes. Pour RÉPLIQUE, ton premier texte est offert ; ensuite, 1 Répèt par texte, soit entre 0,55 € et 0,78 € selon le pack. Tu répètes ensuite ce texte autant que tu veux, sans rien payer de plus.",
+    "L'inscription est gratuite et 5 Répèt sont offertes. RÉPLIQUE coûte 1 Répèt par scène préparée, soit entre 0,55 € et 0,78 € selon le pack. Tu répètes ensuite cette scène autant que tu veux, sans rien payer de plus.",
   ],
   [
     "Peut-on utiliser les deux ?",
@@ -209,8 +209,8 @@ export default function ComparatifRepetiteur() {
 
       <div className="article-corps">
         <p>
-          À l&apos;inscription, <strong>5 Répèt sont offertes</strong>. Pour RÉPLIQUE, <strong>ton premier texte est offert</strong> ; ensuite
-          1 Répèt par texte, et tu répètes ce texte autant que tu veux. Le coût d&apos;un texte appris : de 0,55 € à 0,78 €.
+          À l&apos;inscription, <strong>5 Répèt sont offertes</strong>. RÉPLIQUE coûte
+          <strong>1 Répèt par scène préparée</strong>, et tu répètes cette scène autant que tu veux. Le coût d&apos;une scène apprise : de 0,55 € à 0,78 € selon le pack.
         </p>
         <p>
           Pour les autres outils (SOLO, DUO, COACH), tant que ton solde est à zéro, <strong>une Répèt gratuite t&apos;attend chaque
@@ -283,7 +283,7 @@ export default function ComparatifRepetiteur() {
 
       <section className="flex flex-col gap-3 rounded-lg border-2 border-rouge p-6">
         <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">IACTEUR · l&apos;espace personnel de l&apos;acteur</p>
-        <p className="font-affiche text-3xl uppercase leading-none">Ton premier texte est offert.</p>
+        <p className="font-affiche text-3xl uppercase leading-none">5 Répèt offertes à l'inscription.</p>
         <p className="text-lg">Essaie la voix et le souffleur sur ta prochaine scène, et juge par toi-même.</p>
         <p className="font-accent text-lg italic">Conçu par des comédiens, pour des comédiens.</p>
         <div className="pt-1">
