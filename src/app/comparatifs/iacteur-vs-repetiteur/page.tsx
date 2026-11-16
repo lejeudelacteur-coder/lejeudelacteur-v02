@@ -213,6 +213,15 @@ export default function ComparatifRepetiteur() {
           1 Répèt par texte, et tu répètes ce texte autant que tu veux. Le coût d&apos;un texte appris : de 0,55 € à 0,78 €.
         </p>
         <p>
+          Pour les autres outils (SOLO, DUO, COACH), tant que ton solde est à zéro, <strong>une Répèt gratuite t&apos;attend chaque
+          semaine</strong>. Et les Répèt ne périment jamais.
+        </p>
+        <p>
+          Pourquoi des crédits plutôt qu&apos;un abonnement ? Parce qu&apos;un parcours d&apos;acteur alterne des périodes très actives
+          (castings, répétitions, tournages, ateliers, stages) et des creux. Les Répèt suivent ce rythme : tu en prends quand tu
+          travailles, elles t&apos;attendent quand tu fais une pause, et rien ne se paie dans le vide.
+        </p>
+        <p>
           Les Répèt servent aussi à SOLO, DUO, COACH et CARRIÈRE : ce sont ces outils-là, plus que la répétition seule, qui justifient le
           paiement. Si tu n&apos;as besoin que de répéter, tu peux t&apos;en passer.
         </p>
