@@ -180,7 +180,7 @@ export default function ComparatifRepetiteur() {
             , qui ouvre des pistes de jeu pour ton rôle.
           </li>
           <li>
-            <strong>Toute une pièce, un scénario ?</strong> MON RÔLE EN ENTIER repère tes scènes et les prépare pour la répétition.
+            <strong>Toute une pièce, un scénario ?</strong> MON RÔLE EN ENTIER découpe le texte et repère tes scènes, gratuitement et sans compte. Tu apprends ensuite chaque scène avec RÉPLIQUE.
           </li>
           <li>
             <strong>Et après le travail du texte :</strong>{" "}

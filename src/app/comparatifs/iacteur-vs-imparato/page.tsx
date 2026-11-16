@@ -104,7 +104,7 @@ export default function ComparatifImparato() {
               </a>
             </strong>{" "}
             : tu colles ton texte (ou tu joins un PDF ou un Word), IACTEUR donne les répliques des autres avec une voix naturelle et te
-            souffle quand tu as un trou. Pour une scène, un monologue, ou <strong>tout ton rôle</strong> dans une pièce ou un scénario.
+            souffle quand tu as un trou. Pour une scène ou un monologue ; et avec MON RÔLE EN ENTIER, tu extrais d&apos;une pièce ou d&apos;un scénario les scènes de ton rôle, gratuitement, puis tu apprends chacune avec RÉPLIQUE.
           </li>
           <li>
             <strong>
@@ -155,7 +155,7 @@ export default function ComparatifImparato() {
             ["Répétition avec partenaire vocal", "Oui (RÉPLIQUE)", "Oui (italienne, 8 voix)"],
             ["Souffleur quand on a un trou", "Oui", "Non annoncé sur le site"],
             ["Importer ses textes", "Oui (texte collé, PDF, Word)", "Oui"],
-            ["Tout un rôle dans une pièce", "Oui (MON RÔLE EN ENTIER)", "Oui, en important la pièce"],
+            ["Repérer son rôle dans une pièce ou un scénario", "Oui (MON RÔLE EN ENTIER, gratuit et sans compte)", "Non précisé sur le site"],
             ["Bibliothèque de textes classiques", "Non : tes textes à toi", "Oui, 458 textes"],
             ["Partager un texte avec ses partenaires", "Non annoncé", "Oui"],
             ["Monologues et scènes écrits pour toi", "Oui (SOLO, DUO)", "Ne fait pas partie de l'offre annoncée"],
@@ -211,19 +211,21 @@ export default function ComparatifImparato() {
           veux.
         </p>
 
-        <h3>Le calcul pour apprendre dix textes</h3>
+        <h3>Le calcul pour apprendre dix scènes</h3>
+        <p>
+          Ce qu'on compare ici, c'est le travail d'une scène ou d'un texte à apprendre : RÉPLIQUE chez IACTEUR, la répétition audio chez Imparato.
+        </p>
       </div>
       <Tableau
         entetes={["", "Imparato", "IACTEUR"]}
         lignes={[
-          ["10 textes, répétitions illimitées sur chacun", "10 × 7,99 € = 79,90 € en Solo (ou 39,99 € en Illimité sur 12 mois)", "9 Répèt (le premier texte est offert) : de 5 € à 7 € selon le pack"],
-          ["Une pièce entière importée comme un seul texte", "7,99 €", "1 Répèt"],
+          ["10 scènes ou textes différents, répétitions illimitées sur chacun", "10 × 7,99 € = 79,90 € en Solo, ou 39,99 € en Illimité sur 12 mois", "9 Répèt (le premier texte est offert) : de 5 € à 7 € selon le pack"],
+          ["Ton rôle dans une pièce de 12 scènes", "Le site ne précise pas si une pièce importée compte pour un seul texte. L'Illimité (19,99 € pour 3 mois) couvre tous les textes", "Découper la pièce et repérer tes scènes : gratuit, sans compte. Puis 1 Répèt par scène apprise : 11 Répèt (la première est offerte), de 6 € à 9 €"],
         ]}
       />
       <div className="article-corps">
         <p>
-          Le calcul reste honnête dans les deux sens : Imparato propose une formule illimitée sur un an, une bibliothèque, des troupes ;
-          IACTEUR est moins cher <strong>pour répéter</strong>, et les Répèt servent aussi aux autres modules (SOLO, DUO, COACH).
+          Le calcul reste honnête dans les deux sens. Chez IACTEUR, le prix grandit avec le nombre de scènes : <strong>au-delà d'une trentaine de scènes à apprendre, la formule Illimitée d'Imparato devient plus avantageuse</strong>. Pour quelques scènes ou textes, IACTEUR est nettement moins cher <strong>pour répéter</strong>, et les Répèt servent aussi aux autres modules (SOLO, DUO, COACH).
         </p>
 
         <h2>Alors, lequel choisir ?</h2>
