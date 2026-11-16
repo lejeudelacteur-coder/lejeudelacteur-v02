@@ -4,6 +4,7 @@
 export type FicheVideo = { titre: string; description: string; date: string; duree: string };
 
 export const VIDEOS: Record<string, FicheVideo> = {
+  "_h43WcFmvw4": { titre: "L'appli de l'acteur : textes, coaching, répliques, casting, carrière | IACTEUR", description: "La démo complète d'IACTEUR, l'espace personnel de l'acteur : SOLO, DUO, COACH, RÉPLIQUE, CARRIÈRE, LOGE, textes, castings et contacts, montrés module par module sur un téléphone.", date: "2026-11-15T16:49:37-08:00", duree: "PT6M46S" },
   "D28GrQ93KXM": { titre: "Cours Intensif pour acteur à Avignon : le teaser", description: "Le teaser de la formation intensive du Jeu de l'Acteur à Avignon : travail à l'image, castings, tournages, masterclasses, cascade, shooting photo.", date: "2025-08-09T10:29:20-07:00", duree: "PT59S" },
   "iRF6VPelnrk": { titre: "Démo de comédien : Amaury B.", description: "La bande démo d'Amaury B., montée à l'issue de sa première année au Jeu de l'Acteur, école de théâtre et de cinéma à Avignon.", date: "2026-10-21T08:50:11-07:00", duree: "PT3M1S" },
   "AKAJuX7xyWQ": { titre: "Cours Pro du lundi à Avignon : interview", description: "Le Cours Pro du lundi du Jeu de l'Acteur à Avignon, raconté par ses participants : jeu face caméra, improvisation, préparation aux castings.", date: "2025-08-13T08:36:39-07:00", duree: "PT2M16S" },

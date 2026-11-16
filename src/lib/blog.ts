@@ -294,6 +294,13 @@ const R_CARRIERE = new RegExp(`${R_CARRIERE_FORT.source}|carri[eè]re|m[eé]tier
 // (« Le Jeu de l'Acteur » est le nom de l'école : il ne dit rien du sujet de l'article)
 const R_JEU = /jeu d.acteur|jeu non verbal|exercice|interpret|ecoute/;
 
+// Les articles qui parlent de l'IA ou d'IACTEUR en général : l'encart est la GRANDE vidéo de démo (16/11), pas un module
+export const SLUGS_VIDEO_DEMO = new Set([
+  "l-ia-peut-elle-remplacer-l-acteur-non-l-aider-à-mieux-préparer-oui",
+  "pourquoi-iacteur-et-pas-chatgpt-claude-ou-gemini",
+  "pourquoi-j-ai-créé-iacteur-un-espace-personnel-pour-travailler-se-préparer-et-construire-sa-carri",
+]);
+
 // Les articles qui parlent déjà d'IACTEUR n'ont pas besoin de l'encart
 export function moduleEncart(a: Article): ModuleEncart | null {
   const impose = MODULE_PAR_ARTICLE[a.slug];

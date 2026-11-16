@@ -9,10 +9,11 @@ import CorpsArticle from "@/components/CorpsArticle";
 import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import EncartIacteur from "@/components/EncartIacteur";
+import EncartVideoIacteur from "@/components/EncartVideoIacteur";
 import LienGuide from "@/components/LienGuide";
 import CtaArticle from "@/components/CtaArticle";
 import VuesDavid from "@/components/VuesDavid";
-import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, estArticleMiniCoach, articlePourIacteur, moduleEncart, pilierArticle, articlesLies, articleDesArchives, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
+import { ARTICLES, articleParSlug, corpsArticle, dateFr, decoder, estArticleActeur, estArticleMetier, estArticleReplique, estArticleMiniCoach, articlePourIacteur, moduleEncart, SLUGS_VIDEO_DEMO, pilierArticle, articlesLies, articleDesArchives, nettoyerCorps, SLUG_ARTICLE_CV, LES_PLUS_LUS, LES_PLUS_RECENTS } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -179,7 +180,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
       {intro && (
         <>
           <CorpsArticle html={intro} titre={a.titre} />
-          {moduleEnc && <EncartIacteur module={moduleEnc} slug={a.slug} />}
+          {SLUGS_VIDEO_DEMO.has(a.slug) ? <EncartVideoIacteur slug={a.slug} /> : moduleEnc && <EncartIacteur module={moduleEnc} slug={a.slug} />}
         </>
       )}
 
