@@ -73,7 +73,7 @@ export default function ComparatifImparato() {
           </li>
           <li>
             <strong>IACTEUR</strong> : la répétition, plus la création de textes (monologues, scènes à deux), le coaching, le suivi de
-            carrière et les castings. Un premier texte offert, puis moins d&apos;un euro par texte.
+            carrière et les castings. Pensée pour préparer une audition, un extrait, un rôle, scène par scène.
           </li>
         </ul>
 
@@ -175,7 +175,7 @@ export default function ComparatifImparato() {
             <strong>Basique : gratuit</strong> (bibliothèque et lecture de ses textes).
           </li>
           <li>
-            <strong>Solo : 7,99 €</strong>, paiement unique : répétitions illimitées sur <strong>un</strong> texte, sans limite de durée.
+            <strong>Solo : 7,99 €</strong>, paiement unique, pour <strong>un</strong> texte, sans limitation de temps. Un « texte », c&apos;est le document que tu importes : d&apos;après leur FAQ, les actes et les scènes sont des parties d&apos;un même texte. Une pièce entière importée en un fichier correspond donc à un seul Solo. Dès 2 comédiens sur le même texte, le Solo groupé revient à 5,99 € par comédien.
           </li>
           <li>
             <strong>Illimité : 19,99 € pour 3 mois, 26,99 € pour 6 mois, 39,99 € pour 12 mois</strong> : répétitions illimitées sur tous
@@ -211,33 +211,39 @@ export default function ComparatifImparato() {
           veux.
         </p>
 
-        <h3>Le calcul pour apprendre dix scènes</h3>
+        <h2>Quel est ton besoin ?</h2>
         <p>
-          Ce qu'on compare ici, c'est le travail d'une scène ou d'un texte à apprendre : RÉPLIQUE chez IACTEUR, la répétition audio chez Imparato.
+          Les deux applications ne comptent pas de la même façon : Imparato vend un <strong>texte entier</strong> (une pièce complète, toutes les
+          scènes, toutes les voix), IACTEUR travaille <strong>scène par scène</strong> avec les Répèt. Le prix dépend donc surtout de ce que tu
+          veux faire. Sans compter les offres de bienvenue ni la Répèt gratuite de la semaine, voici les situations les plus courantes.
         </p>
       </div>
       <Tableau
-        entetes={["", "Imparato", "IACTEUR"]}
+        entetes={["Ta situation", "Ce qui te convient", "Les prix"]}
         lignes={[
-          ["10 scènes ou textes différents, répétitions sans limite de temps sur chacun", "Solo : 10 × 7,99 € = 79,90 €. Illimité : 19,99 € pour 3 mois, ou 39,99 € pour 12 mois", "10 Répèt : un pack de 15 Répèt à 9,90 € (il t'en reste 5 pour la suite)"],
-          ["Ton rôle dans une pièce, 10 scènes à apprendre", "Le Solo « s'applique sur un seul texte », et le site ne dit pas si une pièce entière en est un. L'Illimité (19,99 € pour 3 mois) couvre plusieurs textes", "Découper la pièce et repérer tes scènes : gratuit, sans compte. Puis 1 Répèt par scène apprise : 10 Répèt, un pack de 15 à 9,90 €"],
+          ["Une audition ou un casting : 1 à 5 séquences à préparer vite", "IACTEUR : tu colles ton extrait, tu répètes, le souffleur te reprend, COACH t'ouvre des pistes de jeu", "IACTEUR : un pack de 5 Répèt à 3,90 €. Imparato : 7,99 € le texte"],
+          ["Ton rôle dans une pièce : une quinzaine de scènes à apprendre", "Imparato, si le prix est ton critère. IACTEUR, si tu préfères avancer scène par scène", "Imparato : 7,99 € pour la pièce. IACTEUR : un pack de 15 Répèt à 9,90 €, un peu plus cher"],
+          ["Tout le spectacle, avec toutes les voix, en troupe ou avec des classiques", "Imparato, sans hésiter", "Imparato : 7,99 € le texte, 5,99 € par comédien en Solo groupé. Formules Troupe en plus"],
+          ["Tout ce qui entoure le texte : créer un monologue sur mesure, coacher, suivre sa carrière, ton CV, tes castings", "IACTEUR", "Les Répèt servent à tous les modules"],
         ]}
       />
       <div className="article-corps">
         <p>
-          Le calcul reste honnête dans les deux sens. Chez IACTEUR, le prix grandit avec le nombre de scènes : <strong>au-delà d'une trentaine de scènes à apprendre, la formule Illimitée d'Imparato devient plus avantageuse</strong>. Pour quelques scènes ou textes, IACTEUR est nettement moins cher <strong>pour répéter</strong>, et les Répèt servent aussi aux autres modules (SOLO, DUO, COACH).
+          Au fond, ce n&apos;est pas une question de prix : Imparato est conçu pour <strong>travailler un texte</strong>, IACTEUR pour
+          <strong> préparer une audition et avancer dans sa carrière</strong>. Beaucoup de comédiens utiliseront les deux.
         </p>
 
         <h2>Alors, lequel choisir ?</h2>
         <h3>Imparato si…</h3>
         <ul>
-          <li>tu veux surtout apprendre des textes classiques de sa bibliothèque ;</li>
+          <li>tu veux apprendre une pièce entière avec toutes les voix, ou des textes classiques de sa bibliothèque ;</li>
           <li>tu veux les partager avec ta troupe ;</li>
           <li>tu préfères une application iOS ou Android, ou un accès illimité à l&apos;année.</li>
         </ul>
         <h3>IACTEUR si…</h3>
         <ul>
           <li>tu apprends tes textes <strong>et</strong> tu veux en créer, les coacher et préparer tes rôles ;</li>
+          <li>tu prépares une audition ou un casting, avec quelques séquences à travailler ;</li>
           <li>tu veux payer à l&apos;usage, sans abonnement ;</li>
           <li>tu veux suivre ta carrière, ton CV Pro et tes castings au même endroit.</li>
         </ul>
