@@ -221,7 +221,7 @@ export default function ComparatifImparato() {
       <Tableau
         entetes={["Ta situation", "Ce qui te convient", "Les prix"]}
         lignes={[
-          ["Une audition ou un casting : 1 à 5 séquences à préparer vite", "IACTEUR : tu colles ton extrait, tu répètes, le souffleur te reprend, COACH t'ouvre des pistes de jeu", "IACTEUR : un pack de 5 Répèt à 3,90 €. Imparato : 7,99 € le texte"],
+          ["Une audition ou un casting : 1 à 5 séquences à préparer", "IACTEUR : tu colles ton extrait, tu répètes, le souffleur te reprend, COACH t'ouvre des pistes de jeu", "IACTEUR : un pack de 5 Répèt à 3,90 €. Imparato : 7,99 € le texte"],
           ["Ton rôle dans une pièce : une quinzaine de scènes à apprendre", "Imparato, si le prix est ton critère. IACTEUR, si tu préfères avancer scène par scène", "Imparato : 7,99 € pour la pièce. IACTEUR : un pack de 15 Répèt à 9,90 €, un peu plus cher"],
           ["Tout le spectacle, avec toutes les voix, en troupe ou avec des classiques", "Imparato, sans hésiter", "Imparato : 7,99 € le texte, 5,99 € par comédien en Solo groupé. Formules Troupe en plus"],
           ["Tout ce qui entoure le texte : créer un monologue sur mesure, coacher, suivre sa carrière, ton CV, tes castings", "IACTEUR", "Les Répèt servent à tous les modules"],
