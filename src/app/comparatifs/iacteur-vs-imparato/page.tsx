@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import EncartVideoIacteur from "@/components/EncartVideoIacteur";
 import { BoutonRouge } from "@/components/Scene";
+import Tableau from "@/components/TableauComparatif";
 
 const TITRE = "IACTEUR ou Imparato : quelle application choisir pour répéter ses textes ?";
 const DESCRIPTION =
@@ -22,36 +23,6 @@ export const metadata: Metadata = {
 const C = "m=blog&c=comparatif-imparato";
 const lien = (page: string) => `https://iacteur.com/go/ecole${page ? `/${page}` : ""}?${C}`;
 const article = (slug: string) => `/post/${encodeURIComponent(slug)}`;
-
-// Un tableau qui défile sur le côté sur téléphone
-function Tableau({ entetes, lignes }: { entetes: string[]; lignes: string[][] }) {
-  return (
-    <div>
-      <table className="w-full table-fixed border-collapse text-left text-sm [overflow-wrap:anywhere] sm:text-base">
-        <thead>
-          <tr>
-            {entetes.map((e, i) => (
-              <th key={i} className="border-b-2 border-rouge px-2 py-2 font-mono text-[10px] font-black sm:px-3 sm:text-xs uppercase tracking-[0.15em]">
-                {e}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {lignes.map((l, i) => (
-            <tr key={i} className="border-b border-secondaire/25 align-top">
-              {l.map((c, j) => (
-                <td key={j} className={`px-2 py-2.5 leading-snug sm:px-3 ${j === 0 ? "font-bold" : ""}`}>
-                  {c}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
 
 export default function ComparatifImparato() {
   const schema = {
@@ -283,6 +254,9 @@ export default function ComparatifImparato() {
           </li>
           <li>
             <Link href={article("pourquoi-iacteur-et-pas-chatgpt-claude-ou-gemini")}>ChatGPT ou IACTEUR pour travailler son texte de théâtre ?</Link>
+          </li>
+          <li>
+            <Link href="/comparatifs/iacteur-vs-repetiteur">IACTEUR ou Répétiteur de théâtre : le comparatif avec l&apos;outil gratuit</Link>
           </li>
           <li>
             <a href="https://iacteur.com/go/ecole/guide-texte?m=blog&c=comparatif-imparato" target="_blank" rel="noopener">

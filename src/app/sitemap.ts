@@ -21,6 +21,7 @@ const PAGES = [
   "/rgpd",
   "/news",
   "/comparatifs/iacteur-vs-imparato",
+  "/comparatifs/iacteur-vs-repetiteur",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
