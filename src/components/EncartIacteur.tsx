@@ -2,7 +2,9 @@
 // magazine : un module d'IACTEUR choisi selon le sujet de l'article (voir moduleEncart, lib/blog.ts). Le lien passe
 // par iacteur.com/go/ecole/<module> : la provenance « ecole-<article> » apparaît dans ADMIN > VISITES d'IACTEUR.
 import { BoutonRouge } from "@/components/Scene";
+import VideoYoutube from "@/components/VideoYoutube";
 import { campagneArticle, type ModuleEncart } from "@/lib/blog";
+import { SHORTS_PAR_MODULE } from "@/lib/videos-modules";
 
 const TEXTES: Record<ModuleEncart, { page: string; eyebrow: string; titre: string; texte: string; bouton: string }> = {
   solo: {
@@ -57,6 +59,16 @@ export default function EncartIacteur({ module, slug }: { module: ModuleEncart; 
       <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">{t.eyebrow}</p>
       <p className="font-affiche text-2xl uppercase leading-none">{t.titre}</p>
       <p className="text-base">{t.texte}</p>
+      {/* Le short du module (18/11) : l'image d'abord, la vidéo ne se charge qu'au toucher */}
+      {SHORTS_PAR_MODULE[module].length > 0 && (
+        <div className="flex flex-wrap justify-center gap-3 py-2">
+          {SHORTS_PAR_MODULE[module].map((s) => (
+            <div key={s.id} className="w-[44%] max-w-[190px]">
+              <VideoYoutube id={s.id} titre={s.titre} vertical />
+            </div>
+          ))}
+        </div>
+      )}
       <div className="pt-1">
         <BoutonRouge href={lien}>{t.bouton}</BoutonRouge>
       </div>

@@ -7,12 +7,13 @@
 import { useState } from "react";
 import { ficheVideo } from "@/lib/videos";
 
-export default function VideoYoutube({ id, titre, fin }: { id: string; titre: string; fin?: number }) {
+// « vertical » (18/11) : un short YouTube (9:16), plus étroit, pour les articles du blog
+export default function VideoYoutube({ id, titre, fin, vertical }: { id: string; titre: string; fin?: number; vertical?: boolean }) {
   const [lecture, setLecture] = useState(false);
   // La fiche pour Google (21/10), si la vidéo est décrite dans lib/videos.ts
   const fiche = ficheVideo(id);
   return (
-    <div className="relative aspect-video overflow-hidden rounded-lg bg-black">
+    <div className={`relative overflow-hidden rounded-lg bg-black ${vertical ? "aspect-[9/16] w-full" : "aspect-video"}`}>
       {fiche && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(fiche).replace(/</g, "\\u003c") }} />}
       {lecture ? (
         <iframe
@@ -25,7 +26,7 @@ export default function VideoYoutube({ id, titre, fin }: { id: string; titre: st
       ) : (
         <button type="button" onClick={() => setLecture(true)} aria-label={`Lire la vidéo : ${titre}`} className="group absolute inset-0 h-full w-full">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" className="h-full w-full object-cover opacity-80 group-hover:opacity-100" />
+          <img src={`https://i.ytimg.com/vi/${id}/${vertical ? "oar2" : "hqdefault"}.jpg`} alt="" loading="lazy" className="h-full w-full object-cover opacity-80 group-hover:opacity-100" />
           <span className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-rouge text-2xl text-white">
             ▶
           </span>
