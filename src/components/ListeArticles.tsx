@@ -6,6 +6,19 @@ import CtaArticle from "@/components/CtaArticle";
 import { BoutonRouge, Titre } from "@/components/Scene";
 import { ARTICLES, PAR_PAGE, categories, type Article } from "@/lib/blog";
 
+const COMPARATIFS = [
+  {
+    href: "/comparatifs/iacteur-vs-imparato",
+    titre: "IACTEUR ou Imparato : quelle application choisir pour répéter ses textes ?",
+    description: "Répétition vocale, création de textes, coaching, tarifs : le comparatif pour choisir l'application adaptée à ton travail de comédien.",
+  },
+  {
+    href: "/comparatifs/iacteur-vs-repetiteur",
+    titre: "IACTEUR ou Répétiteur de théâtre : quelle appli choisir pour répéter ?",
+    description: "Répétiteur de théâtre est gratuit, IACTEUR fonctionne avec des Répèt : voix, souffleur, bibliothèque, tarifs. Ce que tu gagnes à payer, ou pas.",
+  },
+];
+
 export default function ListeArticles({
   titre,
   chapo,
@@ -70,6 +83,25 @@ export default function ListeArticles({
           ))}
         </nav>
       </header>
+
+
+      {/* LES COMPARATIFS (19/11/2026) : deux pages à part (/comparatifs/…), reliées depuis la page du blog pour que
+          Google les trouve et que les lecteurs les voient. Seulement sur la première page de /news, hors recherche. */}
+      {!recherche && !actuelle && page === 1 && base === "/news" && (
+        <section aria-label="Comparatifs" className="flex flex-col gap-3">
+          <p className="font-mono text-[11px] font-black uppercase tracking-[0.15em] text-rouge">Comparatifs · quelle application pour répéter ?</p>
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {COMPARATIFS.map((c) => (
+              <li key={c.href}>
+                <Link href={c.href} className="group flex h-full flex-col gap-2 rounded-lg border border-secondaire/20 p-4">
+                  <h3 className="font-affiche text-xl uppercase leading-tight group-hover:text-rouge">{c.titre}</h3>
+                  <p className="text-sm text-secondaire">{c.description}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {affiches.map((a) => (
