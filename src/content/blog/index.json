@@ -1,5 +1,34 @@
 [
  {
+  "slug": "le-travail-a-l-image-formation-acteur-intensive-avignon",
+  "fichier": "p170",
+  "titre": "Le travail à l’image dans notre formation d’acteur intensive à Avignon",
+  "date": "2026-11-20",
+  "modifie": "2026-11-20",
+  "description": "Un monologue chacun, un plateau, une équipe : voici comment se déroule le travail à l’image dans le cours pro intensif d’Avignon, en images.",
+  "couverture": "intensif-image-couverture.jpg",
+  "miniature": "intensif-image-couverture-m.jpg",
+  "largeur": 1200,
+  "hauteur": 630,
+  "categories": [
+   {
+    "slug": "actualités",
+    "nom": "Actualités"
+   }
+  ],
+  "tags": [
+   "formation d'acteur",
+   "cours intensif",
+   "jeu face caméra",
+   "tournage",
+   "Avignon",
+   "bande démo",
+   "IACTEUR",
+   "SOLO"
+  ],
+  "lecture": "4 min de lecture"
+ },
+ {
   "slug": "preparer-un-casting-seul-travail-de-table",
   "fichier": "p168",
   "titre": "Préparer un casting seul : du mini-COACH au vrai travail de table",

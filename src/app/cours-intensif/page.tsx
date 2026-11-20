@@ -39,7 +39,7 @@ const CHIFFRES: [string, string][] = [
 const KIT: [string, string][] = [
   ["Bande démo professionnelle", "La vidéo qui montre ton jeu aux castings et aux agents. Tournage et montage compris."],
   ["Book photos complet", "Les photos pro à joindre à chacune de tes candidatures."],
-  ["336 heures de pratique", "Théorie, pratique et tournages réels, chaque semaine de l'année."],
+  ["336 heures de pratique", "Théorie, pratique et tournages réels, tout au long de l'année."],
   ["Tournages réguliers", "Face caméra, en conditions réelles. Puis projection et analyse de ton jeu."],
   ["Accompagnement individuel", "Un suivi personnalisé pour que tu progresses réellement, à ton rythme."],
   ["Masterclass", "Des professionnels du métier viennent partager leur expérience, en lien avec le travail de l'année."],
