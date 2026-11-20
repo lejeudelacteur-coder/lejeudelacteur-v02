@@ -248,8 +248,15 @@ export default function CoursIntensif() {
           <Scene numero="03" nom="Feuille de service" />
           <Titre rouge="14 h. Moteur.">Lundi. Mardi. Mercredi. Jeudi.</Titre>
           <p className="max-w-2xl text-lg">
-            Chaque semaine combine théorie, pratique et tournages réels. L&apos;objectif : te préparer à tes premiers
+            Les semaines alternent théorie, pratique et tournages réels. L&apos;objectif : te préparer à tes premiers
             castings et te donner une vision concrète du métier.
+          </p>
+          <p className="max-w-2xl text-sm">
+            Un tournage en images :{" "}
+            <a href="/post/le-travail-a-l-image-formation-acteur-intensive-avignon" className="text-rouge underline underline-offset-4">
+              le travail à l&apos;image dans l&apos;Intensif
+            </a>
+            .
           </p>
           <div className="rounded-lg bg-[#f3ede4] p-5 font-mono text-sm text-[#1a1414]">
             <p className="flex justify-between border-b border-black/20 pb-2 font-black uppercase tracking-[0.2em]">
