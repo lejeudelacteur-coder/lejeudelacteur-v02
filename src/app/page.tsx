@@ -3,6 +3,7 @@
 // contact) et de la page « Formations » (la méthode).
 import type { Metadata } from "next";
 import Image from "next/image";
+import HeroCarrousel, { type DiapoHero } from "@/components/HeroCarrousel";
 import Link from "next/link";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import FormulaireContact from "@/components/FormulaireContact";
@@ -77,21 +78,22 @@ const FICHE_ECOLE = {
   founder: { "@type": "Person", name: "David Rousseau" },
 };
 
+// Les 5 photos de l'affiche (carrousel, 21/11/2026) : une version large (ordinateur) et une verticale recadrée sur le visage (mobile).
+const DIAPOS_AFFICHE: DiapoHero[] = [
+  { src: "/accueil/jason.jpg", mobile: "/accueil/hero-jason-m.jpg", position: 58, alt: "Un comédien derrière le clap, juste avant une prise" },
+  { src: "/accueil/hero-elina.jpg", mobile: "/accueil/hero-elina-m.jpg", position: 54, alt: "Gros plan d'une comédienne en larmes pendant un tournage" },
+  { src: "/accueil/hero-manon.jpg", mobile: "/accueil/hero-manon-m.jpg", position: 74, alt: "Deux comédiens face à face sur le plateau, un projecteur allumé derrière eux" },
+  { src: "/accueil/hero-sans-titre.jpg", mobile: "/accueil/hero-sans-titre-m.jpg", position: 42, alt: "Une comédienne de l'atelier loisirs, les dents serrées, dans la lumière d'un tournage" },
+  { src: "/accueil/hero-loukas.jpg", mobile: "/accueil/hero-loukas-m.jpg", position: 62, alt: "Un comédien devant un projecteur, la silhouette d'une élève derrière lui" },
+];
+
 export default function Accueil() {
   return (
     <main className="flex flex-col overflow-x-clip">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FICHE_ECOLE).replace(/</g, "\\u003c") }} />
       {/* ── Affiche ── */}
       <header className="relative flex min-h-[85svh] flex-col justify-end overflow-hidden">
-        <Image
-          src="/accueil/jason.jpg"
-          alt="Un comédien derrière le clap, juste avant une prise"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[58%_center] opacity-70"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-background/10" />
+        <HeroCarrousel diapos={DIAPOS_AFFICHE} />
         <div className="relative mx-auto w-full max-w-5xl px-5 pb-14">
           <p className="inline-block bg-rouge px-2 py-1 font-mono text-xs font-black uppercase tracking-[0.2em] text-white">
             Théâtre &amp; cinéma · Avignon
