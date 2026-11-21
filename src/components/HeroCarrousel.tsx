@@ -18,6 +18,8 @@ export type DiapoHero = {
   alt: string;
   /** Position horizontale de la photo large (%), 50 par défaut. */
   position?: number;
+  /** Mobile seulement : descend la photo de ce pourcentage de sa hauteur (pour dégager les yeux sous le titre). */
+  descendre?: number;
 };
 
 const DELAI_MS = 4000;
@@ -95,8 +97,8 @@ export default function HeroCarrousel({ diapos }: { diapos: DiapoHero[] }) {
               aria-hidden={i !== actuelle}
               fetchPriority={i === 0 ? "high" : "auto"}
               decoding="async"
-              style={{ objectPosition: `var(--pos) center`, ["--pos" as string]: `${d.position ?? 50}%` }}
-              className={`absolute inset-x-0 bottom-0 top-[8%] h-[92%] w-full object-cover opacity-0 [-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_16%)] [mask-image:linear-gradient(to_bottom,transparent,#000_16%)] md:inset-0 md:h-full md:[-webkit-mask-image:none] md:[mask-image:none] transition-opacity duration-1000 motion-reduce:transition-none ${
+              style={{ objectPosition: `var(--pos) center`, ["--pos" as string]: `${d.position ?? 50}%`, ["--dy" as string]: `${d.descendre ?? 0}%` }}
+              className={`absolute inset-x-0 bottom-0 top-[8%] h-[92%] w-full object-cover opacity-0 [-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_16%)] [mask-image:linear-gradient(to_bottom,transparent,#000_16%)] translate-y-[var(--dy)] md:translate-y-0 md:inset-0 md:h-full md:[-webkit-mask-image:none] md:[mask-image:none] transition-opacity duration-1000 motion-reduce:transition-none ${
                 i === actuelle ? "!opacity-90" : ""
               }`}
             />

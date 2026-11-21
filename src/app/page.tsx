@@ -84,7 +84,7 @@ const DIAPOS_AFFICHE: DiapoHero[] = [
   { src: "/accueil/hero-elina.jpg", mobile: "/accueil/hero-elina-m.jpg", position: 54, alt: "Gros plan d'une comédienne en larmes pendant un tournage" },
   { src: "/accueil/hero-manon.jpg", mobile: "/accueil/hero-manon-m.jpg", position: 74, alt: "Deux comédiens face à face sur le plateau, un projecteur allumé derrière eux" },
   { src: "/accueil/hero-sans-titre.jpg", mobile: "/accueil/hero-sans-titre-m.jpg", position: 42, alt: "Une comédienne de l'atelier loisirs, les dents serrées, dans la lumière d'un tournage" },
-  { src: "/accueil/hero-loukas.jpg", mobile: "/accueil/hero-loukas-m.jpg", position: 62, alt: "Un comédien devant un projecteur, la silhouette d'une élève derrière lui" },
+  { src: "/accueil/hero-loukas.jpg", mobile: "/accueil/hero-loukas-m.jpg", position: 62, descendre: 9, alt: "Un comédien devant un projecteur, la silhouette d'une élève derrière lui" },
 ];
 
 export default function Accueil() {
