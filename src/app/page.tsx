@@ -94,28 +94,36 @@ export default function Accueil() {
       {/* ── Affiche ── */}
       <header className="relative flex min-h-[85svh] flex-col justify-end overflow-hidden">
         <HeroCarrousel diapos={DIAPOS_AFFICHE} />
-        <div className="relative mx-auto w-full max-w-5xl px-5 pb-14">
-          <p className="inline-block bg-rouge px-2 py-1 font-mono text-xs font-black uppercase tracking-[0.2em] text-white">
-            Théâtre &amp; cinéma · Avignon
-          </p>
-          <h1 className="mt-3 font-affiche text-[3.8rem] uppercase leading-[0.9] sm:text-8xl">
-            Le Jeu de <span className="text-rouge">l&apos;Acteur.</span>
-          </h1>
-          <p className="mt-4 font-accent text-2xl italic sm:text-3xl">
-            La formation où la scène et la caméra ne font qu&apos;un.
-          </p>
-          <p className="mt-4 max-w-xl text-lg text-secondaire">
-            Du théâtre classique aux techniques de cinéma (castings, cascades, tournages), une approche complète et
-            moderne du métier d&apos;acteur.
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <BoutonRouge href="#contact">Faire un cours d&apos;essai</BoutonRouge>
-            <Link
-              href="/cours-intensif"
-              className="inline-block rounded-md border border-foreground/40 px-6 py-4 text-center font-affiche text-xl uppercase tracking-wide"
-            >
-              Devenir acteur en 10 mois
-            </Link>
+        {/* Mobile : le titre reste en haut à gauche, la photo respire au milieu, le texte et les boutons descendent en bas.
+            Dès l'écran moyen : tout reste groupé en bas, comme avant. */}
+        <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-between px-5 pb-8 pt-20 md:block md:flex-none md:pb-14 md:pt-0">
+          <div>
+            <p className="inline-block bg-rouge px-2 py-1 font-mono text-xs font-black uppercase tracking-[0.2em] text-white">
+              Théâtre &amp; cinéma · Avignon
+            </p>
+            <h1 className="mt-3 font-affiche text-[3.8rem] uppercase leading-[0.9] sm:text-8xl">
+              Le Jeu de <span className="text-rouge">l&apos;Acteur.</span>
+            </h1>
+          </div>
+          <div>
+            <p className="mt-4 font-accent text-xl italic sm:text-3xl md:text-3xl">
+              La formation où la scène et la caméra ne font qu&apos;un.
+            </p>
+            <p className="mt-3 max-w-xl text-base text-secondaire md:mt-4 md:text-lg">
+              Du théâtre classique aux techniques de cinéma (castings, cascades, tournages), une approche complète et
+              moderne du métier d&apos;acteur.
+            </p>
+            <div className="mt-5 flex flex-col gap-2.5 sm:flex-row md:mt-7 md:gap-3">
+              <BoutonRouge href="#contact" petit>
+                Faire un cours d&apos;essai
+              </BoutonRouge>
+              <Link
+                href="/cours-intensif"
+                className="inline-block rounded-md border border-foreground/40 px-5 py-2.5 text-center font-affiche text-lg uppercase tracking-wide md:px-6 md:py-4 md:text-xl"
+              >
+                Devenir acteur en 10 mois
+              </Link>
+            </div>
           </div>
         </div>
       </header>

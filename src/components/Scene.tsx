@@ -21,9 +21,11 @@ export function Titre({ children, rouge }: { children: React.ReactNode; rouge?: 
   );
 }
 
-export function BoutonRouge({ href, children }: { href: string; children: React.ReactNode }) {
-  const classe =
-    "inline-block rounded-md bg-rouge px-6 py-4 text-center font-affiche text-xl uppercase tracking-wide text-white";
+export function BoutonRouge({ href, children, petit = false }: { href: string; children: React.ReactNode; petit?: boolean }) {
+  // petit : plus discret sur mobile (affiche d'accueil, 21/11/2026) ; taille normale dès l'écran moyen
+  const classe = `inline-block rounded-md bg-rouge text-center font-affiche uppercase tracking-wide text-white ${
+    petit ? "px-5 py-2.5 text-lg md:px-6 md:py-4 md:text-xl" : "px-6 py-4 text-xl"
+  }`;
   return href.startsWith("/") && !href.startsWith("//") ? (
     <Link href={href} className={classe}>
       {children} →
