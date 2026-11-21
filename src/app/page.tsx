@@ -96,7 +96,7 @@ export default function Accueil() {
         <HeroCarrousel diapos={DIAPOS_AFFICHE} />
         {/* Mobile : le titre reste en haut à gauche, la photo respire au milieu, le texte et les boutons descendent en bas.
             Dès l'écran moyen : tout reste groupé en bas, comme avant. */}
-        <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-between px-5 pb-8 pt-5 md:block md:flex-none md:pb-14 md:pt-0">
+        <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col justify-between px-5 pb-14 pt-5 md:block md:flex-none md:pb-14 md:pt-0">
           <div>
             <p className="inline-block bg-rouge px-2 py-1 font-mono text-xs font-black uppercase tracking-[0.2em] text-white">
               Théâtre &amp; cinéma · Avignon

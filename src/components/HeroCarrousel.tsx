@@ -106,7 +106,7 @@ export default function HeroCarrousel({ diapos }: { diapos: DiapoHero[] }) {
       {/* Le flou ne monte plus haut : sombre seulement derrière le texte du bas, léger en haut pour le titre, la photo reste claire au milieu */}
       <div className="absolute inset-0 bg-gradient-to-t from-background from-0% via-background/70 via-22% to-transparent to-52% md:via-25% md:to-60%" />
       <div className="absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background/70 to-transparent" />
-      <div className="absolute inset-x-0 bottom-3 z-20 flex justify-center gap-1" role="group" aria-label="Choisir une photo">
+      <div className="absolute inset-x-0 bottom-2 z-20 flex justify-center gap-1" role="group" aria-label="Choisir une photo">
         {diapos.map((d, i) => (
           <button
             key={d.src}
