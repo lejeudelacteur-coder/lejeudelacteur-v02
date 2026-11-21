@@ -5,7 +5,7 @@
 // - La 1re photo est chargée tout de suite (page rapide) ; les autres arrivent juste après, sans gêner l'ouverture.
 // - Dès que le visiteur touche un point ou balaie, le défilement automatique s'arrête (il choisit lui-même).
 // - Si l'appareil demande « réduire les animations », il n'y a pas de défilement automatique ni de fondu.
-// - Sur mobile, la photo (verticale, recadrée sur le visage) occupe les 80 % du bas de l'affiche : le visage tombe entre le
+// - Sur mobile, la photo (verticale, recadrée sur le visage) occupe les 92 % du bas de l'affiche : le visage tombe entre le
 //   titre (en haut) et le texte (en bas), et se fond vers le haut. Sur grand écran, elle remplit toute l'affiche.
 // - Le titre et les boutons restent dans la page (ce composant ne fait que le fond, le dégradé et les points).
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -96,7 +96,7 @@ export default function HeroCarrousel({ diapos }: { diapos: DiapoHero[] }) {
               fetchPriority={i === 0 ? "high" : "auto"}
               decoding="async"
               style={{ objectPosition: `var(--pos) center`, ["--pos" as string]: `${d.position ?? 50}%` }}
-              className={`absolute inset-x-0 bottom-0 top-[20%] h-[80%] w-full object-cover opacity-0 [-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_22%)] [mask-image:linear-gradient(to_bottom,transparent,#000_22%)] md:inset-0 md:h-full md:[-webkit-mask-image:none] md:[mask-image:none] transition-opacity duration-1000 motion-reduce:transition-none ${
+              className={`absolute inset-x-0 bottom-0 top-[8%] h-[92%] w-full object-cover opacity-0 [-webkit-mask-image:linear-gradient(to_bottom,transparent,#000_16%)] [mask-image:linear-gradient(to_bottom,transparent,#000_16%)] md:inset-0 md:h-full md:[-webkit-mask-image:none] md:[mask-image:none] transition-opacity duration-1000 motion-reduce:transition-none ${
                 i === actuelle ? "!opacity-90" : ""
               }`}
             />
