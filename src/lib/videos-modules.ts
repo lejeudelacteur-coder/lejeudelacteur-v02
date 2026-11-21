@@ -13,6 +13,7 @@ export const SHORTS_PAR_MODULE: Record<ModuleEncart, ShortModule[]> = {
     { id: "Qc1rlKZwDlY", titre: "CASTING CALL : les castings viennent à toi" },
     { id: "oXynN2bNYyI", titre: "Ta fiche casting d'acteur, prête à envoyer" },
   ],
+  coach: [], // pas encore de short COACH : l'encart n'a que le texte et le bouton (à ajouter ici quand il existera)
   carriere: [
     { id: "82oyKZORIvk", titre: "Garder la trace de ta carrière d'acteur : CARRIÈRE" },
     { id: "aMROLUdTaZc", titre: "Un carnet de contacts pour acteur : qui, quand, pourquoi" },

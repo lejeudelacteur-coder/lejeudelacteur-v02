@@ -42,6 +42,13 @@ const TEXTES: Record<ModuleEncart, { page: string; eyebrow: string; titre: strin
     texte: "Crée ta fiche casting, gratuitement : quand une annonce correspond à ton profil, IACTEUR te prévient et tu choisis de postuler ou non.",
     bouton: "Créer ma fiche casting",
   },
+  coach: {
+    page: "coach",
+    eyebrow: "IACTEUR · COACH",
+    titre: "Ton texte, coaché.",
+    texte: "Colle ton texte, dis quel rôle tu joues : IACTEUR t'aide à travailler l'objectif, l'obstacle et les enjeux de ta scène.",
+    bouton: "Essayer le COACH",
+  },
   carriere: {
     page: "carriere",
     eyebrow: "IACTEUR · CARRIÈRE",
