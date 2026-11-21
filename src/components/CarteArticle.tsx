@@ -1,4 +1,5 @@
 // Une carte d'article dans les listes du blog.
+import { titreSansVeuve } from "@/lib/typo";
 import Image from "next/image";
 import Link from "next/link";
 import VuesDavid from "@/components/VuesDavid";
@@ -17,7 +18,7 @@ export default function CarteArticle({ a }: { a: Article }) {
           <p className="font-mono text-[11px] font-black uppercase tracking-[0.15em] text-rouge">
             {a.categories[0]?.nom ?? "Blog"} · {dateFr(a.date)}
           </p>
-          <h3 className="font-affiche text-2xl uppercase leading-tight group-hover:text-rouge">{a.titre}</h3>
+          <h3 className="font-affiche text-2xl uppercase leading-tight group-hover:text-rouge">{titreSansVeuve(a.titre)}</h3>
           <p className="line-clamp-3 text-sm text-secondaire">{a.description}</p>
           <VuesDavid slug={a.slug} className="text-xs text-rouge" />
         </div>

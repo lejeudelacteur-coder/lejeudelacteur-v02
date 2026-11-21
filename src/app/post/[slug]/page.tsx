@@ -9,6 +9,7 @@ import CorpsArticle from "@/components/CorpsArticle";
 import { BoutonRouge } from "@/components/Scene";
 import BandeauIacteur from "@/components/BandeauIacteur";
 import EncartIacteur from "@/components/EncartIacteur";
+import { titreSansVeuve } from "@/lib/typo";
 import EncartVideoIacteur from "@/components/EncartVideoIacteur";
 import LienGuide from "@/components/LienGuide";
 import CtaArticle from "@/components/CtaArticle";
@@ -124,7 +125,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
     <aside className="border-l-4 border-rouge py-1 pl-4">
       <p className="font-mono text-xs font-black uppercase tracking-[0.2em] text-rouge">À lire aussi</p>
       <Link href={`/post/${encodeURIComponent(dansLeTexte.slug)}`} className="font-affiche text-xl uppercase leading-tight underline hover:text-rouge">
-        {dansLeTexte.titre}
+        {titreSansVeuve(dansLeTexte.titre)}
       </Link>
     </aside>
   ) : null;
@@ -164,7 +165,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
             </>
           )}
         </nav>
-        <h1 className="font-affiche text-[2.6rem] uppercase leading-[0.98] sm:text-6xl">{a.titre}</h1>
+        <h1 className="font-affiche text-[2.6rem] uppercase leading-[0.98] sm:text-6xl">{titreSansVeuve(a.titre)}</h1>
         <p className="text-sm text-secondaire">
           David Rousseau · {dateFr(a.date)}
           {a.lecture && ` · ${a.lecture}`} <VuesDavid slug={a.slug} className="text-rouge" />
@@ -248,7 +249,7 @@ export default async function Article({ params }: PageProps<"/post/[slug]">) {
             <p className="text-secondaire">
               Dans les archives :{" "}
               <Link href={`/post/${archive.slug}`} className="text-foreground underline underline-offset-4">
-                {archive.titre}
+                {titreSansVeuve(archive.titre)}
               </Link>
             </p>
           )}
