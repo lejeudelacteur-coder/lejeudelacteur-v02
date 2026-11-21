@@ -4,8 +4,10 @@
 
 ## Intention (David, 2026-10-06)
 
-Reconstruire le site de l'école (lejeudelacteur.com, aujourd'hui sur Wix) en
-dehors de Wix, avant le 1er janvier 2027 (abonnement Wix payé jusqu'au
+Reconstruire le site de l'école (lejeudelacteur.com) en dehors de Wix.
+**État au 21/11/2026 : c'est fait, le domaine pointe sur Vercel** (lejeudelacteur.com
+redirige vers www.lejeudelacteur.com, site ouvert aux moteurs, 188 pages au plan du
+site, pixel Meta actif). Wix n'est plus utilisé ; l'abonnement reste payé jusqu'au
 4 septembre 2027, domaine renouvelé le 12 mai 2027 : David est « Admin
 (Co-Owner) » du site Wix).
 
@@ -17,7 +19,7 @@ bandeau défilant, chiffres clés, parcours qui mène à une candidature en
 
 David n'est pas développeur et a peu de temps : sessions de 2 h de temps en
 temps. Travailler par blocs, laisser un aperçu et une courte liste « à
-valider ». Ne JAMAIS basculer le domaine, publier en production, ni engager
+valider ». Chaque push sur main est en ligne : ne JAMAIS publier sans son accord, ni engager
 de dépense sans lui.
 
 ## Ordre de construction
@@ -33,9 +35,9 @@ de dépense sans lui.
    perdre du référencement (~4 000 clics Google en 3 mois, 148 pages indexées
    au 06/10/2026, Search Console de lejeudelacteur@gmail.com). Images
    téléchargées dans le projet (rien ne doit dépendre de Wix).
-4. Accueil, puis bascule du domaine en décembre, avec David présent. LE JOUR DE LA BASCULE : retirer le noindex (layout.tsx, `robots`) et ouvrir robots.ts.
+4. Accueil, puis bascule du domaine : FAIT (noindex retiré, robots.ts ouvert).
 
-Aperçu en ligne : https://lejeudelacteur-v02.vercel.app (projet Vercel « lejeudelacteur-v02 », équipe IACTEUR ; dépôt GitHub lejeudelacteur-coder/lejeudelacteur-v02). Fermé aux moteurs de recherche (noindex) jusqu'à la bascule.
+Aperçu en ligne : https://lejeudelacteur-v02.vercel.app (projet Vercel « lejeudelacteur-v02 », équipe IACTEUR ; dépôt GitHub lejeudelacteur-coder/lejeudelacteur-v02). Le site de production est https://www.lejeudelacteur.com ; l'adresse Vercel reste un aperçu.
 
 ## Faits à respecter
 
